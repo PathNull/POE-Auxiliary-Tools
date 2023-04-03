@@ -1,6 +1,0 @@
-F:\Project\POE-Auxiliary-Tools\Model\bin\Debug\Model.dll
-F:\Project\POE-Auxiliary-Tools\Model\bin\Debug\Model.pdb
-F:\Project\POE-Auxiliary-Tools\Model\obj\Debug\Model.csproj.AssemblyReference.cache
-F:\Project\POE-Auxiliary-Tools\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
-F:\Project\POE-Auxiliary-Tools\Model\obj\Debug\Model.dll
-F:\Project\POE-Auxiliary-Tools\Model\obj\Debug\Model.pdb

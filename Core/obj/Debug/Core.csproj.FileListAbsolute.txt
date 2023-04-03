@@ -1,8 +1,0 @@
-F:\Project\POE-Auxiliary-Tools\Core\obj\Debug\Core.csproj.AssemblyReference.cache
-F:\Project\POE-Auxiliary-Tools\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
-F:\Project\POE-Auxiliary-Tools\Core\obj\Debug\CSRTMISYC.Core.dll
-F:\Project\POE-Auxiliary-Tools\Core\obj\Debug\CSRTMISYC.Core.pdb
-F:\Project\POE-Auxiliary-Tools\bin\Debug\CSRTMISYC.Core.dll.config
-F:\Project\POE-Auxiliary-Tools\bin\Debug\CSRTMISYC.Core.dll
-F:\Project\POE-Auxiliary-Tools\bin\Debug\CSRTMISYC.Core.pdb
-F:\Project\POE-Auxiliary-Tools\Core\obj\Debug\Core.csproj.CopyComplete

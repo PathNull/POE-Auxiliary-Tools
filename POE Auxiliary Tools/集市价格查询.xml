@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<Goods>
+  <Node Item="物品">
+    <Name>重铸石</Name>
+  </Node>
+  <Node Item="物品">
+    <Name>改造石</Name>
+  </Node>
+  <Node Item="物品">
+    <Name>点金石</Name>
+  </Node>
+  <Node Item="物品">
+    <Name>机会石</Name>
+  </Node>
+</Goods>

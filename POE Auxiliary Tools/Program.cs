@@ -16,7 +16,7 @@ namespace POE_Auxiliary_Tools
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BaseForm());
+            Application.Run(new MainFrom());
         }
     }
 }

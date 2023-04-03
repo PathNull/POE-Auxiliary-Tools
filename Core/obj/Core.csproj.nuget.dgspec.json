@@ -1,0 +1,85 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\Project\\POE-Auxiliary-Tools\\Core\\Core.csproj": {}
+  },
+  "projects": {
+    "F:\\Project\\POE-Auxiliary-Tools\\Core\\Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Project\\POE-Auxiliary-Tools\\Core\\Core.csproj",
+        "projectName": "CSRTMISYC.Core",
+        "projectPath": "F:\\Project\\POE-Auxiliary-Tools\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\HASSE\\.nuget\\packages\\",
+        "outputPath": "F:\\Project\\POE-Auxiliary-Tools\\Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "F:\\Dev Tools\\DevExpress 22.1\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\HASSE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "F:\\Dev Tools\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {
+              "F:\\Project\\POE-Auxiliary-Tools\\Model\\Model.csproj": {
+                "projectPath": "F:\\Project\\POE-Auxiliary-Tools\\Model\\Model.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.15, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "F:\\Project\\POE-Auxiliary-Tools\\Model\\Model.csproj": {
+      "restore": {
+        "projectUniqueName": "F:\\Project\\POE-Auxiliary-Tools\\Model\\Model.csproj",
+        "projectName": "Model",
+        "projectPath": "F:\\Project\\POE-Auxiliary-Tools\\Model\\Model.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    }
+  }
+}

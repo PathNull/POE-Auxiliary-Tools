@@ -5,6 +5,10 @@ VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POE Auxiliary Tools", "POE Auxiliary Tools\POE Auxiliary Tools.csproj", "{090C319B-9B53-451B-9D78-AC38B210F5B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{531D6920-D977-4AB8-8552-1C5E3820D8F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{8DB85534-9926-42A6-8160-0D91BEDC4395}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{090C319B-9B53-451B-9D78-AC38B210F5B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{090C319B-9B53-451B-9D78-AC38B210F5B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{090C319B-9B53-451B-9D78-AC38B210F5B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{531D6920-D977-4AB8-8552-1C5E3820D8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{531D6920-D977-4AB8-8552-1C5E3820D8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{531D6920-D977-4AB8-8552-1C5E3820D8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{531D6920-D977-4AB8-8552-1C5E3820D8F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DB85534-9926-42A6-8160-0D91BEDC4395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DB85534-9926-42A6-8160-0D91BEDC4395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DB85534-9926-42A6-8160-0D91BEDC4395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DB85534-9926-42A6-8160-0D91BEDC4395}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

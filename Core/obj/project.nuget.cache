@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "os5XZx1Ywx6W1l4UUJLTvUs0R6QYDSiE9DuRfVTQajASVhAat/Az2Zseth7notVS1rYwnkQlTYmAOm3IcqYXeA==",
+  "success": true,
+  "projectFilePath": "F:\\Project\\POE-Auxiliary-Tools\\Core\\Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HASSE\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\HASSE\\.nuget\\packages\\log4net\\2.0.15\\log4net.2.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}

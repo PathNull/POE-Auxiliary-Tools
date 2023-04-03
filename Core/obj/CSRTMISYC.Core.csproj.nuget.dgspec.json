@@ -1,0 +1,128 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\Project\\辽阳石化\\代码\\CSRTMISYC.Core\\CSRTMISYC.Core.csproj": {}
+  },
+  "projects": {
+    "F:\\Project\\辽阳石化\\代码\\CSRTMISYC.Core\\CSRTMISYC.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Project\\辽阳石化\\代码\\CSRTMISYC.Core\\CSRTMISYC.Core.csproj",
+        "projectName": "CSRTMISYC.Core",
+        "projectPath": "F:\\Project\\辽阳石化\\代码\\CSRTMISYC.Core\\CSRTMISYC.Core.csproj",
+        "packagesPath": "C:\\Users\\HASSE\\.nuget\\packages\\",
+        "outputPath": "F:\\Project\\辽阳石化\\代码\\CSRTMISYC.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "F:\\Dev Tools\\DevExpress 22.1\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\HASSE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "F:\\Dev Tools\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "F:\\Project\\辽阳石化\\代码\\CSRTMISYC.Model\\CSRTMISYC.Model.csproj": {
+                "projectPath": "F:\\Project\\辽阳石化\\代码\\CSRTMISYC.Model\\CSRTMISYC.Model.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.15, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "F:\\Project\\辽阳石化\\代码\\CSRTMISYC.Model\\CSRTMISYC.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Project\\辽阳石化\\代码\\CSRTMISYC.Model\\CSRTMISYC.Model.csproj",
+        "projectName": "CSRTMISYC.Model",
+        "projectPath": "F:\\Project\\辽阳石化\\代码\\CSRTMISYC.Model\\CSRTMISYC.Model.csproj",
+        "packagesPath": "C:\\Users\\HASSE\\.nuget\\packages\\",
+        "outputPath": "F:\\Project\\辽阳石化\\代码\\CSRTMISYC.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "F:\\Dev Tools\\DevExpress 22.1\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\HASSE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "F:\\Dev Tools\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "EntityFramework.zh-Hans": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

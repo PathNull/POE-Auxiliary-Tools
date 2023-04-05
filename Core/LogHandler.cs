@@ -1,7 +1,7 @@
 ﻿using log4net;
 using System;
 
-namespace CSRTMISYC.Core
+namespace Core
 {
     public static class LogHandler
     {

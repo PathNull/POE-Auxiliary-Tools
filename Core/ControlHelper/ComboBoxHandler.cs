@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Linq;
 using static System.Windows.Forms.CheckedListBox;
 
-namespace CSRTMISYC.Core.ControlHelper
+namespace Core.ControlHelper
 {
     public static class ComboBoxHandler
     {

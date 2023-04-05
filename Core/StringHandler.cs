@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace CSRTMISYC.Core
+namespace Core
 {
     public static class StringHandler
     {

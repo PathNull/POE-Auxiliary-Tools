@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace CSRTMISYC.Core
+namespace Core
 {
     public static class ObjectHandler
     {

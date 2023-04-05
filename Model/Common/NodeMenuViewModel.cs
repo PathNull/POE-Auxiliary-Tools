@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CSRTMISYC.Model.ViewModels
+namespace Model.Common.ViewModels
 {
     /// <summary>
     /// 左侧导航视图模型

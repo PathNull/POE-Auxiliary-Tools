@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "F:\\Project\\POE-Auxiliary-Tools\\Core\\Core.csproj",
-        "projectName": "CSRTMISYC.Core",
+        "projectName": "Core",
         "projectPath": "F:\\Project\\POE-Auxiliary-Tools\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\HASSE\\.nuget\\packages\\",
         "outputPath": "F:\\Project\\POE-Auxiliary-Tools\\Core\\obj\\",
@@ -41,18 +41,7 @@
         }
       },
       "frameworks": {
-        "net48": {
-          "dependencies": {
-            "EntityFramework": {
-              "target": "Package",
-              "version": "[6.4.4, )"
-            },
-            "log4net": {
-              "target": "Package",
-              "version": "[2.0.15, )"
-            }
-          }
-        }
+        "net48": {}
       },
       "runtimes": {
         "win": {

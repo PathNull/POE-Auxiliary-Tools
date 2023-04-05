@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace POE_Auxiliary_Tools
         [STAThread]
         static void Main()
         {
+          
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainFrom());

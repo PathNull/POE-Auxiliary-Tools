@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace CSRTMISYC.Core
+namespace Core
 {
     public static class XMLHandler
     {

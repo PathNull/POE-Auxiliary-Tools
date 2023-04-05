@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Control = System.Windows.Forms.Control;
 
-namespace CSRTMISYC.Core
+namespace Core
 {
     public class UIHandler
     {

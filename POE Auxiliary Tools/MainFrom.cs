@@ -1,24 +1,29 @@
-﻿using CSRTMISYC.Core;
+﻿using Core.SQLite;
 using System;
-using System.Reflection;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace POE_Auxiliary_Tools
 {
     public partial class MainFrom : BaseForm
     {
+        public static SQLiteHandler database;
         public MainFrom()
         {
             InitializeComponent();
+            database = new SQLiteHandler(Path.GetFullPath(@"../../database.db"));
+            SQLiteHandler.DataBaceList.Add("database", database);
+
+
         }
 
         public void Open(string name)
         {
             var path = "POE_Auxiliary_Tools.Frm_" + name;
             Form form = (Form)Activator.CreateInstance(Type.GetType(path));
-
-
             //清除panel里面的其他窗体
             this.panelControl1.Controls.Clear();
             //将该子窗体设置成非顶级控件
@@ -36,10 +41,18 @@ namespace POE_Auxiliary_Tools
         private void 集市价格查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Open("集市价格查询");
-            //XMLHandler.CreateXMLDocument("集市价格查询");
-            //XMLHandler.CreateNode("集市价格查询","重铸石");
-            //XMLHandler.CreateNode("集市价格查询","改造石");
-            //XMLHandler.Read("集市价格查询");
+        }
+
+  
+
+        private void 物品类别管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Open("物品类别管理");
+        }
+
+        private void 物品管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Open("物品管理");
         }
     }
 }

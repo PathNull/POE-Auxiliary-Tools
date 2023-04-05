@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CSRTMISYC.Core
+namespace Core
 {
     public static class ArrayHandler
     {

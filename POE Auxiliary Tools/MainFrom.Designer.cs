@@ -31,6 +31,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.查询类工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.集市价格查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.基础数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.物品类别管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.物品管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -46,10 +49,11 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.查询类工具ToolStripMenuItem});
+            this.查询类工具ToolStripMenuItem,
+            this.基础数据ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(824, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1149, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -68,6 +72,29 @@
             this.集市价格查询ToolStripMenuItem.Text = "集市价格查询";
             this.集市价格查询ToolStripMenuItem.Click += new System.EventHandler(this.集市价格查询ToolStripMenuItem_Click);
             // 
+            // 基础数据ToolStripMenuItem
+            // 
+            this.基础数据ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.物品类别管理ToolStripMenuItem,
+            this.物品管理ToolStripMenuItem});
+            this.基础数据ToolStripMenuItem.Name = "基础数据ToolStripMenuItem";
+            this.基础数据ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.基础数据ToolStripMenuItem.Text = "基础数据";
+            // 
+            // 物品类别管理ToolStripMenuItem
+            // 
+            this.物品类别管理ToolStripMenuItem.Name = "物品类别管理ToolStripMenuItem";
+            this.物品类别管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.物品类别管理ToolStripMenuItem.Text = "物品类别管理";
+            this.物品类别管理ToolStripMenuItem.Click += new System.EventHandler(this.物品类别管理ToolStripMenuItem_Click);
+            // 
+            // 物品管理ToolStripMenuItem
+            // 
+            this.物品管理ToolStripMenuItem.Name = "物品管理ToolStripMenuItem";
+            this.物品管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.物品管理ToolStripMenuItem.Text = "物品管理";
+            this.物品管理ToolStripMenuItem.Click += new System.EventHandler(this.物品管理ToolStripMenuItem_Click);
+            // 
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.panelControl1);
@@ -76,7 +103,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1208, 244, 650, 400);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(824, 478);
+            this.layoutControl1.Size = new System.Drawing.Size(1149, 718);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -84,7 +111,7 @@
             // 
             this.panelControl1.Location = new System.Drawing.Point(2, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(820, 474);
+            this.panelControl1.Size = new System.Drawing.Size(1145, 714);
             this.panelControl1.TabIndex = 4;
             // 
             // Root
@@ -95,7 +122,7 @@
             this.layoutControlItem1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(824, 478);
+            this.Root.Size = new System.Drawing.Size(1149, 718);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -103,7 +130,7 @@
             this.layoutControlItem1.Control = this.panelControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(824, 478);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1149, 718);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -111,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 503);
+            this.ClientSize = new System.Drawing.Size(1149, 743);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -138,5 +165,8 @@
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private System.Windows.Forms.ToolStripMenuItem 基础数据ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 物品类别管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 物品管理ToolStripMenuItem;
     }
 }

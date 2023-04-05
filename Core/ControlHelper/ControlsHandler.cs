@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace CSRTMISYC.Core.ControlHelper
+namespace Core.ControlHelper
 {
     public static class ControlsHandler
     {

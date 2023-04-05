@@ -1,4 +1,4 @@
-﻿namespace CSRTMISYC.Core.Enum
+﻿namespace Core.Enum
 {
     /// <summary>
     /// 数据操作状态

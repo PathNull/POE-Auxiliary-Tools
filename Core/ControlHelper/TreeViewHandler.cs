@@ -1,4 +1,4 @@
-﻿namespace CSRTMISYC.Core.ControlHelper
+﻿namespace Core.ControlHelper
 {
     public static class TreeViewHandler
     {

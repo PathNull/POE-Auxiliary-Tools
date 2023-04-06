@@ -62,7 +62,7 @@ namespace Core.Web
 
             // 编辑并Encoding提交的数据 
             //byte[] data = GetJointBOfParams(paramsOfUrl);
-            string json = "{\"query\":{\"status\":{\"option\":\"any\"},\"type\":\"以太化石\",\"stats\":[{\"type\":\"and\",\"filters\":[]}]},\"filters\":{\"trade_filters\":{\"filters\":{\"price\":{\"min\":1},\"collapse\":{\"option\":\"true\"},\"sale_type\":{\"option\":\"priced\"}},\"disabled\":\"False\"}},\"sort\":{\"price\":\"asc\"}}";
+            string json = "{\"query\":{\"status\":{\"option\":\"any\"},\"type\":\""+ paramsOfUrl["name"] + "\",\"stats\":[{\"type\":\"and\",\"filters\":[]}]},\"filters\":{\"trade_filters\":{\"filters\":{\"price\":{\"min\":1},\"collapse\":{\"option\":\"true\"},\"sale_type\":{\"option\":\"priced\"}},\"disabled\":\"False\"}},\"sort\":{\"price\":\"asc\"}}";
             byte[] data = Encoding.UTF8.GetBytes(json);
 
             // 发送请求 

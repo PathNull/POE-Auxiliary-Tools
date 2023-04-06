@@ -159,6 +159,7 @@
             // gridColumn1
             // 
             this.gridColumn1.Caption = "名称";
+            this.gridColumn1.FieldName = "名称";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
@@ -166,6 +167,7 @@
             // gridColumn2
             // 
             this.gridColumn2.Caption = "价格";
+            this.gridColumn2.FieldName = "价格";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
@@ -337,6 +339,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "Frm_集市价格查询";
             this.Text = "Frm_集市价格查询";
+            this.Load += new System.EventHandler(this.Frm_集市价格查询_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_cxlb)).EndInit();

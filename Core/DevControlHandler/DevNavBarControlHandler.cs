@@ -1,6 +1,5 @@
 ﻿
 using DevExpress.XtraNavBar;
-using Model.Common.ViewModels;
 
 namespace Core.DevControlHandler
 {

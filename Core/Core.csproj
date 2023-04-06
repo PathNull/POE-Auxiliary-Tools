@@ -46,10 +46,14 @@
     <Compile Include="ControlHelper\MenuStripHandler.cs" />
     <Compile Include="ControlHelper\TreeViewHandler.cs" />
     <Compile Include="DevControlHandler\DevComboBoxEditHandler.cs" />
+    <Compile Include="DevControlHandler\DevGridControlHandler.cs" />
     <Compile Include="DevControlHandler\DevlayoutControlGroupHandler.cs" />
     <Compile Include="DevControlHandler\DevNavBarControlHandler.cs" />
     <Compile Include="Enum\DataOperationStateEnum.cs" />
     <Compile Include="LogHandler.cs" />
+    <Compile Include="Model\ListViewModel.cs" />
+    <Compile Include="Model\NodeMenuViewModel.cs" />
+    <Compile Include="Model\Popup.cs" />
     <Compile Include="ObjectHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\SQLiteHandler.cs" />
@@ -66,6 +70,7 @@
     <Reference Include="DevExpress.Printing.v22.1.Core, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -99,12 +104,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationClient" />
     <Reference Include="WindowsBase" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{8db85534-9926-42a6-8160-0d91bedc4395}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,23 +1,28 @@
-﻿using Core;
-using Core.Common;
+﻿using Core.Common;
+using Core.DevControlHandler;
 using Core.Web;
-using DevExpress.Utils.Serializing;
 using DevExpress.XtraEditors;
-using DevExpress.XtraLayout;
-using Model;
+using DevExpress.XtraGrid;
 using Newtonsoft.Json.Linq;
+using POE_Auxiliary_Tools.Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace POE_Auxiliary_Tools
 {
     public partial class Frm_集市价格查询 : BaseForm
     {
+        List<集市物品> resultList = new List<集市物品>();
         DialogResult dialogResult;
         StringBuilder sbr = new StringBuilder();
+        Thread thread;
+      
         public Frm_集市价格查询()
         {
             InitializeComponent();
@@ -196,23 +201,81 @@ namespace POE_Auxiliary_Tools
         {
 
         }
-
+        //开始查询
         private void simpleButton_query_Click(object sender, System.EventArgs e)
         {
-            string ur = "https://poe.game.qq.com/api/trade/fetch/52ec3b6a980298b0d86f3cfacf4a211ef0050162845a80e3bf4e182e00982faf,107da33b3978590b2ac657f8a80db2265a5db6ff218c78ac1a70a10987da96be,28f2b9fa352765d6c1438ca6f772495177d9d76d7a976fe74ea036f282c5d8ae,64cd07124668a48002fd44ccf4b94f28a4880507001ee43300d7f5458a5d98ee,32e26080717b8ce5a5e93763db8f983e0026b674c52a3084c2071a4486983e82,d7ef6cf21605659bc8229df92623854a54dae47f1eb5469b2be03b629c31f9ba,f703adda3d58e4629a5f2fbd50cd16c711d8671816bd186d9c9d21a383935589,fc701e011b07542f75223b776e83e5021eaf09d402efdd31a556af40d62fec69,d9af648e2f66d5b41f208f920c62b1b43e77c8d084a896da18a6d31eb0803dbe,c55216dd6e8da667e6a0378084e4985d756c436e91313457c69e7c93c30de359?query=bVOGTL";
+            //StartQuery();
+            thread = new Thread(new ThreadStart(StartQuery));
+            thread.Start();
+        }
+
+        public async void StartQuery()
+        {
+            if (simpleButton_query.InvokeRequired)
+            {
+                Action SetSource = delegate { simpleButton_query.Enabled = false; };
+                simpleButton_query.Invoke(SetSource);
+               
+            }
+            simpleButton_query.Enabled = false;
+            var list = gridControl_cxlb.DataSource as List<物品>;
+            if (list != null){
+                var dt = new DataTable();
+                foreach (var item in new 集市查询结果().GetType().GetProperties())
+                {
+                    dt.Columns.Add(item.Name);
+                }
+                Random rm = new Random();
+                foreach (var item in list)
+                {
+                    var keyResult = GetKeyList(item.物品名称);
+                    resultList = new List<集市物品>();
+                    var model = GetPrice(keyResult,item.物品名称,0);
+                    var _mo = new 集市查询结果() { 名称 = model.名称, 价格 = model.单价.ToString() };
+                    DevGridControlHandler.AddRecord(dt, _mo);
+                    var sleep = rm.Next(2, 3) * 1000;
+                    Thread.Sleep(sleep);
+                }
+                if (gridControl1.InvokeRequired)
+                {
+                    Action SetSource = delegate { gridControl1.DataSource = dt;; };
+                    gridControl1.Invoke(SetSource);
+                }
+                else
+                {
+                    gridControl1.DataSource = dt; ;
+                };
+                if (simpleButton_query.InvokeRequired)
+                {
+                    Action SetSource = delegate { simpleButton_query.Enabled = true; };
+                    simpleButton_query.Invoke(SetSource);
+
+                }
+            }
+          
+        }
+        public JObject GetKeyList(string name)
+        {
             string url = "https://poe.game.qq.com/api/trade/search/S21%E8%B5%9B%E5%AD%A3";
-            string pass = "123456";
-            string personId = "周杰伦";
             Hashtable ht = new Hashtable();//将参数打包成json格式的数据
-            string v = "{'query':{'status':{'option':'any'},'type':以太化石,'stats':[{'type':'and','filters':[]}]},'filters':{'trade_filters':{'filters':{'price':{'min':1},'collapse':{'option':'true'},'sale_type':{'option':'priced'}},'disabled':False}},'sort':{'price':'asc'}}";
+            ht.Add("name", name);
             string list = HttpUitls.DoPost(url, ht);  //HttpRequest是自定义的一个类
             JObject jsonObject = JObject.Parse(list);
             var id = jsonObject["id"];
             var result = jsonObject["result"];
+           
+            return jsonObject;
+        }
+        public 集市物品 GetPrice(JObject jsonObject,string name,int i)
+        {
             var url2 = "https://poe.game.qq.com/api/trade/fetch/";
-            for (int i = 0; i < 10; i++)
+            var id = jsonObject["id"];
+            var result = jsonObject["result"];
+            int j = i + 10;
+            int k = i;
+            for ( k=i; k < j; k++)
             {
-                url2 += result[i].ToString() + ",";
+                url2 += result[k].ToString() + ",";
             }
             url2 = url2.Substring(0, url2.Length - 1);
             url2 += "?query=" + id.ToString();
@@ -220,8 +283,55 @@ namespace POE_Auxiliary_Tools
             JObject jsonObject2 = JObject.Parse(list2);
             foreach (var item in jsonObject2["result"])
             {
-                var a = item["item"];
+                var TransactionType = item["item"]["note"].ToString().Split(' ')[0];
+                if (TransactionType == "=a/b/o")
+                {
+                    var model = new 集市物品();
+                    model.名称 = item["item"]["typeLine"].ToString();
+                    model.交易通货 = item["listing"]["price"]["currency"].ToString();
+                    model.总价格 = Convert.ToInt32(item["listing"]["price"]["amount"]);
+                    var t = item["item"]["properties"][0]["values"][0][0].ToString().Replace(" ", "");
+                    var sl = t.Split('/');
+                    堆叠数量 count = new 堆叠数量();
+                    count.数量 = Convert.ToInt32(sl[0]);
+                    count.堆叠上限 = Convert.ToInt32(sl[1]);
+                    model.数量 = count;
+                    model.单价 = (double)model.总价格 / (double)count.数量;
+                    if(count.数量== count.堆叠上限)
+                    {
+                        resultList.Add(model);
+                    }
+                }
             }
+            if (resultList.Count < 10)
+            {
+               return GetPrice(jsonObject,name, k);
+            }
+
+            //计算平均价格
+            double total = 0;
+            double price = 0;
+            foreach (var item in resultList)
+            {
+                total += item.单价;
+            }
+            price = total / (double)resultList.Count;
+
+            //返回结果
+            集市物品 obj = new 集市物品() { 名称=name,单价=price};
+            return obj;
+
         }
+
+        private void Frm_集市价格查询_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+    public class 集市查询结果
+    {
+        public string 名称 { get; set; }
+
+        public string 价格 { get; set; }
     }
 }

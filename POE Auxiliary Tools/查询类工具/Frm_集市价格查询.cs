@@ -1,4 +1,5 @@
-﻿using Core.Common;
+﻿using Core;
+using Core.Common;
 using Core.DevControlHandler;
 using Core.Web;
 using DevExpress.XtraEditors;
@@ -9,6 +10,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +20,7 @@ namespace POE_Auxiliary_Tools
 {
     public partial class Frm_集市价格查询 : BaseForm
     {
+        public double scale;
         List<集市物品> resultList = new List<集市物品>();
         DialogResult dialogResult;
         StringBuilder sbr = new StringBuilder();
@@ -38,104 +41,7 @@ namespace POE_Auxiliary_Tools
                 t.CheckedChanged += SelectProductType;
                 flowLayoutPanel2.Controls.Add(t);
                 t.Show();
-                // 创建一个新的LayoutControlItem
             }
-           
-
-
-            //TextEdit editorName = new TextEdit() { Name = "editorName" };
-            //MemoEdit editorAddress = new MemoEdit() { Name = "editorAddress" };
-            //ButtonEdit editorEmail = new ButtonEdit() { Name = "editorEmail" };
-            //PictureEdit editorPicture = new PictureEdit() { Name = "pePhoto" };
-            //TextEdit editorPhone1 = new TextEdit() { Name = "editorPhone1" };
-            //TextEdit editorPhone2 = new TextEdit() { Name = "editorPhone2" };
-            //TextEdit editorFax = new TextEdit() { Name = "editorFax" };
-            //SimpleButton btnOK = new SimpleButton() { Name = "btnOK", Text = "OK" };
-            //SimpleButton btnCancel = new SimpleButton() { Name = "btnCancel", Text = "Cancel" };
-            //MemoEdit editorNotes = new MemoEdit() { Name = "editorNotes" };
-
-
-            ////Create a layout item in the Root group using the LayoutGroup.AddItem method
-            //LayoutControlItem itemName = layoutControlGroup1.AddItem();
-            //itemName.Name = "liName";
-            //itemName.Control = editorName;
-            //itemName.Text = "Name";
-
-            //// Add the Photo group.
-            //LayoutControlGroup groupPhoto = layoutControlGroup1.AddGroup();
-            //groupPhoto.Name = "lgPhoto";
-            //groupPhoto.Text = "Photo";
-            //// Add a new layout item to the group to display an image.
-            //LayoutControlItem liPhoto = layoutControlGroup1.AddItem();
-            //liPhoto.Name = "liPhoto";
-            //liPhoto.Control = editorPicture;
-            //liPhoto.TextVisible = false;
-
-            ////A tabbed group
-            //TabbedControlGroup tabbedGroup = layoutControlGroup1.AddTabbedGroup(groupPhoto, InsertType.Right);
-            //tabbedGroup.Name = "TabbedGroupPhoneFax";
-            //// Add the Phone group as a tab.
-            //LayoutControlGroup groupPhone = tabbedGroup.AddTabPage() as LayoutControlGroup;
-            //groupPhone.Name = "lgPhone";
-            //groupPhone.Text = "Phone";
-
-            //LayoutControlItem liPhone1 = layoutControlGroup1.AddItem();
-            //liPhone1.Name = "liPhone1";
-            //liPhone1.Control = editorPhone1;
-            //liPhone1.Text = "Phone 1";
-            //LayoutControlItem liPhone2 = layoutControlGroup1.AddItem();
-            //liPhone2.Name = "liPhone2";
-            //liPhone2.Control = editorPhone2;
-            //liPhone2.Text = "Phone 2";
-
-            //// Add an empty resizable region below the last added layout item.
-            //EmptySpaceItem emptySpace11 = new EmptySpaceItem();
-            //emptySpace11.Parent = groupPhone;
-
-            //// Add the Fax group as a tab.
-            //LayoutControlGroup groupFax = tabbedGroup.AddTabPage() as LayoutControlGroup;
-            //groupFax.Name = "lgFax";
-            //groupFax.Text = "Fax";
-            //LayoutControlItem liFax = layoutControlGroup1.AddItem();
-            //liFax.Name = "liFax";
-            //liFax.Control = editorFax;
-            //liFax.Text = "Fax";
-
-            //// Add an empty resizable region below the last added layout item.
-            //EmptySpaceItem emptySpace12 = new EmptySpaceItem();
-            //emptySpace12.Parent = groupFax;
-
-            //tabbedGroup.SelectedTabPage = groupPhone;
-
-            ////Create a borderless group to display the OK and CANCEL buttons at the bottom of the LayoutControl
-            ////If items are combined in a group, their alignmenent is not dependent on the items outside this group.
-            //LayoutControlGroup groupButtons = layoutControlGroup1.AddGroup();
-            //groupButtons.Name = "GroupButtons";
-            //groupButtons.GroupBordersVisible = false;
-
-            //EmptySpaceItem emptySpace2 = new EmptySpaceItem();
-            //emptySpace2.Parent = groupButtons;
-
-            ////Create a layout item (using the LayoutGroup.AddItem method) next to the 'emptySpace2' item
-            //LayoutControlItem itemOKButton = layoutControlGroup1.AddItem(emptySpace2, InsertType.Right);
-            //itemOKButton.Name = "liButtonOK";
-            //itemOKButton.Control = btnOK;
-            //itemOKButton.Text = "OK Button";
-            //itemOKButton.TextVisible = false;
-            //itemOKButton.SizeConstraintsType = SizeConstraintsType.Custom;
-            //itemOKButton.MaxSize = new Size(200, 25);
-            //itemOKButton.MinSize = new Size(90, 25);
-
-            ////Create a layout item (using the LayoutGroup.AddItem method) next to the 'itemOKButton' item
-            //LayoutControlItem itemCancelButton = layoutControlGroup1.AddItem(itemOKButton, InsertType.Right);
-            //itemCancelButton.Name = "liButton";
-            //itemCancelButton.Control = btnCancel;
-            //itemCancelButton.Text = "Cancel Button";
-            //itemCancelButton.TextVisible = false;
-            //itemCancelButton.SizeConstraintsType = SizeConstraintsType.Custom;
-            //itemCancelButton.MaxSize = new Size(200, 25);
-            //itemCancelButton.MinSize = new Size(90, 25);
-
 
         }
 
@@ -205,11 +111,18 @@ namespace POE_Auxiliary_Tools
         private void simpleButton_query_Click(object sender, System.EventArgs e)
         {
             //StartQuery();
+            var dt = new DataTable();
+            //添加表头
+            foreach (var item in new 集市查询结果().GetType().GetProperties())
+            {
+                dt.Columns.Add(item.Name);
+            }
+            gridControl1.DataSource = dt;
             thread = new Thread(new ThreadStart(StartQuery));
             thread.Start();
         }
-
-        public async void StartQuery()
+       
+        public  void StartQuery()
         {
             if (simpleButton_query.InvokeRequired)
             {
@@ -218,33 +131,49 @@ namespace POE_Auxiliary_Tools
                
             }
             simpleButton_query.Enabled = false;
+            //需要查询的物品
             var list = gridControl_cxlb.DataSource as List<物品>;
             if (list != null){
                 var dt = new DataTable();
+                //添加表头
                 foreach (var item in new 集市查询结果().GetType().GetProperties())
                 {
                     dt.Columns.Add(item.Name);
                 }
+               
                 Random rm = new Random();
                 foreach (var item in list)
                 {
-                    var keyResult = GetKeyList(item.物品名称);
+                    var keyResult = GetKeyList(item.物品名称,item.通货类型=="混沌石"?"chaos": "divine");
                     resultList = new List<集市物品>();
-                    var model = GetPrice(keyResult,item.物品名称,0);
-                    var _mo = new 集市查询结果() { 名称 = model.名称, 价格 = model.单价.ToString() };
-                    DevGridControlHandler.AddRecord(dt, _mo);
-                    var sleep = rm.Next(2, 3) * 1000;
+                    var model = GetPrice(keyResult,item.物品名称,item.通货类型,(int)item.最低数量,0);
+                    var _mo = new 集市查询结果() { 名称 = model.名称, 价格 = model.单价.ToString() ,通货类型= item .通货类型};
+                    DevGridControlHandler.AddRecord(dt, _mo);//添加记录到DataTable
+
+                    if (gridControl1.InvokeRequired)
+                    {
+                        var a = gridView1.GetRowHandle(gridView1.DataRowCount); 
+                        Action SetSource = delegate {
+                            // 创建新行
+                            gridView1.AddNewRow();
+                            // 获取当前新行所在行号
+                            int newRowHandle = gridView1.GetRowHandle(gridView1.DataRowCount);
+                            foreach (var info in _mo.GetType().GetProperties())
+                            {
+                                // 设置新行数据
+                                var val = ObjectHandler.GetPropertyValue(_mo, info.Name);
+                                gridView1.SetRowCellValue(newRowHandle, info.Name.ToString(), val);
+                            }
+                            // 更新视图
+                            gridView1.RefreshData();
+                        };
+                        gridControl1.Invoke(SetSource);
+                        
+                    }
+                    //暂停，防止查询过快
+                    var sleep = rm.Next(3000, 5000);
                     Thread.Sleep(sleep);
                 }
-                if (gridControl1.InvokeRequired)
-                {
-                    Action SetSource = delegate { gridControl1.DataSource = dt;; };
-                    gridControl1.Invoke(SetSource);
-                }
-                else
-                {
-                    gridControl1.DataSource = dt; ;
-                };
                 if (simpleButton_query.InvokeRequired)
                 {
                     Action SetSource = delegate { simpleButton_query.Enabled = true; };
@@ -254,26 +183,42 @@ namespace POE_Auxiliary_Tools
             }
           
         }
-        public JObject GetKeyList(string name)
+        //获取物品key
+        public JObject GetKeyList(string name,string priceType)
         {
             string url = "https://poe.game.qq.com/api/trade/search/S21%E8%B5%9B%E5%AD%A3";
             Hashtable ht = new Hashtable();//将参数打包成json格式的数据
             ht.Add("name", name);
-            string list = HttpUitls.DoPost(url, ht);  //HttpRequest是自定义的一个类
+            string list = HttpUitls.DoPost(url, ht, priceType);  //HttpRequest是自定义的一个类
             JObject jsonObject = JObject.Parse(list);
             var id = jsonObject["id"];
             var result = jsonObject["result"];
            
             return jsonObject;
         }
-        public 集市物品 GetPrice(JObject jsonObject,string name,int i)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="jsonObject">物品key list对象</param>
+        /// <param name="name">物品名称</param>
+        /// <param name="tongHuo">交易通货</param>
+        /// <param name="minimum">最少数量</param>
+        /// <param name="i"></param>
+        /// <returns></returns>
+        public 集市物品 GetPrice(JObject jsonObject,string name, string tongHuo,int minimum, int i)
         {
             var url2 = "https://poe.game.qq.com/api/trade/fetch/";
             var id = jsonObject["id"];
             var result = jsonObject["result"];
+            var len = result.Count();
+          
             int j = i + 10;
             int k = i;
-            for ( k=i; k < j; k++)
+            if (j>len)
+            {
+                j = len;
+            }
+            for (k = i; k < j; k++)
             {
                 url2 += result[k].ToString() + ",";
             }
@@ -284,7 +229,22 @@ namespace POE_Auxiliary_Tools
             foreach (var item in jsonObject2["result"])
             {
                 var TransactionType = item["item"]["note"].ToString().Split(' ')[0];
-                if (TransactionType == "=a/b/o")
+                var thType = item["item"]["note"].ToString().Split(' ')[2];//通货类型
+                var thTypeName = "";
+                switch (thType)
+                {
+                    //混沌石
+                    case "chaos":
+                        thTypeName = "混沌石";
+                        break;
+                    //神圣石
+                    case "divine":
+                        thTypeName = "神圣石";
+                        break;
+                    default:
+                        break;
+                }
+                if (TransactionType == "=a/b/o" && thTypeName== tongHuo)
                 {
                     var model = new 集市物品();
                     model.名称 = item["item"]["typeLine"].ToString();
@@ -297,35 +257,51 @@ namespace POE_Auxiliary_Tools
                     count.堆叠上限 = Convert.ToInt32(sl[1]);
                     model.数量 = count;
                     model.单价 = (double)model.总价格 / (double)count.数量;
-                    if(count.数量== count.堆叠上限)
+
+                    if(count.数量>=minimum)
                     {
                         resultList.Add(model);
                     }
                 }
             }
-            if (resultList.Count < 10)
+            var c = jsonObject["result"].Count();
+            if (resultList.Count < 10 && jsonObject["result"].Count()> k)
             {
-               return GetPrice(jsonObject,name, k);
+               return GetPrice(jsonObject,name, tongHuo, minimum, k);
             }
-
-            //计算平均价格
-            double total = 0;
-            double price = 0;
-            foreach (var item in resultList)
+            if (resultList .Count> 0)
             {
-                total += item.单价;
+                //计算平均价格
+                double total = 0;
+                double price = 0;
+                foreach (var item in resultList)
+                {
+                    total += item.单价;
+                }
+                price = Math.Round(total / (double)resultList.Count, 2);
+                //返回结果
+                集市物品 obj = new 集市物品() { 名称 = name, 单价 = price};
+                return obj;
             }
-            price = total / (double)resultList.Count;
-
-            //返回结果
-            集市物品 obj = new 集市物品() { 名称=name,单价=price};
-            return obj;
+            else
+            {
+                集市物品 obj = new 集市物品() { 名称 = name, 单价 = -1 };
+                return obj;
+            }
+         
 
         }
-
+        //获取DC比例
+        public double GetScale()
+        {
+            var keyResult = GetKeyList("神圣石","chaos");
+            var model = GetPrice(keyResult, "神圣石", "混沌石", 1, 0);
+            label1.Text = $"1 神圣 = {model.单价} 混沌石";
+            return model.单价;
+        }
         private void Frm_集市价格查询_Load(object sender, EventArgs e)
         {
-
+            scale = GetScale();
         }
     }
     public class 集市查询结果
@@ -333,5 +309,7 @@ namespace POE_Auxiliary_Tools
         public string 名称 { get; set; }
 
         public string 价格 { get; set; }
+
+        public string 通货类型 { get; set; }
     }
 }

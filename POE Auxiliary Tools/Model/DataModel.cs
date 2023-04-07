@@ -24,5 +24,12 @@ namespace POE_Auxiliary_Tools
         public string 类别名称 { get; set; }
 
         public string  是否可用 { get; set; }
+        public Int64 最低数量 { get; set; }
+        public Int64 堆叠上限 { get; set; }
+
+        public string 通货类型 { get; set; }
+
+
+
     }
 }

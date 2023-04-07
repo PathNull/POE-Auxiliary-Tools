@@ -51,8 +51,9 @@ namespace Core.Web
         /// </summary>
         /// <param name="url">Webservice地址</param>
         /// <param name="paramsOfUrl">传入数据</param>
+        /// <param name="priceType">价格通货类型</param>
         /// <returns>返回结果</returns>
-        public static string DoPost(string url, Hashtable paramsOfUrl)
+        public static string DoPost(string url, Hashtable paramsOfUrl,string priceType)
         {
             if (url == null)
             {
@@ -62,7 +63,8 @@ namespace Core.Web
 
             // 编辑并Encoding提交的数据 
             //byte[] data = GetJointBOfParams(paramsOfUrl);
-            string json = "{\"query\":{\"status\":{\"option\":\"any\"},\"type\":\""+ paramsOfUrl["name"] + "\",\"stats\":[{\"type\":\"and\",\"filters\":[]}]},\"filters\":{\"trade_filters\":{\"filters\":{\"price\":{\"min\":1},\"collapse\":{\"option\":\"true\"},\"sale_type\":{\"option\":\"priced\"}},\"disabled\":\"False\"}},\"sort\":{\"price\":\"asc\"}}";
+            //string json1 = "{\"query\":{\"status\":{\"option\":\"any\"},\"type\":\""+ paramsOfUrl["name"] + "\",\"stats\":[{\"type\":\"and\",\"filters\":[]}]},\"filters\":{\"trade_filters\":{\"filters\":{\"price\":{\"min\":1},\"collapse\":{\"option\":\"true\"},\"sale_type\":{\"option\":\"priced\"}},\"disabled\":\"False\"}},\"sort\":{\"price\":\"asc\"}}";
+            string json = "{\"query\":{\"status\":{\"option\":\"any\"},\"type\":\"" + paramsOfUrl["name"] + "\",\"stats\":[{\"type\":\"and\",\"filters\":[],\"disabled\":false}],\"filters\":{\"trade_filters\":{\"filters\":{\"price\":{\"option\":\""+ priceType + "\"}}}}},\"sort\":{\"price\":\"asc\"}}";
             byte[] data = Encoding.UTF8.GetBytes(json);
 
             // 发送请求 

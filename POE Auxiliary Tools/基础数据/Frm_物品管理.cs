@@ -24,6 +24,7 @@ namespace POE_Auxiliary_Tools
             DevComboBoxEditHandler.BindData(comboBoxEdit_cx, GetProductType(), null, true, "类别名称", "id");
             DevComboBoxEditHandler.BindData(comboBoxEdit_sfky, list, null, false, "是否可用");
             comboBoxEdit_cx.SelectedIndex = 0;
+            comboBoxEdit_sfky.SelectedIndex = 0;
         }
         /// <summary>
         /// 获取所有物品类别
@@ -64,6 +65,9 @@ namespace POE_Auxiliary_Tools
             var productName = textEdit_wpmc.Text;
             var isEnable = comboBoxEdit_sfky.Text;
             var sm = buttonEdit_sm.Text;
+            var zd = textEdit_zdsl.Text;
+            var sx = textEdit_ddsx.Text;
+            var thlx = comboBoxEdit__thlx.Text;
             if (typeName == "")
             {
                 dialogResult = Popup.Tips("请选择类别！", "提示信息", PopUpType.Info);
@@ -72,6 +76,21 @@ namespace POE_Auxiliary_Tools
             if (productName == "")
             {
                 dialogResult = Popup.Tips("请输入物品名称！", "提示信息", PopUpType.Info);
+                return;
+            }
+            if (zd == "")
+            {
+                dialogResult = Popup.Tips("请输入最低数量！", "提示信息", PopUpType.Info);
+                return;
+            }
+            if (sx == "")
+            {
+                dialogResult = Popup.Tips("请输入堆叠上限！", "提示信息", PopUpType.Info);
+                return;
+            }
+            if (thlx == "")
+            {
+                dialogResult = Popup.Tips("请选择通货类型！", "提示信息", PopUpType.Info);
                 return;
             }
             var typeId = ((ListItem)comboBoxEdit_lb.SelectedItem).Value;
@@ -83,8 +102,8 @@ namespace POE_Auxiliary_Tools
                 if (!MainFrom.database.IsExist("物品", d))
                 {
                     sbr.Clear();
-                    sbr.Append("INSERT INTO 物品 (物品名称,说明,物品类别id,删除标记,是否可用) VALUES ");
-                    sbr.Append($"('{productName}','{sm}','{typeId}',0,'是');");
+                    sbr.Append("INSERT INTO 物品 (物品名称,说明,物品类别id,删除标记,是否可用,最低数量,堆叠上限,通货类型) VALUES ");
+                    sbr.Append($"('{productName}','{sm}','{typeId}',0,'是',{zd},{sx},{thlx});");
                     var cmdText = sbr.ToString();
                     MainFrom.database.ExecuteNonQuery(cmdText);
                     Reset();
@@ -112,7 +131,10 @@ namespace POE_Auxiliary_Tools
                         sbr.Append($"物品名称='{productName}', ");
                         sbr.Append($"说明='{sm}', ");
                         sbr.Append($"物品类别id='{typeId}', ");
-                        sbr.Append($"是否可用='{isEnable}' ");
+                        sbr.Append($"是否可用='{isEnable}' ,");
+                        sbr.Append($"最低数量='{zd}' ,");
+                        sbr.Append($"堆叠上限='{sx}', ");
+                        sbr.Append($"通货类型='{thlx}' ");
                         sbr.Append($"WHERE id={model.id};");
                         var cmdText = sbr.ToString();
                         MainFrom.database.ExecuteNonQuery(cmdText);
@@ -133,7 +155,10 @@ namespace POE_Auxiliary_Tools
                     sbr.Append($"物品名称='{productName}', ");
                     sbr.Append($"说明='{sm}', ");
                     sbr.Append($"物品类别id='{typeId}' ,");
-                    sbr.Append($"是否可用='{isEnable}' ");
+                    sbr.Append($"是否可用='{isEnable}', ");
+                    sbr.Append($"最低数量='{zd}' ,");
+                    sbr.Append($"堆叠上限='{sx}', ");
+                    sbr.Append($"通货类型='{thlx}' ");
                     sbr.Append($"WHERE id={model.id};");
                     var cmdText = sbr.ToString();
                     MainFrom.database.ExecuteNonQuery(cmdText);
@@ -150,6 +175,9 @@ namespace POE_Auxiliary_Tools
             comboBoxEdit_lb.SelectedIndex = -1;
             textEdit_wpmc.Text = "";
             buttonEdit_sm.Text = "";
+            textEdit_zdsl.Text = "";
+            textEdit_ddsx.Text = "";
+            comboBoxEdit__thlx.Text = "";
             ReData();
         }
 
@@ -197,6 +225,9 @@ namespace POE_Auxiliary_Tools
             DevComboBoxEditHandler.SetItemByText(comboBoxEdit_sfky, model.是否可用);
             textEdit_wpmc.Text = model.物品名称;
             buttonEdit_sm.Text = model.说明;
+            textEdit_zdsl.Text = model.最低数量.ToString();
+            textEdit_ddsx.Text = model.堆叠上限.ToString();
+            comboBoxEdit__thlx.Text = model.通货类型;
             simpleButton_save.Text = "修改";
         }
     }

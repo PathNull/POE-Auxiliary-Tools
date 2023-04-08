@@ -20,7 +20,8 @@ namespace POE_Auxiliary_Tools
 {
     public partial class Frm_集市价格查询 : BaseForm
     {
-        public double scale;
+        public double scale; //dc比例
+        public DateTime 查询时间;
         List<集市物品> resultList = new List<集市物品>();
         DialogResult dialogResult;
         StringBuilder sbr = new StringBuilder();
@@ -110,7 +111,9 @@ namespace POE_Auxiliary_Tools
         //开始查询
         private void simpleButton_query_Click(object sender, System.EventArgs e)
         {
-            //StartQuery();
+            //更新查询时间
+            查询时间 = DateTime.Now;
+
             var dt = new DataTable();
             //添加表头
             foreach (var item in new 集市查询结果().GetType().GetProperties())
@@ -146,9 +149,12 @@ namespace POE_Auxiliary_Tools
                 {
                     var keyResult = GetKeyList(item.物品名称,item.通货类型=="混沌石"?"chaos": "divine");
                     resultList = new List<集市物品>();
-                    var model = GetPrice(keyResult,item.物品名称,item.通货类型,(int)item.最低数量,0);
+                    var model = GetPrice(keyResult,item.物品名称,item.类别名称, item.通货类型,(int)item.最低数量,0);
                     var _mo = new 集市查询结果() { 名称 = model.名称, 价格 = model.单价.ToString() ,通货类型= item .通货类型};
                     DevGridControlHandler.AddRecord(dt, _mo);//添加记录到DataTable
+
+                    //记录查询结果
+
 
                     if (gridControl1.InvokeRequired)
                     {
@@ -205,7 +211,7 @@ namespace POE_Auxiliary_Tools
         /// <param name="minimum">最少数量</param>
         /// <param name="i"></param>
         /// <returns></returns>
-        public 集市物品 GetPrice(JObject jsonObject,string name, string tongHuo,int minimum, int i)
+        public 集市物品 GetPrice(JObject jsonObject,string name, string productType,string tongHuo,int minimum, int i)
         {
             var url2 = "https://poe.game.qq.com/api/trade/fetch/";
             var id = jsonObject["id"];
@@ -267,7 +273,7 @@ namespace POE_Auxiliary_Tools
             var c = jsonObject["result"].Count();
             if (resultList.Count < 10 && jsonObject["result"].Count()> k)
             {
-               return GetPrice(jsonObject,name, tongHuo, minimum, k);
+               return GetPrice(jsonObject,name, productType, tongHuo, minimum, k);
             }
             if (resultList .Count> 0)
             {
@@ -281,6 +287,11 @@ namespace POE_Auxiliary_Tools
                 price = Math.Round(total / (double)resultList.Count, 2);
                 //返回结果
                 集市物品 obj = new 集市物品() { 名称 = name, 单价 = price};
+
+                //记录查询结果
+                SaveQueryRecord(name, price.ToString(), tongHuo, productType);
+                var cmdText = sbr.ToString();
+                MainFrom.database.ExecuteNonQuery(cmdText);
                 return obj;
             }
             else
@@ -291,11 +302,28 @@ namespace POE_Auxiliary_Tools
          
 
         }
+        /// <summary>
+        /// 保存查询记录
+        /// </summary>
+        /// <param name="name">物品名称</param>
+        /// <param name="price">价格</param>
+        /// <param name="type">通货类型</param>
+        public void SaveQueryRecord(string name,string price,string type,string productType)
+        {
+            if (name == "神圣石")
+            {
+                查询时间 = DateTime.Now;
+            }
+            sbr.Clear();
+            sbr.Append($@"INSERT INTO 查询记录 (查询时间,物品名称,价格,通货类型,物品类型) VALUES ");
+            sbr.Append($"('{查询时间.ToString("yyyy-MM-dd HH:mm:ss")}','{name}','{price}','{type}','{productType}');");
+
+        }
         //获取DC比例
         public double GetScale()
         {
             var keyResult = GetKeyList("神圣石","chaos");
-            var model = GetPrice(keyResult, "神圣石", "混沌石", 1, 0);
+            var model = GetPrice(keyResult, "神圣石","通货", "混沌石", 1, 0);
             label1.Text = $"1 神圣 = {model.单价} 混沌石";
             return model.单价;
         }

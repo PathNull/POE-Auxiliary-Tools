@@ -37,6 +37,7 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.comboBoxEdit_lb = new DevExpress.XtraEditors.ComboBoxEdit();
             this.textEdit_wpmc = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton_save = new DevExpress.XtraEditors.SimpleButton();
@@ -62,7 +63,6 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_wp)).BeginInit();
@@ -194,6 +194,14 @@
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 4;
             // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "通货类型";
+            this.gridColumn7.FieldName = "通货类型";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 2;
+            // 
             // comboBoxEdit_lb
             // 
             this.comboBoxEdit_lb.Location = new System.Drawing.Point(74, 35);
@@ -284,7 +292,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEdit__thlx.Properties.Items.AddRange(new object[] {
             "混沌石",
-            "圣神石"});
+            "神圣石"});
+            this.comboBoxEdit__thlx.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEdit__thlx.Size = new System.Drawing.Size(114, 20);
             this.comboBoxEdit__thlx.StyleController = this.layoutControl1;
             this.comboBoxEdit__thlx.TabIndex = 14;
@@ -445,14 +454,6 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(977, 562);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "通货类型";
-            this.gridColumn7.FieldName = "通货类型";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 2;
             // 
             // Frm_物品管理
             // 

@@ -103,7 +103,7 @@ namespace POE_Auxiliary_Tools
                 {
                     sbr.Clear();
                     sbr.Append("INSERT INTO 物品 (物品名称,说明,物品类别id,删除标记,是否可用,最低数量,堆叠上限,通货类型) VALUES ");
-                    sbr.Append($"('{productName}','{sm}','{typeId}',0,'是',{zd},{sx},{thlx});");
+                    sbr.Append($"('{productName}','{sm}','{typeId}',0,'是',{zd},{sx},'{thlx}')");
                     var cmdText = sbr.ToString();
                     MainFrom.database.ExecuteNonQuery(cmdText);
                     Reset();

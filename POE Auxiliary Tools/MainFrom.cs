@@ -54,5 +54,10 @@ namespace POE_Auxiliary_Tools
         {
             Open("物品管理");
         }
+
+        private void 查询历史ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Open("查询历史");
+        }
     }
 }

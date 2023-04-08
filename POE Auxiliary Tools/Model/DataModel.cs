@@ -28,8 +28,28 @@ namespace POE_Auxiliary_Tools
         public Int64 堆叠上限 { get; set; }
 
         public string 通货类型 { get; set; }
+    }
+    public class 查询记录
+    {
+        public Int64 id { get; set; }
+        public string 查询时间 { get; set; }
 
+        public string 物品名称 { get; set; }
 
+        public string 物品类型 { get; set; }
 
+        public string 价格 { get; set; }
+
+        public string 通货类型 { get; set; }
+
+        public double 排序价格 { get; set; }
+
+        public Int64 堆叠上限 { get; set; }
+
+        public string 上架数量 { get; set; }
+         
+        public string 价格_神圣石 { get; set; }
+
+        public string 价格_混沌石 { get; set; }
     }
 }

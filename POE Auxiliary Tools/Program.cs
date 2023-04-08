@@ -15,11 +15,14 @@ namespace POE_Auxiliary_Tools
         [STAThread]
         static void Main()
         {
-          
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainFrom());
+            //限制使用时间
+            var date = DateTime.Now;
+            if(date< Convert.ToDateTime("2023/04/10"))
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainFrom());
+            }
         }
     }
 }

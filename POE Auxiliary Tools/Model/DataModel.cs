@@ -12,6 +12,8 @@ namespace POE_Auxiliary_Tools
         public string 类别名称 { get; set; }
 
         public string 说明 { get; set; }
+
+        public string 允许堆叠 { get; set; }
     }
     public class 物品
     {
@@ -28,6 +30,8 @@ namespace POE_Auxiliary_Tools
         public Int64 堆叠上限 { get; set; }
 
         public string 通货类型 { get; set; }
+
+        public string 允许堆叠 { get; set; }
     }
     public class 查询记录
     {
@@ -51,5 +55,9 @@ namespace POE_Auxiliary_Tools
         public string 价格_神圣石 { get; set; }
 
         public string 价格_混沌石 { get; set; }
+
+        public string 标记 { get; set; }
+
+        public string 上次价格 { get; set; }
     }
 }

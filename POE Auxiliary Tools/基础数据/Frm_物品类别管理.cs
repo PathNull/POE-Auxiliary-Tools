@@ -1,5 +1,6 @@
 ﻿using Core;
 using Core.Common;
+using Core.DevControlHandler;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -30,6 +31,7 @@ namespace POE_Auxiliary_Tools
             物品类别 model = GetSelectModel();
             textEdit_name.Text = model.类别名称;
             textEdit_sm.Text = model.说明;
+            DevComboBoxEditHandler.SetItemByText(comboBoxEdit_yxdd, model.允许堆叠);
             simpleButton_save.Text = "修改";
         }
         //保存或者修改
@@ -37,9 +39,15 @@ namespace POE_Auxiliary_Tools
         {
             var typeName = textEdit_name.Text;
             var sm = textEdit_sm.Text;
+            var yxdd = comboBoxEdit_yxdd.Text;
             if (typeName == "")
             {
-                dialogResult = Popup.Tips("请输入类别名称！", "提示信息", PopUpType.Info);
+                dialogResult = Popup.Tips(this, "请输入类别名称！", "提示信息", PopUpType.Info);
+                return;
+            }
+            if (yxdd == "")
+            {
+                dialogResult = Popup.Tips(this, "请选择是否允许堆叠！", "提示信息", PopUpType.Info);
                 return;
             }
             var btnText = simpleButton_save.Text;
@@ -50,14 +58,14 @@ namespace POE_Auxiliary_Tools
                 if (!MainFrom.database.IsExist("物品类别", d))
                 {
                     sbr.Clear();
-                    sbr.Append("INSERT INTO 物品类别 (类别名称,说明,删除标记) VALUES ");
-                    sbr.Append($"('{typeName}','{sm}',0);");
+                    sbr.Append("INSERT INTO 物品类别 (类别名称,说明,删除标记,允许堆叠) VALUES ");
+                    sbr.Append($"('{typeName}','{sm}',0,'{yxdd}');");
                     var cmdText = sbr.ToString();
                     MainFrom.database.ExecuteNonQuery(cmdText);
                 }
                 else
                 {
-                    dialogResult = Popup.Tips("类别名称已存在！", "提示信息", PopUpType.Info);
+                    dialogResult = Popup.Tips(this, "类别名称已存在！", "提示信息", PopUpType.Info);
 
                 }
             }
@@ -73,7 +81,8 @@ namespace POE_Auxiliary_Tools
                         sbr.Clear();
                         sbr.Append("UPDATE 物品类别 SET ");
                         sbr.Append($"类别名称='{typeName}', ");
-                        sbr.Append($"说明='{sm}' ");
+                        sbr.Append($"说明='{sm}' ,");
+                        sbr.Append($"允许堆叠='{yxdd}' ");
                         sbr.Append($"WHERE id={model.id};");
                         var cmdText = sbr.ToString();
                         MainFrom.database.ExecuteNonQuery(cmdText);
@@ -81,7 +90,7 @@ namespace POE_Auxiliary_Tools
                     }
                     else
                     {
-                        dialogResult = Popup.Tips("类别名称已存在！", "提示信息", PopUpType.Info);
+                        dialogResult = Popup.Tips(this, "类别名称已存在！", "提示信息", PopUpType.Info);
                         Reset();
                         return;
 
@@ -92,7 +101,8 @@ namespace POE_Auxiliary_Tools
                     sbr.Clear();
                     sbr.Append("UPDATE 物品类别 SET ");
                     sbr.Append($"类别名称='{typeName}', ");
-                    sbr.Append($"说明='{sm}' ");
+                    sbr.Append($"说明='{sm}', ");
+                    sbr.Append($"允许堆叠='{yxdd}' ");
                     sbr.Append($"WHERE id={model.id};");
                     var cmdText = sbr.ToString();
                     MainFrom.database.ExecuteNonQuery(cmdText);
@@ -109,7 +119,7 @@ namespace POE_Auxiliary_Tools
         public void ReData()
         {
             sbr.Clear();
-            sbr.Append("SELECT * FROM 物品类别 ");
+            sbr.Append("SELECT * FROM 物品类别 order by 类别名称");
             var cmdText = sbr.ToString();
             DataTable dt = MainFrom.database.ExecuteDataTable(cmdText);
             var list = DataHandler.TableToListModel<物品类别>(dt);
@@ -118,12 +128,31 @@ namespace POE_Auxiliary_Tools
         //双击删除记录
         private void gridView_lb_DoubleClick(object sender, EventArgs e)
         {
-            dialogResult = Popup.Tips("确定要删除物品类别吗？", "提示信息", PopUpType.question);
+            物品类别 model = GetSelectModel();
+            //判断是否是罗盘
+            if (model.类别名称 == "充能罗盘")
+            {
+                dialogResult = Popup.Tips(this, "该类别无法删除！", "提示信息", PopUpType.Info);
+                return;
+            }
+            //判断是否有关联的物品
+            sbr.Clear();
+            sbr.Append($@"SELECT * FROM 物品  LEFT JOIN 物品类别 ON 物品.物品类别id=物品类别.id  
+                        WHERE 类别名称='{model.类别名称}'");
+            DataTable dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
+            var list = DataHandler.TableToListModel<物品类别>(dt);
+            if (list.Count > 0)
+            {
+                dialogResult = Popup.Tips(this, "该类别已经关联了物品，暂时无法删除！", "提示信息", PopUpType.Info);
+                return;
+            }
+
+            dialogResult = Popup.Tips(this, "确定要删除物品类别吗？", "提示信息", PopUpType.question);
             if (dialogResult.Equals(DialogResult.No))
             {
                 return;
             }
-            物品类别 model = GetSelectModel();
+            
             sbr.Clear();
             sbr.Append("DELETE FROM 物品类别 ");
             sbr.Append($"WHERE 类别名称={model.类别名称};");

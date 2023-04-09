@@ -33,8 +33,9 @@
             this.集市价格查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询历史ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.基础数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.物品类别管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.物品管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.物品类别管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.重置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -70,39 +71,47 @@
             // 集市价格查询ToolStripMenuItem
             // 
             this.集市价格查询ToolStripMenuItem.Name = "集市价格查询ToolStripMenuItem";
-            this.集市价格查询ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.集市价格查询ToolStripMenuItem.Text = "集市价格查询";
+            this.集市价格查询ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.集市价格查询ToolStripMenuItem.Text = "集市查询";
             this.集市价格查询ToolStripMenuItem.Click += new System.EventHandler(this.集市价格查询ToolStripMenuItem_Click);
             // 
             // 查询历史ToolStripMenuItem
             // 
             this.查询历史ToolStripMenuItem.Name = "查询历史ToolStripMenuItem";
-            this.查询历史ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.查询历史ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.查询历史ToolStripMenuItem.Text = "查询历史";
             this.查询历史ToolStripMenuItem.Click += new System.EventHandler(this.查询历史ToolStripMenuItem_Click);
             // 
             // 基础数据ToolStripMenuItem
             // 
             this.基础数据ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.物品管理ToolStripMenuItem,
             this.物品类别管理ToolStripMenuItem,
-            this.物品管理ToolStripMenuItem});
+            this.重置ToolStripMenuItem});
             this.基础数据ToolStripMenuItem.Name = "基础数据ToolStripMenuItem";
             this.基础数据ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.基础数据ToolStripMenuItem.Text = "基础数据";
             // 
-            // 物品类别管理ToolStripMenuItem
-            // 
-            this.物品类别管理ToolStripMenuItem.Name = "物品类别管理ToolStripMenuItem";
-            this.物品类别管理ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.物品类别管理ToolStripMenuItem.Text = "物品类别管理";
-            this.物品类别管理ToolStripMenuItem.Click += new System.EventHandler(this.物品类别管理ToolStripMenuItem_Click);
-            // 
             // 物品管理ToolStripMenuItem
             // 
             this.物品管理ToolStripMenuItem.Name = "物品管理ToolStripMenuItem";
-            this.物品管理ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.物品管理ToolStripMenuItem.Text = "物品管理";
+            this.物品管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.物品管理ToolStripMenuItem.Text = "物品属性";
             this.物品管理ToolStripMenuItem.Click += new System.EventHandler(this.物品管理ToolStripMenuItem_Click);
+            // 
+            // 物品类别管理ToolStripMenuItem
+            // 
+            this.物品类别管理ToolStripMenuItem.Name = "物品类别管理ToolStripMenuItem";
+            this.物品类别管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.物品类别管理ToolStripMenuItem.Text = "物品类别";
+            this.物品类别管理ToolStripMenuItem.Click += new System.EventHandler(this.物品类别管理ToolStripMenuItem_Click);
+            // 
+            // 重置ToolStripMenuItem
+            // 
+            this.重置ToolStripMenuItem.Name = "重置ToolStripMenuItem";
+            this.重置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.重置ToolStripMenuItem.Text = "重置POESESSID";
+            this.重置ToolStripMenuItem.Click += new System.EventHandler(this.重置ToolStripMenuItem_Click);
             // 
             // layoutControl1
             // 
@@ -153,6 +162,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainFrom";
             this.Text = "by 要啥电动车";
+            this.Load += new System.EventHandler(this.MainFrom_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -178,5 +188,6 @@
         private System.Windows.Forms.ToolStripMenuItem 物品类别管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 物品管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 查询历史ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 重置ToolStripMenuItem;
     }
 }

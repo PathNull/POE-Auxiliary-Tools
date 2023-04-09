@@ -1,6 +1,9 @@
 ﻿using Core;
 using Core.Common;
 using Core.DevControlHandler;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using POE_Auxiliary_Tools.查询类工具;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,23 +38,34 @@ namespace POE_Auxiliary_Tools
 
         private void Frm_查询历史_Load(object sender, EventArgs e)
         {
-            //绑定物品名称
-            sbr.Clear();
-            sbr.Append("SELECT  distinct(物品名称)  FROM  查询记录");
-            var cmdText = sbr.ToString();
-            DataTable dt = MainFrom.database.ExecuteDataTable(cmdText);
-            var list = DataHandler.TableToListModel<查询记录>(dt);
-            DevComboBoxEditHandler.BindData(product, list, null, false, "物品名称");
+            //获取数据更新时间
+
+
+
+
+            DevComboBoxEditHandler.BindData(history_type, GetProductType(), null, false, "类别名称", "id");
+            
+            textEdit_sl.TextChanged += TextEdit_sl_TextChanged;
+         
             var data = DateTime.Now;
             this.start.EditValue = data.ToString("yyyy-MM-dd");
             this.end.EditValue = data.ToString("yyyy-MM-dd");
 
-            //价值排行相关
 
             //绑定物品类型
             DevComboBoxEditHandler.BindData(comboBoxEdit_wplx, GetProductType(), null, true, "类别名称", "id");
             comboBoxEdit_wplx.SelectedIndex = 0;
 
+            comboBoxEdit_bdfd.SelectedIndex = 1;
+        }
+        /// <summary>
+        /// 刷新数据
+        /// </summary>
+        private void ReData(double tj)
+        {
+            //价值排行相关
+            List<查询记录> list = new List<查询记录>();
+            DataTable dt = new DataTable();
             //获取最近一次DC比
             sbr.Clear();
             sbr.Append(@"SELECT   *  FROM  查询记录 
@@ -59,15 +73,9 @@ namespace POE_Auxiliary_Tools
             dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
             list = DataHandler.TableToListModel<查询记录>(dt);
             bl = Convert.ToDouble(list[0].价格);  //dc比例
-            //所有物品的一条记录
-            sbr.Clear();
-            sbr.Append(@"SELECT * FROM (
-                        SELECT a.*,堆叠上限,ROW_NUMBER()OVER(PARTITION BY a.物品名称 ORDER BY 查询时间 DESC) AS rn FROM 查询记录 as a 
-                        LEFT JOIN 物品 as b on a.物品名称 = b.物品名称
-                        ) 
-                        where rn=1  ");
-            dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
-            list = DataHandler.TableToListModel<查询记录>(dt);
+
+            list = GetData(tj);
+
             foreach (var item in list)
             {
                 if (item.通货类型 == "神圣石")
@@ -84,13 +92,48 @@ namespace POE_Auxiliary_Tools
             gridControl2.DataSource = list;
             records = list;
         }
+        //数量变更
+        private void TextEdit_sl_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private List<查询记录> GetData(double tj)
+        {
+            DataTable dt = new DataTable();
+            sbr.Clear();
+            sbr.Append($@";with tb as (
+                        SELECT * FROM (SELECT a.*,堆叠上限,是否可用,ROW_NUMBER()OVER(PARTITION BY a.物品名称 ORDER BY 查询时间 DESC) AS rn FROM 查询记录 as a 
+                        LEFT JOIN 物品 as b on a.物品名称 = b.物品名称) 
+                        where rn in (1,2)  and 是否可用='是' order by 物品名称
+                        ),
+                        tb2 as (
+                        SELECT 
+                            t1.*,t2.价格 as 上次价格,
+                            CASE
+                                WHEN ABS((CAST(t1.价格 AS float) - CAST(t2.价格 AS float)) / CAST(t2.价格 AS float)) > {tj} THEN '上次价格：'||t2.价格
+                                ELSE NULL
+                            END AS 标记
+                        FROM 
+                            (SELECT * FROM tb ORDER BY 查询时间 DESC) t1
+                        LEFT JOIN 
+                            (SELECT * FROM tb ORDER BY 查询时间 DESC) t2
+                        ON 
+                            t1.物品名称 = t2.物品名称 AND t1.查询时间 > t2.查询时间
+                        GROUP BY 
+                            t1.物品名称
+		                        )
+                        select * from tb2");
+            dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
+            var list = DataHandler.TableToListModel<查询记录>(dt);
+            return list;
+        }
         /// <summary>
         /// 获取所有物品类别
         /// </summary>
         public List<物品类别> GetProductType()
         {
             sbr.Clear();
-            sbr.Append("SELECT * FROM 物品类别 ");
+            sbr.Append("SELECT * FROM 物品类别 order by 类别名称");
             var cmdText = sbr.ToString();
             DataTable dt = MainFrom.database.ExecuteDataTable(cmdText);
             var list = DataHandler.TableToListModel<物品类别>(dt);
@@ -127,36 +170,127 @@ namespace POE_Auxiliary_Tools
         //选中价格排行记录
         private void gridView2_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            //dc比例
 
             var row = gridView2.GetFocusedRow();
-            var model = ObjectHandler.ConvertObject<查询记录>(row);
+            var model = ObjectHandler.ConvertObject<查询记录>(row);;
             var list = new List<查询记录>();
-           
-            if (textEdit_sl.Text != "")
+            double num;
+            if (textEdit_sl.Text == "" || textEdit_sl.Text=="0")
             {
-                var num = Convert.ToDouble(textEdit_sl.Text);
-                double totalPrice_hd;
-                double totalPrice_ss;
-                if (model.通货类型 == "混沌石")
+                num = Convert.ToDouble(model.堆叠上限);
+                if (model.堆叠上限 == 0)
                 {
-                    //混沌石价格
-                    totalPrice_hd = num * Convert.ToDouble(model.价格);
-                    //神圣石价格
-                    totalPrice_ss = num * Convert.ToDouble(model.价格)/bl;
+                    num = 1;
                 }
-                else
-                {
-                    //混沌石价格
-                    totalPrice_hd = num * Convert.ToDouble(model.价格)*bl;
-                    //神圣石价格
-                    totalPrice_ss = num * Convert.ToDouble(model.价格);
-                }
-                model.价格_混沌石 = totalPrice_hd.ToString();
-                model.价格_神圣石 = totalPrice_ss.ToString();
             }
+            else
+            {
+                num = Convert.ToDouble(textEdit_sl.Text);
+            }
+            double totalPrice_hd;
+            double totalPrice_ss;
+            if (model.通货类型 == "混沌石")
+            {
+                //混沌石价格
+                totalPrice_hd = num * Convert.ToDouble(model.价格);
+                //神圣石价格
+                totalPrice_ss = num * Convert.ToDouble(model.价格) / bl;
+            }
+            else
+            {
+                //混沌石价格
+                totalPrice_hd = num * Convert.ToDouble(model.价格) * bl;
+                //神圣石价格
+                totalPrice_ss = num * Convert.ToDouble(model.价格);
+            }
+            model.价格_混沌石 = Math.Round(totalPrice_hd, 2).ToString();
+            model.价格_神圣石 = Math.Round(totalPrice_ss, 2).ToString();
+            model.上架数量 = num.ToString();
             list.Add(model);
             gridControl3.DataSource = list;
         }
+
+        private void history_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            product.SelectedIndex = -1;
+            //绑定物品名称
+            sbr.Clear();
+            sbr.Append($@"SELECT  distinct(物品名称) AS  物品名称  FROM  物品  WHERE 物品类别id='{((ListItem)history_type.SelectedItem).Value}' order by 物品名称");
+            var cmdText = sbr.ToString();
+            DataTable dt = MainFrom.database.ExecuteDataTable(cmdText);
+            var list = DataHandler.TableToListModel<查询记录>(dt);
+            DevComboBoxEditHandler.BindData(product, list, null, false, "物品名称");
+        }
+        //双击价值排行记录，显示价格走势
+        private void gridView2_DoubleClick(object sender, EventArgs e)
+        {
+            GridView view = sender as GridView;
+            Point pt = view.GridControl.PointToClient(Control.MousePosition);
+            GridHitInfo info = view.CalcHitInfo(pt);
+            //双击行的数据
+            var row = view.GetFocusedRow();
+            var model = ObjectHandler.ConvertObject<查询记录>(row); ;
+            if (info.InRow)
+            {
+                Frm_价格走势 zs = new Frm_价格走势(model.物品名称);
+                // 计算窗体在屏幕上的中央位置
+                zs.StartPosition = FormStartPosition.CenterScreen;
+                zs.ShowDialog();
+            }
+        }
+        //价格历史标记出波动大的
+        private void gridView2_RowStyle(object sender, RowStyleEventArgs e)
+        {
+            DevExpress.XtraGrid.Views.Grid.GridView view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+            if (e.RowHandle >= 0)
+            {
+                string price = view.GetRowCellDisplayText(e.RowHandle, view.Columns["标记"]);
+                if (price.Contains("上次价格"))
+                {
+                    e.Appearance.BackColor = Color.Red;
+                    e.Appearance.ForeColor = Color.White;
+                }
+            }
+        }
+        //控制波动标记幅度
+        private void comboBoxEdit_bdfd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var text = comboBoxEdit_bdfd.Text;
+            double tj = 0;
+            switch (text)
+            {
+                case "波动超10%的标注":
+                    tj = 0.1;
+                    break;
+                case "波动超20%的标注":
+                    tj = 0.2;
+                    break;
+                case "波动超30%的标注":
+                    tj = 0.3;
+                    break;
+                case "波动超40%的标注":
+                    tj = 0.4;
+                    break;
+                case "波动超50%的标注":
+                    tj = 0.5;
+                    break;
+                case "波动超60%的标注":
+                    tj = 0.6;
+                    break;
+                case "波动超70%的标注":
+                    tj = 0.7;
+                    break;
+                case "波动超80%的标注":
+                    tj = 0.8;
+                    break;
+                case "波动超90%的标注":
+                    tj = 0.9;
+                    break;
+                default:
+                    break;
+            }
+            ReData(tj);
+        }
+
     }
 }

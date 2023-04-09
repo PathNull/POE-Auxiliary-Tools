@@ -34,6 +34,7 @@ namespace Core.SQLite
         public void CreateDataBase()
         {
             //string path = Path.GetDirectoryName(DataSource);
+            //string path = @"F:\Project\POE-Auxiliary-Tools\";
             string path = @"F:\Project\POE-Auxiliary-Tools\";
             if ((!string.IsNullOrWhiteSpace(path)) && (!Directory.Exists(path))) Directory.CreateDirectory(path);
             if (!File.Exists(DataSource)) SQLiteConnection.CreateFile(DataSource);

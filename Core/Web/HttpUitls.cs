@@ -12,7 +12,7 @@ namespace Core.Web
 {
     public class HttpUitls
     {
-        public static string Get(string Url)
+        public static string Get(string Url,string token)
         {
             //System.GC.Collect();
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
@@ -23,11 +23,21 @@ namespace Core.Web
             request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36";
             request.ContentType = "application/json";
             request.CookieContainer = new CookieContainer();
-            Cookie cookie = new Cookie("POESESSID", "bf0c4b5b0b860a28fa47a7ed9a74a5e3", "/", "poe.game.qq.com");
+            Cookie cookie = new Cookie("POESESSID", token, "/", "poe.game.qq.com");
             request.CookieContainer.Add(cookie);
             request.AutomaticDecompression = DecompressionMethods.GZip;
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            System.Net.HttpWebResponse response;
+            try
+            {
+                response =  (HttpWebResponse)request.GetResponse();
+            }
+            catch (WebException ex)
+            {
+                return ex.Message;
+            }
+
             Stream myResponseStream = response.GetResponseStream();
             StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.UTF8);
             string retString = myStreamReader.ReadToEnd();
@@ -53,7 +63,7 @@ namespace Core.Web
         /// <param name="paramsOfUrl">传入数据</param>
         /// <param name="priceType">价格通货类型</param>
         /// <returns>返回结果</returns>
-        public static string DoPost(string url, Hashtable paramsOfUrl,string priceType)
+        public static string DoPost(string url, string token, Hashtable paramsOfUrl,string priceType)
         {
             if (url == null)
             {
@@ -62,9 +72,17 @@ namespace Core.Web
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
 
             // 编辑并Encoding提交的数据 
-            //byte[] data = GetJointBOfParams(paramsOfUrl);
-            //string json1 = "{\"query\":{\"status\":{\"option\":\"any\"},\"type\":\""+ paramsOfUrl["name"] + "\",\"stats\":[{\"type\":\"and\",\"filters\":[]}]},\"filters\":{\"trade_filters\":{\"filters\":{\"price\":{\"min\":1},\"collapse\":{\"option\":\"true\"},\"sale_type\":{\"option\":\"priced\"}},\"disabled\":\"False\"}},\"sort\":{\"price\":\"asc\"}}";
-            string json = "{\"query\":{\"status\":{\"option\":\"any\"},\"type\":\"" + paramsOfUrl["name"] + "\",\"stats\":[{\"type\":\"and\",\"filters\":[],\"disabled\":false}],\"filters\":{\"trade_filters\":{\"filters\":{\"price\":{\"option\":\""+ priceType + "\"}}}}},\"sort\":{\"price\":\"asc\"}}";
+            string json = "";
+            if (paramsOfUrl["tjId"] != null)
+            {
+                 json = "{\"query\":{\"status\":{\"option\":\"any\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"" + paramsOfUrl["tjId"] + "\"}]}]},\"sort\":{\"price\":\"asc\"}}";
+            }
+            else
+            {
+                 json = "{\"query\":{\"status\":{\"option\":\"any\"},\"type\":\"" + paramsOfUrl["name"] + "\",\"stats\":[{\"type\":\"and\",\"filters\":[],\"disabled\":false}],\"filters\":{\"trade_filters\":{\"filters\":{\"price\":{\"option\":\"" + priceType + "\"}}}}},\"sort\":{\"price\":\"asc\"}}";
+            }
+            
+            
             byte[] data = Encoding.UTF8.GetBytes(json);
 
             // 发送请求 
@@ -74,7 +92,7 @@ namespace Core.Web
             request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36";
             request.ContentType = "application/json";
             request.CookieContainer = new CookieContainer();
-            Cookie cookie = new Cookie("POESESSID", "bf0c4b5b0b860a28fa47a7ed9a74a5e3", "/", "poe.game.qq.com");
+            Cookie cookie = new Cookie("POESESSID", token, "/", "poe.game.qq.com");
             request.CookieContainer.Add(cookie);
             request.ContentLength = data.Length;
             Stream stream = request.GetRequestStream();
@@ -82,7 +100,16 @@ namespace Core.Web
             stream.Close();
 
             // 获得回复 
-            System.Net.HttpWebResponse response = (System.Net.HttpWebResponse)request.GetResponse();
+            System.Net.HttpWebResponse response;
+            try
+            {
+                response = (System.Net.HttpWebResponse)request.GetResponse();
+            }
+            catch (WebException ex)
+            {
+                return ex.Message;
+            }
+
             StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
             string result = reader.ReadToEnd();
             reader.Close();

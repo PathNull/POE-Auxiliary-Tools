@@ -11,6 +11,7 @@ namespace Core.DevControlHandler
     {
         public static void BindData<T>(ComboBoxEdit comboBox, List<T> list, EventHandler myDel, bool IsAddTotalItem, string keyName, string valueName = "") where T : new()
         {
+            comboBox.Properties.Items.Clear();
             comboBox.SelectedIndexChanged -= myDel;
             //ControlsHandler.RemoveControlEvent(comboBox, "");
             var _list = ArrayHandler.FilterDuplicates<T>(list, keyName);
@@ -34,7 +35,11 @@ namespace Core.DevControlHandler
             }
             comboBox.SelectedIndexChanged += myDel;
         }
-
+        /// <summary>
+        /// 根据内容设置选中combox选项
+        /// </summary>
+        /// <param name="combox"></param>
+        /// <param name="text"></param>
         public static void SetItemByText(ComboBoxEdit combox,string text)
         {
             foreach (object item in combox.Properties.Items)

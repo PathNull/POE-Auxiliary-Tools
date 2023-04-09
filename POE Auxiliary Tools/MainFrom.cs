@@ -1,20 +1,28 @@
-﻿using Core.SQLite;
+﻿using Core;
+using Core.Common;
+using Core.SQLite;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using static Core.Popup;
 
 namespace POE_Auxiliary_Tools
 {
     public partial class MainFrom : BaseForm
     {
+        DialogResult dialogResult;
+        StringBuilder sbr = new StringBuilder();
         public static SQLiteHandler database;
+        public static List<用户Token> tokenList = new List<用户Token>();
         public MainFrom()
         {
             InitializeComponent();
             database = new SQLiteHandler(Path.GetFullPath(@"../../database.db"));
+            //database = new SQLiteHandler(Application.StartupPath + "\\database.db");
             SQLiteHandler.DataBaceList.Add("database", database);
 
 
@@ -36,6 +44,8 @@ namespace POE_Auxiliary_Tools
             form.Parent = this.panelControl1;
             //子窗体显示
             form.Show();
+
+           
         }
 
         private void 集市价格查询ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,5 +69,40 @@ namespace POE_Auxiliary_Tools
         {
             Open("查询历史");
         }
+
+        private void MainFrom_Load(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
+                (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
+            Open("查询历史");
+
+        }
+
+        private void 重置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogResult = Popup.Tips(this, "确定要重置POESESSID吗？", "提示信息", PopUpType.question);
+            if (dialogResult.Equals(DialogResult.No))
+            {
+                return;
+            }
+            //删除POESESSID
+            sbr.Clear();
+            sbr.Append("DELETE  FROM  用户属性 ");
+            var cmdText = sbr.ToString();
+            MainFrom.database.ExecuteNonQuery(cmdText);
+
+            //弹出窗体提示输入Token
+            POESESSID输入 to = new POESESSID输入();
+            // 计算窗体在屏幕上的中央位置
+            to.StartPosition = FormStartPosition.CenterScreen;
+            to.ShowDialog();
+
+        }
+        
+    }
+    public class 用户Token
+    {
+        public string POESESSID { get; set; }
     }
 }

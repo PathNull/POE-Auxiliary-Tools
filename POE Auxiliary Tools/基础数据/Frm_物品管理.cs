@@ -29,10 +29,18 @@ namespace POE_Auxiliary_Tools
         /// <summary>
         /// 获取所有物品类别
         /// </summary>
-        public List<物品类别> GetProductType()
+        public List<物品类别> GetProductType(string name="")
         {
             sbr.Clear();
-            sbr.Append("SELECT * FROM 物品类别 ");
+            if (name == "")
+            {
+                sbr.Append("SELECT * FROM 物品类别  order by 类别名称");
+            }
+            else
+            {
+                sbr.Append($"SELECT * FROM 物品类别 WHERE 类别名称='{name}' order by 类别名称");
+            }
+           
             var cmdText = sbr.ToString();
             DataTable dt = MainFrom.database.ExecuteDataTable(cmdText);
             var list = DataHandler.TableToListModel<物品类别>(dt);
@@ -47,11 +55,11 @@ namespace POE_Auxiliary_Tools
             sbr.Clear();
             if (comboBoxEdit_cx.Text != "<全部>")
             {
-                sbr.Append($"SELECT * FROM 物品  LEFT JOIN 物品类别 ON 物品.物品类别id=物品类别.id where 物品类别id={typeId} order by 类别名称");
+                sbr.Append($"SELECT * FROM 物品  LEFT JOIN 物品类别 ON 物品.物品类别id=物品类别.id where 物品类别id={typeId} order by 物品名称");
             }
             else
             {
-                sbr.Append($"SELECT * FROM 物品  LEFT JOIN 物品类别 ON 物品.物品类别id=物品类别.id order by 类别名称");
+                sbr.Append($"SELECT * FROM 物品  LEFT JOIN 物品类别 ON 物品.物品类别id=物品类别.id order by 物品名称");
             }
             var cmdText = sbr.ToString();
             DataTable dt = MainFrom.database.ExecuteDataTable(cmdText);
@@ -70,31 +78,37 @@ namespace POE_Auxiliary_Tools
             var thlx = comboBoxEdit__thlx.Text;
             if (typeName == "")
             {
-                dialogResult = Popup.Tips("请选择类别！", "提示信息", PopUpType.Info);
+                dialogResult = Popup.Tips(this,"请选择类别！", "提示信息", PopUpType.Info);
                 return;
             }
             if (productName == "")
             {
-                dialogResult = Popup.Tips("请输入物品名称！", "提示信息", PopUpType.Info);
+                dialogResult = Popup.Tips(this, "请输入物品名称！", "提示信息", PopUpType.Info);
                 return;
             }
-            if (zd == "")
+            if ((zd == ""|| Convert.ToInt64(zd)==0) && textEdit_zdsl.Enabled == true)
             {
-                dialogResult = Popup.Tips("请输入最低数量！", "提示信息", PopUpType.Info);
+                dialogResult = Popup.Tips(this, "请输入最低数量！", "提示信息", PopUpType.Info);
                 return;
             }
-            if (sx == "")
+            if ((sx == "" || Convert.ToInt64(sx) == 0) && textEdit_ddsx.Enabled == true)
             {
-                dialogResult = Popup.Tips("请输入堆叠上限！", "提示信息", PopUpType.Info);
+                dialogResult = Popup.Tips(this, "请输入堆叠上限！", "提示信息", PopUpType.Info);
                 return;
             }
             if (thlx == "")
             {
-                dialogResult = Popup.Tips("请选择通货类型！", "提示信息", PopUpType.Info);
+                dialogResult = Popup.Tips(this, "请选择通货类型！", "提示信息", PopUpType.Info);
                 return;
             }
             var typeId = ((ListItem)comboBoxEdit_lb.SelectedItem).Value;
             var btnText = simpleButton_save.Text;
+            //处理最低数量和堆叠上限值
+            if(textEdit_zdsl.Enabled == false)
+            {
+                zd = "0";
+                sx = "0";
+            }
             if (btnText == "添加")
             {
                 var d = new Dictionary<string, string>();
@@ -106,11 +120,12 @@ namespace POE_Auxiliary_Tools
                     sbr.Append($"('{productName}','{sm}','{typeId}',0,'是',{zd},{sx},'{thlx}')");
                     var cmdText = sbr.ToString();
                     MainFrom.database.ExecuteNonQuery(cmdText);
-                    Reset();
+                    //Reset();
+                    textEdit_wpmc.Text = "";
                 }
                 else
                 {
-                    dialogResult = Popup.Tips("类别名称已存在！", "提示信息", PopUpType.Info);
+                    dialogResult = Popup.Tips(this, "类别名称已存在！", "提示信息", PopUpType.Info);
                     return;
 
                 }
@@ -142,7 +157,7 @@ namespace POE_Auxiliary_Tools
                     }
                     else
                     {
-                        dialogResult = Popup.Tips("类别名称已存在！", "提示信息", PopUpType.Info);
+                        dialogResult = Popup.Tips(this, "类别名称已存在！", "提示信息", PopUpType.Info);
                         Reset();
                         return;
 
@@ -199,7 +214,7 @@ namespace POE_Auxiliary_Tools
 
         private void gridView_wp_DoubleClick(object sender, EventArgs e)
         {
-            dialogResult = Popup.Tips("确定要删除物品吗？", "提示信息", PopUpType.question);
+            dialogResult = Popup.Tips(this, "确定要删除物品吗？", "提示信息", PopUpType.question);
             if (dialogResult.Equals(DialogResult.No))
             {
                 return;
@@ -207,7 +222,7 @@ namespace POE_Auxiliary_Tools
             物品 model = GetSelectModel();
             sbr.Clear();
             sbr.Append("DELETE FROM 物品 ");
-            sbr.Append($"WHERE 物品名称={model.物品名称};");
+            sbr.Append($"WHERE 物品名称='{model.物品名称}';");
             var cmdText = sbr.ToString();
             MainFrom.database.ExecuteNonQuery(cmdText);
             Reset();
@@ -229,6 +244,25 @@ namespace POE_Auxiliary_Tools
             textEdit_ddsx.Text = model.堆叠上限.ToString();
             comboBoxEdit__thlx.Text = model.通货类型;
             simpleButton_save.Text = "修改";
+        }
+        //物品类别变化
+        private void comboBoxEdit_lb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //判断是否能够堆叠，不能堆叠的禁用最低数量和堆叠上限
+            var type = comboBoxEdit_lb.Text;
+            var list = GetProductType(type);
+            if (list[0].允许堆叠 == "否")
+            {
+                textEdit_zdsl.Text = "";
+                textEdit_ddsx.Text = "";
+                textEdit_zdsl.Enabled = false;
+                textEdit_ddsx.Enabled = false;
+            }
+            else
+            {
+                textEdit_zdsl.Enabled = true;
+                textEdit_ddsx.Enabled = true;
+            }
         }
     }
 }

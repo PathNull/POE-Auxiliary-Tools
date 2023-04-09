@@ -19,19 +19,19 @@ namespace Core
         /// <param name="title">标题</param>
         /// <param name="popUpType">弹窗类型</param>
         /// <returns></returns>
-        public static DialogResult Tips(string errorInfo, string title = "信息提示", PopUpType popUpType = PopUpType.Info)
+        public static DialogResult Tips(Form form,string errorInfo, string title = "信息提示", PopUpType popUpType = PopUpType.Info)
         {
             DialogResult dialogResult = default;
             switch (popUpType)
             {
                 case PopUpType.Error:
-                    dialogResult = MessageBox.Show(errorInfo, title, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    dialogResult = MessageBox.Show(form, errorInfo, title, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                     break;
                 case PopUpType.Info:
-                    dialogResult = MessageBox.Show(errorInfo, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dialogResult = MessageBox.Show(form, errorInfo, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case PopUpType.question:
-                    dialogResult = MessageBox.Show(errorInfo, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    dialogResult = MessageBox.Show(form, errorInfo, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     break;
                 default:
                     break;

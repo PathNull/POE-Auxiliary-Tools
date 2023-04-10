@@ -55,11 +55,11 @@ namespace POE_Auxiliary_Tools
             sbr.Clear();
             if (comboBoxEdit_cx.Text != "<全部>")
             {
-                sbr.Append($"SELECT * FROM 物品  LEFT JOIN 物品类别 ON 物品.物品类别id=物品类别.id where 物品类别id={typeId} order by 物品名称");
+                sbr.Append($"SELECT * FROM 物品  LEFT JOIN 物品类别 ON 物品.物品类别id=物品类别.id where 物品类别id={typeId} order by 类别名称,物品名称");
             }
             else
             {
-                sbr.Append($"SELECT * FROM 物品  LEFT JOIN 物品类别 ON 物品.物品类别id=物品类别.id order by 物品名称");
+                sbr.Append($"SELECT * FROM 物品  LEFT JOIN 物品类别 ON 物品.物品类别id=物品类别.id order by 类别名称,物品名称");
             }
             var cmdText = sbr.ToString();
             DataTable dt = MainFrom.database.ExecuteDataTable(cmdText);

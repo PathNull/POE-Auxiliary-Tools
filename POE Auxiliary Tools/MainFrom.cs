@@ -72,6 +72,13 @@ namespace POE_Auxiliary_Tools
 
         private void MainFrom_Load(object sender, EventArgs e)
         {
+            //获取POESESSID
+            sbr.Clear();
+            sbr.Append("SELECT POESESSID FROM 用户属性 ");
+            DataTable _dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
+            MainFrom.tokenList = DataHandler.TableToListModel<用户Token>(_dt);
+
+
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
                 (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);

@@ -7,6 +7,8 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Columns;
 using System.Data;
 using DevExpress.XtraGrid;
+using System.Web.UI.WebControls;
+using GridView = DevExpress.XtraGrid.Views.Grid.GridView;
 
 namespace Core.DevControlHandler
 {
@@ -67,7 +69,7 @@ namespace Core.DevControlHandler
                                         combo.SelectedIndex = -1;
                                     break;
                                 case "checkBox":
-                                    var checkBox = (item as CheckBox);
+                                    var checkBox = (item as System.Windows.Forms.CheckBox);
                                     checkBox.Checked = Convert.ToBoolean(em.Tag);
                                     break;
                                 case "dateTimePicker":
@@ -238,6 +240,21 @@ namespace Core.DevControlHandler
             }
            
             return result;
+        }
+
+        public static T GetSelectModel<T>(GridView gridView) where T : new()
+        {
+            var row = gridView.GetSelectedRows();
+            if (row.Length > 0)
+            {
+                var obj = gridView.GetRow(row[0]);
+                T model = ObjectHandler.ConvertObject<T>(obj);
+                return model;
+            }
+            else
+            {
+                return default(T);
+            }
         }
     }
 }

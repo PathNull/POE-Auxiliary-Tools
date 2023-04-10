@@ -28,33 +28,46 @@ namespace Core.Web
             request.AutomaticDecompression = DecompressionMethods.GZip;
 
 
-            System.Net.HttpWebResponse response;
+            System.Net.HttpWebResponse response = null;
+            Stream myResponseStream = null;
+            StreamReader myStreamReader = null;
             try
             {
                 response =  (HttpWebResponse)request.GetResponse();
+                myResponseStream = response.GetResponseStream();
+                myStreamReader = new StreamReader(myResponseStream, Encoding.UTF8);
+                string retString = myStreamReader.ReadToEnd();
+
+               
+                return retString;
             }
             catch (WebException ex)
             {
                 return ex.Message;
             }
-
-            Stream myResponseStream = response.GetResponseStream();
-            StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.UTF8);
-            string retString = myStreamReader.ReadToEnd();
-
-            myStreamReader.Close();
-            myResponseStream.Close();
-
-            if (response != null)
+            finally
             {
-                response.Close();
-            }
-            if (request != null)
-            {
-                request.Abort();
+                if (myStreamReader != null)
+                {
+                    myStreamReader.Close();
+                }
+                if (myResponseStream != null)
+                {
+                    myResponseStream.Close();
+                }
+                if (response != null)
+                {
+                    response.Close();
+                }
+                if (request != null)
+                {
+                    request.Abort();
+                }
             }
 
-            return retString;
+          
+
+          
         }
 
         /// <summary> WebService：Post调用
@@ -79,7 +92,7 @@ namespace Core.Web
             }
             else
             {
-                 json = "{\"query\":{\"status\":{\"option\":\"any\"},\"type\":\"" + paramsOfUrl["name"] + "\",\"stats\":[{\"type\":\"and\",\"filters\":[],\"disabled\":false}],\"filters\":{\"trade_filters\":{\"filters\":{\"price\":{\"option\":\"" + priceType + "\"}}}}},\"sort\":{\"price\":\"asc\"}}";
+                 json = "{\"query\":{\"status\":{\"option\":\"any\"},\"type\":\"" + paramsOfUrl["name"] + "\",\"stats\":[{\"type\":\"and\",\"filters\":[]}],\"filters\":{\"trade_filters\":{\"filters\":{\"price\":{\"option\":\"" + priceType + "\"}}}}},\"sort\":{\"price\":\"asc\"}}";
             }
             
             
@@ -101,19 +114,25 @@ namespace Core.Web
 
             // 获得回复 
             System.Net.HttpWebResponse response;
+            StreamReader reader = null;
             try
             {
                 response = (System.Net.HttpWebResponse)request.GetResponse();
+                reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
+                string result = reader.ReadToEnd();
+                return result;
             }
             catch (WebException ex)
             {
                 return ex.Message;
             }
-
-            StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
-            string result = reader.ReadToEnd();
-            reader.Close();
-            return result;
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
         }
 
         /// <summary> 拼接参数串----Get

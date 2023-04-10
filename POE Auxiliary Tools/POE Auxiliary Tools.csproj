@@ -116,6 +116,7 @@
     <Compile Include="MainFrom.Designer.cs">
       <DependentUpon>MainFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="MarketQueryHandle.cs" />
     <Compile Include="Model\DataModel.cs" />
     <Compile Include="Model\集市查询.cs" />
     <Compile Include="POESESSID输入.cs">

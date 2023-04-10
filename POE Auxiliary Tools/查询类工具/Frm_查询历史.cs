@@ -1,8 +1,14 @@
 ﻿using Core;
 using Core.Common;
 using Core.DevControlHandler;
+using DevExpress.Utils.CommonDialogs.Internal;
+using DevExpress.XtraCharts;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Base.ViewInfo;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using POE_Auxiliary_Tools.Model;
 using POE_Auxiliary_Tools.查询类工具;
 using System;
 using System.Collections.Generic;
@@ -11,17 +17,21 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Core.Popup;
+using DialogResult = System.Windows.Forms.DialogResult;
 
 namespace POE_Auxiliary_Tools
 {
     public partial class Frm_查询历史 : BaseForm
     {
+        DialogResult dialogResult;
         StringBuilder sbr = new StringBuilder();
         List<查询记录> records = new List<查询记录>();
         double bl;
-
+        List<集市物品> resultList = new List<集市物品>();
         public Frm_查询历史()
         {
             InitializeComponent();
@@ -39,9 +49,6 @@ namespace POE_Auxiliary_Tools
         private void Frm_查询历史_Load(object sender, EventArgs e)
         {
             //获取数据更新时间
-
-
-
 
             DevComboBoxEditHandler.BindData(history_type, GetProductType(), null, false, "类别名称", "id");
             
@@ -89,7 +96,7 @@ namespace POE_Auxiliary_Tools
                 }
             }
             list = list.OrderByDescending(x => x.排序价格).ToList();
-            gridControl2.DataSource = list;
+
             records = list;
         }
         //数量变更
@@ -252,8 +259,21 @@ namespace POE_Auxiliary_Tools
                 }
             }
         }
-        //控制波动标记幅度
+        //波动标记幅度变更
         private void comboBoxEdit_bdfd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ReData(GetTJ());
+            if (comboBoxEdit_wplx.Text == "<全部>")
+            {
+                gridControl2.DataSource = records;
+            }
+            else
+            {
+                var data = records.Where(x => x.物品类型 == comboBoxEdit_wplx.Text);
+                gridControl2.DataSource = data;
+            }
+        }
+        private double GetTJ()
         {
             var text = comboBoxEdit_bdfd.Text;
             double tj = 0;
@@ -289,8 +309,103 @@ namespace POE_Auxiliary_Tools
                 default:
                     break;
             }
-            ReData(tj);
+            return tj;
         }
+        //右键查询该物品价格
+        private void ProductQuery_Click(object sender, EventArgs e)
+        {
+          
+            var rows = gridView2.GetSelectedRows();
+            int rowId = 0;
+            if (rows.Length > 0)
+            {
+                rowId = rows[0];
+                var model = DevGridControlHandler.GetSelectModel<查询记录>(gridView2);
+                Thread thread = new Thread(() =>
+                {
+                    StartQuery(model);
+                    if (gridControl2.InvokeRequired)
+                    {
+                        // 选中具有指定值的行
+                       
+                        Action SetSource = delegate { gridView2.FocusedRowHandle = gridView2.LocateByValue("物品名称", model.物品名称); };
+                        gridControl2.Invoke(SetSource);
+                    }
+                    else
+                    {
+                        gridView2.FocusedRowHandle = gridView2.LocateByValue("物品名称", model.物品名称);
+                    }
+                        
+                });
+                thread.Start();
+            }
+        }
+        // 在UI线程上显示消息框
+        void ShowMessageBox(string message)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new Action(() => MessageBox.Show(this, "请求超时！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information)));
+            }
+            else
+            {
+                MessageBox.Show(this, "请求超时！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        public void StartQuery(查询记录 recordModel)
+        {
+            //需要查询的物品
+            var keyResult = MarketQueryHandle.GetKeyList(recordModel.物品名称, recordModel.通货类型 == "混沌石" ? "chaos" : "divine");
+            if (keyResult["错误的请求"] != null)
+            {
+          
+                ShowMessageBox("请求超时");
 
+            }
+            //获取物品
+            sbr.Clear();
+            sbr.Append($@"SELECT * FROM 物品 LEFT JOIN 物品类别 
+                    ON 物品.物品类别id= 物品类别.id WHERE 物品名称='{recordModel.物品名称}'");
+            DataTable _dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
+            var list  = DataHandler.TableToListModel<物品>(_dt);
+            resultList = new List<集市物品>();
+            var model = MarketQueryHandle.GetPrice(resultList,keyResult, recordModel.物品名称, list[0].类别名称, list[0].允许堆叠, list[0].通货类型, (int)list[0].最低数量, 0);
+            //请求错误
+            if (model == null)
+            {
+                ShowMessageBox("请求超时");
+            
+            }
+
+            ReData(GetTJ());
+
+            if (comboBoxEdit_wplx.Text == "<全部>")
+            {
+                if (gridControl2.InvokeRequired)
+                {
+                    Action SetSource = delegate { gridControl2.DataSource = records; };
+                    gridControl2.Invoke(SetSource);
+                }
+                else
+                {
+                    gridControl2.DataSource = records;
+                }
+              
+            }
+            else
+            {
+                var data = records.Where(x => x.物品类型 == comboBoxEdit_wplx.Text);
+                if (gridControl2.InvokeRequired)
+                {
+                    Action SetSource = delegate { gridControl2.DataSource = data; };
+                    gridControl2.Invoke(SetSource);
+                }
+                else
+                {
+                    gridControl2.DataSource = data;
+                }
+            }
+           
+        }
     }
 }

@@ -76,7 +76,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(800, 450);
+            this.layoutControl1.Size = new System.Drawing.Size(1094, 660);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -85,7 +85,7 @@
             this.gridControl_lb.Location = new System.Drawing.Point(12, 83);
             this.gridControl_lb.MainView = this.gridView_lb;
             this.gridControl_lb.Name = "gridControl_lb";
-            this.gridControl_lb.Size = new System.Drawing.Size(776, 355);
+            this.gridControl_lb.Size = new System.Drawing.Size(1070, 565);
             this.gridControl_lb.TabIndex = 4;
             this.gridControl_lb.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_lb});
@@ -133,15 +133,15 @@
             // 
             this.textEdit_name.Location = new System.Drawing.Point(84, 45);
             this.textEdit_name.Name = "textEdit_name";
-            this.textEdit_name.Size = new System.Drawing.Size(107, 20);
+            this.textEdit_name.Size = new System.Drawing.Size(173, 20);
             this.textEdit_name.StyleController = this.layoutControl1;
             this.textEdit_name.TabIndex = 5;
             // 
             // simpleButton_save
             // 
-            this.simpleButton_save.Location = new System.Drawing.Point(675, 45);
+            this.simpleButton_save.Location = new System.Drawing.Point(928, 45);
             this.simpleButton_save.Name = "simpleButton_save";
-            this.simpleButton_save.Size = new System.Drawing.Size(101, 22);
+            this.simpleButton_save.Size = new System.Drawing.Size(142, 22);
             this.simpleButton_save.StyleController = this.layoutControl1;
             this.simpleButton_save.TabIndex = 6;
             this.simpleButton_save.Text = "添加";
@@ -149,15 +149,15 @@
             // 
             // textEdit_sm
             // 
-            this.textEdit_sm.Location = new System.Drawing.Point(417, 45);
+            this.textEdit_sm.Location = new System.Drawing.Point(556, 45);
             this.textEdit_sm.Name = "textEdit_sm";
-            this.textEdit_sm.Size = new System.Drawing.Size(254, 20);
+            this.textEdit_sm.Size = new System.Drawing.Size(368, 20);
             this.textEdit_sm.StyleController = this.layoutControl1;
             this.textEdit_sm.TabIndex = 7;
             // 
             // comboBoxEdit_yxdd
             // 
-            this.comboBoxEdit_yxdd.Location = new System.Drawing.Point(269, 45);
+            this.comboBoxEdit_yxdd.Location = new System.Drawing.Point(340, 45);
             this.comboBoxEdit_yxdd.Name = "comboBoxEdit_yxdd";
             this.comboBoxEdit_yxdd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -165,7 +165,7 @@
             "是",
             "否"});
             this.comboBoxEdit_yxdd.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit_yxdd.Size = new System.Drawing.Size(97, 20);
+            this.comboBoxEdit_yxdd.Size = new System.Drawing.Size(160, 20);
             this.comboBoxEdit_yxdd.StyleController = this.layoutControl1;
             this.comboBoxEdit_yxdd.TabIndex = 8;
             // 
@@ -177,7 +177,7 @@
             this.layoutControlItem1,
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(800, 450);
+            this.Root.Size = new System.Drawing.Size(1094, 660);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -185,7 +185,7 @@
             this.layoutControlItem1.Control = this.gridControl_lb;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 71);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(780, 359);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1074, 569);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -200,7 +200,7 @@
             this.emptySpaceItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(780, 71);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1074, 71);
             this.layoutControlGroup1.Text = "新增物品类别";
             // 
             // layoutControlItem2
@@ -208,25 +208,25 @@
             this.layoutControlItem2.Control = this.textEdit_name;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(171, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(237, 26);
             this.layoutControlItem2.Text = "类别名称";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.simpleButton_save;
-            this.layoutControlItem3.Location = new System.Drawing.Point(651, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(904, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(105, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(146, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.textEdit_sm;
-            this.layoutControlItem4.Location = new System.Drawing.Point(358, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(497, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(293, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(407, 26);
             this.layoutControlItem4.Text = "说明";
             this.layoutControlItem4.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(30, 20);
@@ -235,33 +235,33 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(171, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(237, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(14, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(19, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.comboBoxEdit_yxdd;
-            this.layoutControlItem5.Location = new System.Drawing.Point(185, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(256, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(161, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(224, 26);
             this.layoutControlItem5.Text = "允许堆叠";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(346, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(480, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(12, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(17, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // Frm_物品类别管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1094, 660);
             this.Controls.Add(this.layoutControl1);
             this.Name = "Frm_物品类别管理";
             this.Text = "物品类别管理";

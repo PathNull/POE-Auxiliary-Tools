@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,6 +37,11 @@ namespace POE_Auxiliary_Tools
             sbr.Append($"('{textEdit_token.Text}')");
             var cmdText = sbr.ToString();
             MainFrom.database.ExecuteNonQuery(cmdText);
+            //获取POESESSID
+            sbr.Clear();
+            sbr.Append("SELECT POESESSID FROM 用户属性 ");
+            DataTable _dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
+            MainFrom.tokenList = DataHandler.TableToListModel<用户Token>(_dt);
             this.Close();
         }
     }

@@ -6,8 +6,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static Core.Popup;
 
 namespace POE_Auxiliary_Tools
@@ -18,22 +21,86 @@ namespace POE_Auxiliary_Tools
         StringBuilder sbr = new StringBuilder();
         public static SQLiteHandler database;
         public static List<用户Token> tokenList = new List<用户Token>();
+        //所有要运行的子窗体
+        //private Frm_物品管理 frm_物品管理;
+        //private Frm_物品类别管理 frm_物品类别管理;
+        //private Frm_查询历史 frm_查询历史;
+        //private Frm_集市价格查询 frm_集市价格查询;
+        List<Form> formList = new List<Form>();
         public MainFrom()
         {
             InitializeComponent();
-            database = new SQLiteHandler(Path.GetFullPath(@"../../database.db"));
-            //database = new SQLiteHandler(Application.StartupPath + "\\database.db");
+#if DEBUG
+            database = new SQLiteHandler(Path.GetFullPath(@"../../Database/database.db"));
+#else
+            database = new SQLiteHandler(Application.StartupPath + "\\Database\\database.db");
+#endif
             SQLiteHandler.DataBaceList.Add("database", database);
 
-
+            OpenAll();//打开所有窗体 
         }
 
+        public static string[] GetFormNames()
+        {
+            // 获取当前程序集
+            Assembly assembly = Assembly.GetExecutingAssembly();
+
+            // 获取所有窗体类型
+            Type[] formTypes = assembly.GetTypes().Where(t => t.IsSubclassOf(typeof(System.Windows.Forms.Form))).ToArray();
+
+            // 获取窗体类名
+            string[] formNames = formTypes.Where(x=>x.Name.StartsWith("Frm_")).Select(t => t.Name).ToArray();
+
+            return formNames;
+        }
+        private void ShowForm(string name)
+        {
+           
+            foreach (var item in formList)
+            {
+                if (item.Name== "Frm_"+name)
+                {
+                    item.Visible = true;
+                }
+                else
+                {
+                    item.Visible = false;
+                }
+            }
+        }
+
+        public void OpenAll()
+        {
+            var lsit = GetFormNames();
+            foreach (var item in lsit)
+            {
+                if (item != "Frm_价格走势")
+                {
+                    var path = "POE_Auxiliary_Tools." + item;
+                    Form form = (Form)Activator.CreateInstance(Type.GetType(path));
+                    //清除panel里面的其他窗体
+                    //this.panelControl1.Controls.Clear();
+                    //将该子窗体设置成非顶级控件
+                    form.TopLevel = false;
+                    //将该子窗体的边框去掉
+                    form.FormBorderStyle = FormBorderStyle.None;
+                    //设置子窗体随容器大小自动调整
+                    form.Dock = DockStyle.Fill;
+                    //设置mdi父容器为当前窗口
+                    form.Parent = this.panelControl1;
+                    form.Visible = false;
+                    //子窗体显示
+                    form.Show();
+                    formList.Add(form);
+                }
+            }
+        }
         public void Open(string name)
         {
             var path = "POE_Auxiliary_Tools.Frm_" + name;
             Form form = (Form)Activator.CreateInstance(Type.GetType(path));
             //清除panel里面的其他窗体
-            this.panelControl1.Controls.Clear();
+            //this.panelControl1.Controls.Clear();
             //将该子窗体设置成非顶级控件
             form.TopLevel = false;
             //将该子窗体的边框去掉
@@ -42,6 +109,7 @@ namespace POE_Auxiliary_Tools
             form.Dock = DockStyle.Fill;
             //设置mdi父容器为当前窗口
             form.Parent = this.panelControl1;
+            form.Visible = false;
             //子窗体显示
             form.Show();
 
@@ -50,25 +118,26 @@ namespace POE_Auxiliary_Tools
 
         private void 集市价格查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Open("集市价格查询");
+            ShowForm("集市价格查询");
         }
 
-  
+
 
         private void 物品类别管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Open("物品类别管理");
+            ShowForm("物品类别管理");
         }
 
         private void 物品管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Open("物品管理");
+            ShowForm("物品管理");
         }
 
         private void 查询历史ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Open("查询历史");
+            ShowForm("查询历史");
         }
+
 
         private void MainFrom_Load(object sender, EventArgs e)
         {
@@ -82,7 +151,7 @@ namespace POE_Auxiliary_Tools
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
                 (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
-            Open("查询历史");
+            ShowForm("查询历史");
 
         }
 
@@ -98,7 +167,7 @@ namespace POE_Auxiliary_Tools
             sbr.Append("DELETE  FROM  用户属性 ");
             var cmdText = sbr.ToString();
             MainFrom.database.ExecuteNonQuery(cmdText);
-
+            MainFrom.tokenList =new List<用户Token>();
             //弹出窗体提示输入Token
             POESESSID输入 to = new POESESSID输入();
             // 计算窗体在屏幕上的中央位置

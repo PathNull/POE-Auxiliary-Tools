@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -51,9 +52,9 @@ namespace POE_Auxiliary_Tools
             //获取数据更新时间
 
             DevComboBoxEditHandler.BindData(history_type, GetProductType(), null, false, "类别名称", "id");
-            
+
             textEdit_sl.TextChanged += TextEdit_sl_TextChanged;
-         
+
             var data = DateTime.Now;
             this.start.EditValue = data.ToString("yyyy-MM-dd");
             this.end.EditValue = data.ToString("yyyy-MM-dd");
@@ -102,7 +103,7 @@ namespace POE_Auxiliary_Tools
         //数量变更
         private void TextEdit_sl_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
         private List<查询记录> GetData(double tj)
         {
@@ -149,8 +150,8 @@ namespace POE_Auxiliary_Tools
         //查询
         private void query_Click(object sender, EventArgs e)
         {
-            var start =Convert.ToDateTime(this.start.EditValue).ToString("yyyy-MM-dd")+" 00:00";
-            var end = Convert.ToDateTime(this.end.EditValue).ToString("yyyy-MM-dd")+ " 23:59";
+            var start = Convert.ToDateTime(this.start.EditValue).ToString("yyyy-MM-dd") + " 00:00";
+            var end = Convert.ToDateTime(this.end.EditValue).ToString("yyyy-MM-dd") + " 23:59";
             var name = product.Text;
             sbr.Clear();
             sbr.Append($@"SELECT  * FROM  查询记录 where 物品名称='{name}' 
@@ -163,26 +164,27 @@ namespace POE_Auxiliary_Tools
         //类别改变
         private void comboBoxEdit_wplx_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ReData(GetTJ());
             if (comboBoxEdit_wplx.Text == "<全部>")
             {
                 gridControl2.DataSource = records;
             }
             else
             {
-                var data = records.Where(x => x.物品类型 == comboBoxEdit_wplx.Text);
+                var data = records.Where(x => x.物品类型 == comboBoxEdit_wplx.Text).OrderByDescending(x => x.排序价格); ;
                 gridControl2.DataSource = data;
             }
-           
+
         }
         //选中价格排行记录
         private void gridView2_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
 
             var row = gridView2.GetFocusedRow();
-            var model = ObjectHandler.ConvertObject<查询记录>(row);;
+            var model = ObjectHandler.ConvertObject<查询记录>(row); ;
             var list = new List<查询记录>();
             double num;
-            if (textEdit_sl.Text == "" || textEdit_sl.Text=="0")
+            if (textEdit_sl.Text == "" || textEdit_sl.Text == "0")
             {
                 num = Convert.ToDouble(model.堆叠上限);
                 if (model.堆叠上限 == 0)
@@ -251,11 +253,23 @@ namespace POE_Auxiliary_Tools
             DevExpress.XtraGrid.Views.Grid.GridView view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
             if (e.RowHandle >= 0)
             {
-                string price = view.GetRowCellDisplayText(e.RowHandle, view.Columns["标记"]);
-                if (price.Contains("上次价格"))
+                double price = Convert.ToDouble(view.GetRowCellDisplayText(e.RowHandle, view.Columns["价格"]));
+                string explain = view.GetRowCellDisplayText(e.RowHandle, view.Columns["标记"]);
+                if (explain.Contains("上次价格"))
                 {
-                    e.Appearance.BackColor = Color.Red;
-                    e.Appearance.ForeColor = Color.White;
+                    var p = explain.Split('：');
+                    var lastPrice = Convert.ToDouble(p[1]);
+                    if (price > lastPrice)
+                    {
+                        e.Appearance.BackColor = Color.LightSeaGreen;
+                        e.Appearance.ForeColor = Color.White;
+                    }
+                    else
+                    {
+                        e.Appearance.BackColor = Color.Red;
+                        e.Appearance.ForeColor = Color.White;
+                    }
+
                 }
             }
         }
@@ -269,7 +283,7 @@ namespace POE_Auxiliary_Tools
             }
             else
             {
-                var data = records.Where(x => x.物品类型 == comboBoxEdit_wplx.Text);
+                var data = records.Where(x => x.物品类型 == comboBoxEdit_wplx.Text).OrderByDescending(x => x.排序价格);
                 gridControl2.DataSource = data;
             }
         }
@@ -314,7 +328,9 @@ namespace POE_Auxiliary_Tools
         //右键查询该物品价格
         private void ProductQuery_Click(object sender, EventArgs e)
         {
-          
+           
+
+
             var rows = gridView2.GetSelectedRows();
             int rowId = 0;
             if (rows.Length > 0)
@@ -327,7 +343,7 @@ namespace POE_Auxiliary_Tools
                     if (gridControl2.InvokeRequired)
                     {
                         // 选中具有指定值的行
-                       
+
                         Action SetSource = delegate { gridView2.FocusedRowHandle = gridView2.LocateByValue("物品名称", model.物品名称); };
                         gridControl2.Invoke(SetSource);
                     }
@@ -335,7 +351,7 @@ namespace POE_Auxiliary_Tools
                     {
                         gridView2.FocusedRowHandle = gridView2.LocateByValue("物品名称", model.物品名称);
                     }
-                        
+
                 });
                 thread.Start();
             }
@@ -358,7 +374,7 @@ namespace POE_Auxiliary_Tools
             var keyResult = MarketQueryHandle.GetKeyList(recordModel.物品名称, recordModel.通货类型 == "混沌石" ? "chaos" : "divine");
             if (keyResult["错误的请求"] != null)
             {
-          
+
                 ShowMessageBox("请求超时");
 
             }
@@ -367,14 +383,14 @@ namespace POE_Auxiliary_Tools
             sbr.Append($@"SELECT * FROM 物品 LEFT JOIN 物品类别 
                     ON 物品.物品类别id= 物品类别.id WHERE 物品名称='{recordModel.物品名称}'");
             DataTable _dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
-            var list  = DataHandler.TableToListModel<物品>(_dt);
+            var list = DataHandler.TableToListModel<物品>(_dt);
             resultList = new List<集市物品>();
-            var model = MarketQueryHandle.GetPrice(resultList,keyResult, recordModel.物品名称, list[0].类别名称, list[0].允许堆叠, list[0].通货类型, (int)list[0].最低数量, 0);
+            var model = MarketQueryHandle.GetPrice(resultList, keyResult, recordModel.物品名称, list[0].类别名称, list[0].允许堆叠, list[0].通货类型, (int)list[0].最低数量, 0);
             //请求错误
             if (model == null)
             {
                 ShowMessageBox("请求超时");
-            
+
             }
 
             ReData(GetTJ());
@@ -390,7 +406,7 @@ namespace POE_Auxiliary_Tools
                 {
                     gridControl2.DataSource = records;
                 }
-              
+
             }
             else
             {
@@ -405,7 +421,53 @@ namespace POE_Auxiliary_Tools
                     gridControl2.DataSource = data;
                 }
             }
+
+        }
+
+        private void gridView2_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            //if (e.Column.FieldName == "价格")
+            //{
+            //    decimal price = Convert.ToDecimal(e.CellValue);
+            //    decimal quantity = Convert.ToDecimal(gridView1.GetRowCellValue(e.RowHandle, "说明").ToString().Split('：')[1]);
+
+            //    Image arrowImage = null;
+            //    if (price > quantity)
+            //    {
+            //        arrowImage = Properties.Resources.arrow_up;
+            //    }
+            //    else if (price < quantity)
+            //    {
+            //        arrowImage = Properties.Resources.arrow_down;
+            //    }
+
+            //    if (arrowImage != null)
+            //    {
+            //        e.DefaultDraw();
+            //        int arrowSize = Math.Min(e.Bounds.Height, e.Bounds.Width);
+            //        Rectangle rect = new Rectangle(e.Bounds.Right - arrowSize, e.Bounds.Top, arrowSize, arrowSize);
+            //        e.Graphics.DrawImage(arrowImage, rect);
+            //        e.Handled = true;
+            //    }
+            //}
+        }
+
+        private void 网站中游览ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+         
            
+            var rows = gridView2.GetSelectedRows();
+            int rowId = 0;
+            if (rows.Length > 0)
+            {
+                rowId = rows[0];
+                var model = DevGridControlHandler.GetSelectModel<查询记录>(gridView2);
+                var keyResult = MarketQueryHandle.GetKeyList(model.物品名称, model.通货类型 == "混沌石" ? "chaos" : "divine");
+                var id = keyResult["id"];
+                string url = $"https://poe.game.qq.com/trade/search/S21%E8%B5%9B%E5%AD%A3/{id}"; //指定的网址
+                Process.Start(url); //打开默认浏览器并访问网址
+
+            }
         }
     }
 }

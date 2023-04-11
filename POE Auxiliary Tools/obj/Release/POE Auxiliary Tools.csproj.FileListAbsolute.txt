@@ -1,0 +1,154 @@
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\x64\SQLite.Interop.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\x86\SQLite.Interop.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\Database\database.db
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\POE Auxiliary Tools.exe.config
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\POE Auxiliary Tools.exe.manifest
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\POE Auxiliary Tools.application
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\POE Auxiliary Tools.exe
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\POE Auxiliary Tools.pdb
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\Core.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Charts.v22.1.Core.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Data.Desktop.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Data.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Drawing.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Printing.v22.1.Core.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Sparkline.v22.1.Core.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Utils.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Utils.v22.1.UI.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraBars.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraCharts.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraCharts.v22.1.UI.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraCharts.v22.1.Wizard.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraEditors.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraGrid.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraLayout.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraNavBar.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraPrinting.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\Newtonsoft.Json.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\log4net.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\System.Data.SQLite.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Pdf.v22.1.Core.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Pdf.v22.1.Drawing.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraTreeList.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraRichEdit.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraVerticalGrid.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.DataAccess.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.DataVisualization.v22.1.Core.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.RichEdit.v22.1.Core.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Office.v22.1.Core.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Images.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Xpo.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.CodeParser.v22.1.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\Core.pdb
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\Core.dll.config
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Charts.v22.1.Core.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Data.Desktop.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Data.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Printing.v22.1.Core.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Sparkline.v22.1.Core.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Utils.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Utils.v22.1.UI.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraBars.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraCharts.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraCharts.v22.1.UI.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraCharts.v22.1.Wizard.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraEditors.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraGrid.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraLayout.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraNavBar.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraPrinting.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\Newtonsoft.Json.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\log4net.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\System.Data.SQLite.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Pdf.v22.1.Core.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Pdf.v22.1.Drawing.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraTreeList.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraRichEdit.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.XtraVerticalGrid.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.DataAccess.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.RichEdit.v22.1.Core.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Office.v22.1.Core.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\DevExpress.Xpo.v22.1.xml
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.Data.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.Data.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.Data.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.Printing.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.Printing.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.Printing.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.Sparkline.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.Sparkline.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.Sparkline.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.Utils.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.Utils.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.Utils.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.Utils.v22.1.UI.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.Utils.v22.1.UI.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.Utils.v22.1.UI.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.XtraBars.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.XtraBars.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.XtraBars.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.XtraCharts.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.XtraCharts.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.XtraCharts.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.XtraCharts.v22.1.Wizard.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.XtraCharts.v22.1.Wizard.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.XtraCharts.v22.1.Wizard.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.XtraEditors.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.XtraEditors.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.XtraEditors.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.XtraGrid.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.XtraGrid.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.XtraGrid.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.XtraLayout.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.XtraLayout.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.XtraLayout.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.XtraNavBar.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.XtraNavBar.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.XtraNavBar.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.XtraPrinting.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.XtraPrinting.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.XtraPrinting.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.Pdf.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.Pdf.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.Pdf.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.XtraTreeList.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.XtraTreeList.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.XtraTreeList.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.XtraRichEdit.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.XtraRichEdit.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.XtraRichEdit.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.XtraVerticalGrid.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.XtraVerticalGrid.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.XtraVerticalGrid.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.DataAccess.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.DataAccess.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.DataAccess.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.RichEdit.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.RichEdit.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.RichEdit.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.Office.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.Office.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.Office.v22.1.Core.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\de\DevExpress.Xpo.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\es\DevExpress.Xpo.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Release\ja\DevExpress.Xpo.v22.1.resources.dll
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE Auxiliary Tools.csproj.AssemblyReference.cache
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE Auxiliary Tools.csproj.SuggestedBindingRedirects.cache
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE_Auxiliary_Tools.BaseForm.resources
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE_Auxiliary_Tools.MainFrom.resources
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE_Auxiliary_Tools.POESESSID输入.resources
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE_Auxiliary_Tools.Properties.Resources.resources
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE_Auxiliary_Tools.Temp.resources
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE_Auxiliary_Tools.Frm_物品管理.resources
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE_Auxiliary_Tools.Frm_物品类别管理.resources
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE_Auxiliary_Tools.查询类工具.Frm_价格走势.resources
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE_Auxiliary_Tools.Frm_查询历史.resources
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE_Auxiliary_Tools.Frm_集市价格查询.resources
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE Auxiliary Tools.csproj.GenerateResource.cache
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE Auxiliary Tools.exe.licenses
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE Auxiliary Tools.csproj.CoreCompileInputs.cache
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE Auxiliary Tools.exe.manifest
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE Auxiliary Tools.application
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE Auxiliary Tools.csproj.CopyComplete
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE Auxiliary Tools.exe
+F:\Project\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Release\POE Auxiliary Tools.pdb

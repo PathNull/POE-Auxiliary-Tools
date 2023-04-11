@@ -207,6 +207,9 @@
     <None Include="AHK Script\自动洗地图.ahk" />
     <None Include="AHK Script\获取颜色.ahk" />
     <None Include="AHK Script\连点.ahk" />
+    <None Include="Database\database.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="POE Auxiliary Tools_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">

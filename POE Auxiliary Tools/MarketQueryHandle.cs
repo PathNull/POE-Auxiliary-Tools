@@ -55,7 +55,7 @@ namespace POE_Auxiliary_Tools
 
             return jsonObject;
         }
-
+ 
         /// <summary>
         /// 
         /// </summary>

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.checkEdit_qfx = new DevExpress.XtraEditors.CheckEdit();
+            this.simpleButton_zz = new DevExpress.XtraEditors.SimpleButton();
             this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
             this.label1 = new System.Windows.Forms.Label();
             this.gridControl_cxlb = new DevExpress.XtraGrid.GridControl();
@@ -55,10 +57,13 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_qfx.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_cxlb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_cxlb)).BeginInit();
@@ -75,12 +80,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.checkEdit_qfx);
+            this.layoutControl1.Controls.Add(this.simpleButton_zz);
             this.layoutControl1.Controls.Add(this.progressBarControl1);
             this.layoutControl1.Controls.Add(this.label1);
             this.layoutControl1.Controls.Add(this.gridControl_cxlb);
@@ -97,27 +106,49 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // checkEdit_qfx
+            // 
+            this.checkEdit_qfx.EditValue = true;
+            this.checkEdit_qfx.Location = new System.Drawing.Point(5, 26);
+            this.checkEdit_qfx.Name = "checkEdit_qfx";
+            this.checkEdit_qfx.Properties.Caption = "全选/反选";
+            this.checkEdit_qfx.Size = new System.Drawing.Size(133, 20);
+            this.checkEdit_qfx.StyleController = this.layoutControl1;
+            this.checkEdit_qfx.TabIndex = 18;
+            this.checkEdit_qfx.CheckedChanged += new System.EventHandler(this.checkEdit_qfx_CheckedChanged);
+            // 
+            // simpleButton_zz
+            // 
+            this.simpleButton_zz.Enabled = false;
+            this.simpleButton_zz.Location = new System.Drawing.Point(334, 26);
+            this.simpleButton_zz.Name = "simpleButton_zz";
+            this.simpleButton_zz.Size = new System.Drawing.Size(85, 22);
+            this.simpleButton_zz.StyleController = this.layoutControl1;
+            this.simpleButton_zz.TabIndex = 17;
+            this.simpleButton_zz.Text = "终止查询";
+            this.simpleButton_zz.Click += new System.EventHandler(this.simpleButton_zz_Click);
+            // 
             // progressBarControl1
             // 
-            this.progressBarControl1.Location = new System.Drawing.Point(126, 52);
+            this.progressBarControl1.Location = new System.Drawing.Point(148, 52);
             this.progressBarControl1.Name = "progressBarControl1";
             this.progressBarControl1.Properties.Appearance.BackColor = System.Drawing.Color.Lime;
-            this.progressBarControl1.Size = new System.Drawing.Size(987, 10);
+            this.progressBarControl1.Size = new System.Drawing.Size(965, 10);
             this.progressBarControl1.StyleController = this.layoutControl1;
             this.progressBarControl1.TabIndex = 16;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(371, 26);
+            this.label1.Location = new System.Drawing.Point(447, 26);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(138, 22);
+            this.label1.Size = new System.Drawing.Size(128, 22);
             this.label1.TabIndex = 14;
             this.label1.Text = "tips";
             // 
             // gridControl_cxlb
             // 
-            this.gridControl_cxlb.Location = new System.Drawing.Point(126, 66);
+            this.gridControl_cxlb.Location = new System.Drawing.Point(148, 66);
             this.gridControl_cxlb.MainView = this.gridView_cxlb;
             this.gridControl_cxlb.Name = "gridControl_cxlb";
             this.gridControl_cxlb.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -135,8 +166,11 @@
             this.gridColumn6});
             this.gridView_cxlb.GridControl = this.gridControl_cxlb;
             this.gridView_cxlb.Name = "gridView_cxlb";
-            this.gridView_cxlb.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
+            this.gridView_cxlb.OptionsBehavior.Editable = false;
             this.gridView_cxlb.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView_cxlb.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.gridView_cxlb.OptionsSelection.EnableAppearanceHideSelection = false;
+            this.gridView_cxlb.OptionsSelection.MultiSelect = true;
             // 
             // gridColumn3
             // 
@@ -170,17 +204,17 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(10, 26);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 55);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(106, 727);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(133, 698);
             this.flowLayoutPanel2.TabIndex = 12;
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(570, 66);
+            this.gridControl1.Location = new System.Drawing.Point(592, 66);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(543, 687);
+            this.gridControl1.Size = new System.Drawing.Size(521, 687);
             this.gridControl1.TabIndex = 9;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -223,7 +257,7 @@
             // 
             // simpleButton_query
             // 
-            this.simpleButton_query.Location = new System.Drawing.Point(126, 26);
+            this.simpleButton_query.Location = new System.Drawing.Point(148, 26);
             this.simpleButton_query.Name = "simpleButton_query";
             this.simpleButton_query.Size = new System.Drawing.Size(182, 22);
             this.simpleButton_query.StyleController = this.layoutControl1;
@@ -263,11 +297,12 @@
             this.layoutControlItem1,
             this.emptySpaceItem2,
             this.layoutControlItem2,
-            this.layoutControlItem7});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(121, 0);
+            this.layoutControlItem7,
+            this.layoutControlItem8});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(143, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(997, 758);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(975, 758);
             this.layoutControlGroup1.Text = "查询物品列表";
             // 
             // layoutControlItem6
@@ -284,16 +319,16 @@
             this.layoutControlItem5.Control = this.gridControl1;
             this.layoutControlItem5.Location = new System.Drawing.Point(444, 40);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(547, 691);
+            this.layoutControlItem5.Size = new System.Drawing.Size(525, 691);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(387, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(431, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(492, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(426, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
@@ -308,24 +343,24 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.label1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(245, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(299, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(142, 26);
+            this.layoutControlItem1.Size = new System.Drawing.Size(132, 26);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(186, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(275, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(59, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(24, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.simpleButton_dcb;
-            this.layoutControlItem2.Location = new System.Drawing.Point(879, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(857, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(112, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -336,30 +371,50 @@
             this.layoutControlItem7.Control = this.progressBarControl1;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(991, 14);
+            this.layoutControlItem7.Size = new System.Drawing.Size(969, 14);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.simpleButton_zz;
+            this.layoutControlItem8.Location = new System.Drawing.Point(186, 0);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(89, 26);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlGroup3
             // 
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.layoutControlItem9});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup3.Size = new System.Drawing.Size(121, 758);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(143, 758);
             this.layoutControlGroup3.Text = "物品类别";
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.flowLayoutPanel2;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(115, 731);
+            this.layoutControlItem3.Size = new System.Drawing.Size(137, 707);
             this.layoutControlItem3.Text = " ";
             this.layoutControlItem3.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 20);
+            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextToControlDistance = 5;
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.checkEdit_qfx;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(137, 24);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
             // 
             // Frm_集市价格查询
             // 
@@ -372,6 +427,7 @@
             this.Load += new System.EventHandler(this.Frm_集市价格查询_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_qfx.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_cxlb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_cxlb)).EndInit();
@@ -388,8 +444,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,5 +483,9 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_zz;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraEditors.CheckEdit checkEdit_qfx;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
     }
 }

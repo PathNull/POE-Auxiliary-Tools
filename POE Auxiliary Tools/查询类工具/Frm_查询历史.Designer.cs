@@ -43,6 +43,7 @@
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ProductQuery = new System.Windows.Forms.ToolStripMenuItem();
+            this.网站中游览ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -147,7 +148,7 @@
             // 
             // comboBoxEdit_bdfd
             // 
-            this.comboBoxEdit_bdfd.Location = new System.Drawing.Point(268, 202);
+            this.comboBoxEdit_bdfd.Location = new System.Drawing.Point(221, 202);
             this.comboBoxEdit_bdfd.Name = "comboBoxEdit_bdfd";
             this.comboBoxEdit_bdfd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -162,7 +163,7 @@
             "波动超80%的标注",
             "波动超90%的标注"});
             this.comboBoxEdit_bdfd.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit_bdfd.Size = new System.Drawing.Size(135, 20);
+            this.comboBoxEdit_bdfd.Size = new System.Drawing.Size(158, 20);
             this.comboBoxEdit_bdfd.StyleController = this.layoutControl1;
             this.comboBoxEdit_bdfd.TabIndex = 16;
             this.comboBoxEdit_bdfd.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit_bdfd_SelectedIndexChanged);
@@ -270,16 +271,24 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ProductQuery});
+            this.ProductQuery,
+            this.网站中游览ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 48);
             // 
             // ProductQuery
             // 
             this.ProductQuery.Name = "ProductQuery";
-            this.ProductQuery.Size = new System.Drawing.Size(180, 22);
+            this.ProductQuery.Size = new System.Drawing.Size(160, 22);
             this.ProductQuery.Text = "查询该物品价格";
             this.ProductQuery.Click += new System.EventHandler(this.ProductQuery_Click);
+            // 
+            // 网站中游览ToolStripMenuItem
+            // 
+            this.网站中游览ToolStripMenuItem.Name = "网站中游览ToolStripMenuItem";
+            this.网站中游览ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.网站中游览ToolStripMenuItem.Text = "网站中游览";
+            this.网站中游览ToolStripMenuItem.Click += new System.EventHandler(this.网站中游览ToolStripMenuItem_Click);
             // 
             // gridView2
             // 
@@ -295,6 +304,7 @@
             this.gridView2.OptionsBehavior.Editable = false;
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView2.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView2_RowClick);
+            this.gridView2.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView2_CustomDrawCell);
             this.gridView2.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView2_RowStyle);
             this.gridView2.DoubleClick += new System.EventHandler(this.gridView2_DoubleClick);
             // 
@@ -305,7 +315,7 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 1;
-            this.gridColumn5.Width = 109;
+            this.gridColumn5.Width = 113;
             // 
             // gridColumn6
             // 
@@ -314,7 +324,7 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 2;
-            this.gridColumn6.Width = 109;
+            this.gridColumn6.Width = 57;
             // 
             // gridColumn7
             // 
@@ -323,7 +333,7 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 3;
-            this.gridColumn7.Width = 76;
+            this.gridColumn7.Width = 91;
             // 
             // gridColumn8
             // 
@@ -332,7 +342,7 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 0;
-            this.gridColumn8.Width = 109;
+            this.gridColumn8.Width = 85;
             // 
             // gridColumn16
             // 
@@ -350,7 +360,7 @@
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
             this.gridColumn17.VisibleIndex = 5;
-            this.gridColumn17.Width = 96;
+            this.gridColumn17.Width = 153;
             // 
             // gridControl1
             // 
@@ -460,7 +470,7 @@
             this.comboBoxEdit_wplx.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEdit_wplx.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit_wplx.Size = new System.Drawing.Size(124, 20);
+            this.comboBoxEdit_wplx.Size = new System.Drawing.Size(77, 20);
             this.comboBoxEdit_wplx.StyleController = this.layoutControl1;
             this.comboBoxEdit_wplx.TabIndex = 10;
             this.comboBoxEdit_wplx.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit_wplx_SelectedIndexChanged);
@@ -616,7 +626,7 @@
             this.layoutControlItem7.Control = this.comboBoxEdit_wplx;
             this.layoutControlItem7.Location = new System.Drawing.Point(10, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(188, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(141, 24);
             this.layoutControlItem7.Text = "物品类型";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -631,17 +641,17 @@
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(397, 0);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(373, 0);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(287, 24);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(311, 24);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.comboBoxEdit_bdfd;
-            this.layoutControlItem10.Location = new System.Drawing.Point(198, 0);
+            this.layoutControlItem10.Location = new System.Drawing.Point(151, 0);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(199, 24);
+            this.layoutControlItem10.Size = new System.Drawing.Size(222, 24);
             this.layoutControlItem10.Text = "波动幅度";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -790,5 +800,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ProductQuery;
+        private System.Windows.Forms.ToolStripMenuItem 网站中游览ToolStripMenuItem;
     }
 }

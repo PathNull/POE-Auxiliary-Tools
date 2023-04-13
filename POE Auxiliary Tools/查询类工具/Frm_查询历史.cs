@@ -36,6 +36,14 @@ namespace POE_Auxiliary_Tools
         public Frm_查询历史()
         {
             InitializeComponent();
+          
+        }
+        public void TriggerLoadEvent()
+        {
+            this.OnLoad(EventArgs.Empty);
+        }
+        private void Frm_查询历史_Load(object sender, EventArgs e)
+        {
             start.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             start.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
             start.Properties.Mask.EditMask = "yyyy-MM-dd";
@@ -45,10 +53,6 @@ namespace POE_Auxiliary_Tools
             end.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
             end.Properties.Mask.EditMask = "yyyy-MM-dd";
             end.Properties.Mask.UseMaskAsDisplayFormat = true;
-        }
-
-        private void Frm_查询历史_Load(object sender, EventArgs e)
-        {
             //获取数据更新时间
 
             DevComboBoxEditHandler.BindData(history_type, GetProductType(), null, false, "类别名称", "id");
@@ -69,7 +73,7 @@ namespace POE_Auxiliary_Tools
         /// <summary>
         /// 刷新数据
         /// </summary>
-        private void ReData(double tj)
+        public void ReData(double tj)
         {
             //价值排行相关
             List<查询记录> list = new List<查询记录>();
@@ -230,22 +234,21 @@ namespace POE_Auxiliary_Tools
             var list = DataHandler.TableToListModel<查询记录>(dt);
             DevComboBoxEditHandler.BindData(product, list, null, false, "物品名称");
         }
-        //双击价值排行记录，显示价格走势
+        //双击查看价格缓存
         private void gridView2_DoubleClick(object sender, EventArgs e)
         {
             GridView view = sender as GridView;
             Point pt = view.GridControl.PointToClient(Control.MousePosition);
             GridHitInfo info = view.CalcHitInfo(pt);
-            //双击行的数据
-            var row = view.GetFocusedRow();
-            var model = ObjectHandler.ConvertObject<查询记录>(row); ;
             if (info.InRow)
             {
-                Frm_价格走势 zs = new Frm_价格走势(model.物品名称);
-                // 计算窗体在屏幕上的中央位置
-                zs.StartPosition = FormStartPosition.CenterScreen;
-                zs.ShowDialog();
+                var model = gridView2.GetFocusedRow() as 查询记录;
+                Fm_价格缓存 form = new Fm_价格缓存(ObjectHandler.GetPropertyValue(model, "物品名称").ToString());
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.ShowDialog();
             }
+
+         
         }
         //价格历史标记出波动大的
         private void gridView2_RowStyle(object sender, RowStyleEventArgs e)
@@ -276,6 +279,10 @@ namespace POE_Auxiliary_Tools
         //波动标记幅度变更
         private void comboBoxEdit_bdfd_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ShowData();
+        }
+        public void ShowData()
+        {
             ReData(GetTJ());
             if (comboBoxEdit_wplx.Text == "<全部>")
             {
@@ -287,7 +294,7 @@ namespace POE_Auxiliary_Tools
                 gridControl2.DataSource = data;
             }
         }
-        private double GetTJ()
+        public double GetTJ()
         {
             var text = comboBoxEdit_bdfd.Text;
             double tj = 0;
@@ -328,8 +335,7 @@ namespace POE_Auxiliary_Tools
         //右键查询该物品价格
         private void ProductQuery_Click(object sender, EventArgs e)
         {
-           
-
+          
 
             var rows = gridView2.GetSelectedRows();
             int rowId = 0;
@@ -337,6 +343,7 @@ namespace POE_Auxiliary_Tools
             {
                 rowId = rows[0];
                 var model = DevGridControlHandler.GetSelectModel<查询记录>(gridView2);
+                MarketQueryHandle.DeleteRecord(model.物品名称);
                 Thread thread = new Thread(() =>
                 {
                     StartQuery(model);
@@ -370,8 +377,15 @@ namespace POE_Auxiliary_Tools
         }
         public void StartQuery(查询记录 recordModel)
         {
+            //获取搜索id
+            sbr.Clear();
+            sbr.Append($@"SELECT   搜索id  FROM  物品   WHERE 物品名称='{recordModel.物品名称}'");
+            var dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
+            var wp = DataHandler.TableToListModel<物品>(dt);
+
+
             //需要查询的物品
-            var keyResult = MarketQueryHandle.GetKeyList(recordModel.物品名称, recordModel.通货类型 == "混沌石" ? "chaos" : "divine");
+            var keyResult = MarketQueryHandle.GetKeyList(recordModel.物品名称, wp[0].搜索id, recordModel.通货类型 == "混沌石" ? "chaos" : "divine");
             if (keyResult["错误的请求"] != null)
             {
 
@@ -387,9 +401,9 @@ namespace POE_Auxiliary_Tools
             resultList = new List<集市物品>();
             var model = MarketQueryHandle.GetPrice(resultList, keyResult, recordModel.物品名称, list[0].类别名称, list[0].允许堆叠, list[0].通货类型, (int)list[0].最低数量, 0);
             //请求错误
-            if (model == null)
+            if (model.err!=null)
             {
-                ShowMessageBox("请求超时");
+                ShowMessageBox(model.err);
 
             }
 
@@ -462,12 +476,35 @@ namespace POE_Auxiliary_Tools
             {
                 rowId = rows[0];
                 var model = DevGridControlHandler.GetSelectModel<查询记录>(gridView2);
-                var keyResult = MarketQueryHandle.GetKeyList(model.物品名称, model.通货类型 == "混沌石" ? "chaos" : "divine");
+                //获取搜索id
+                sbr.Clear();
+                sbr.Append($@"SELECT   搜索id  FROM  物品   WHERE 物品名称='{model.物品名称}'");
+                var dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
+                var wp = DataHandler.TableToListModel<物品>(dt);
+                var keyResult = MarketQueryHandle.GetKeyList(model.物品名称, wp[0].搜索id, model.通货类型 == "混沌石" ? "chaos" : "divine");
+                if (keyResult["错误的请求"] != null)
+                {
+                    dialogResult = Popup.Tips(this, "请求失败！", "提示信息", PopUpType.Info);
+                    return;
+                }
+
                 var id = keyResult["id"];
                 string url = $"https://poe.game.qq.com/trade/search/S21%E8%B5%9B%E5%AD%A3/{id}"; //指定的网址
                 Process.Start(url); //打开默认浏览器并访问网址
 
             }
+        }
+        //价值排行记录，显示价格走势
+        private void 查看价格走势ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            GridView view = sender as GridView;
+            var model = gridView2.GetFocusedRow() as 查询记录;
+            Frm_价格走势 zs = new Frm_价格走势(model.物品名称);
+            // 计算窗体在屏幕上的中央位置
+            zs.StartPosition = FormStartPosition.CenterScreen;
+            zs.ShowDialog();
+
         }
     }
 }

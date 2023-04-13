@@ -15,8 +15,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static Core.Popup;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace POE_Auxiliary_Tools
 {
@@ -34,21 +37,40 @@ namespace POE_Auxiliary_Tools
         public Frm_集市价格查询()
         {
             InitializeComponent();
-            Init();
-
-            //隐藏进度条
-            progressBarControl1.Visible = false;
+           
         }
-
+        public void TriggerLoadEvent()
+        {
+            this.OnLoad(EventArgs.Empty);
+        }
         public void Init()
         {
             var list = GetProductType();
+
+
             foreach (var item in list)
             {
-                var t = new CheckEdit() { Name = "editorName", Text = item.类别名称, AutoSize = true };
+                var t = new CheckEdit() { Name = "editorName", Text = item.类别名称 };
                 t.CheckedChanged += SelectProductType;
-                flowLayoutPanel2.Controls.Add(t);
+                flowLayoutPanel1.Controls.Add(t);
                 t.Show();
+            }
+            // 重新设置所有 CheckEdit 控件的位置和大小，以确保它们对齐
+            int maxLeft = 0;
+            foreach (Control control in flowLayoutPanel1.Controls)
+            {
+                if (control is CheckEdit checkEdit)
+                {
+                    maxLeft = Math.Max(maxLeft, checkEdit.Left); // 计算目前最靠左的控件的 Left 值
+                }
+            }
+            foreach (Control control in flowLayoutPanel1.Controls)
+            {
+                if (control is CheckEdit checkEdit)
+                {
+                    checkEdit.Left = maxLeft; // 将控件的 Left 值设置为最靠左的控件的 Left 值
+                    checkEdit.Width = flowLayoutPanel1.ClientSize.Width - checkEdit.Left - flowLayoutPanel1.Padding.Right; // 将控件的宽度设置为 FlowLayoutPanel 的客户区域宽度减去 Left 值和右侧填充的宽度
+                }
             }
 
 
@@ -58,7 +80,7 @@ namespace POE_Auxiliary_Tools
         /// </summary>
         private void CheckedAll()
         {
-            foreach (object item in flowLayoutPanel2.Controls)
+            foreach (object item in flowLayoutPanel1.Controls)
             {
                 if (item is CheckEdit ce)
                 {
@@ -71,7 +93,7 @@ namespace POE_Auxiliary_Tools
         /// </summary>
         private void UnCheckedAll()
         {
-            foreach (object item in flowLayoutPanel2.Controls)
+            foreach (object item in flowLayoutPanel1.Controls)
             {
                 if (item is CheckEdit ce)
                 {
@@ -98,7 +120,7 @@ namespace POE_Auxiliary_Tools
             sbr.Clear();
             sbr.Append($"SELECT * FROM 物品  LEFT JOIN 物品类别 ON 物品.物品类别id=物品类别.id ");
             var index = 0;
-            foreach (Control item in flowLayoutPanel2.Controls)
+            foreach (Control item in flowLayoutPanel1.Controls)
             {
                 if (item != null)
                 {
@@ -188,24 +210,35 @@ namespace POE_Auxiliary_Tools
         {
             //需要查询的物品
             var list = gridControl_cxlb.DataSource as List<物品>;
+            var sleepList = new List<暂停>();
+            //给每个物品预先分配sleep时间，方便计算完成时间
+            Random rm = new Random();
+            foreach (var item in list)
+            {
+
+                sleepList.Add(new 暂停() { SleepTime= rm.Next(4000, 5000),FloatTime=2000 });
+            }
+          
             if (list != null)
             {
-                var dt = new DataTable();
+                var index = 1;
+
+                //倒计时
+                CountDown(sleepList, index);
+
+                  var dt = new DataTable();
                 //添加表头
                 foreach (var item in new 集市查询结果().GetType().GetProperties())
                 {
                     dt.Columns.Add(item.Name);
                 }
 
-                Random rm = new Random();
 
 
-                var index = 1;
+           
                 foreach (var item in list)
                 {
-
-
-                    var keyResult = MarketQueryHandle.GetKeyList(item.物品名称, item.通货类型 == "混沌石" ? "chaos" : "divine");
+                    var keyResult = MarketQueryHandle.GetKeyList(item.物品名称,item.搜索id, item.通货类型 == "混沌石" ? "chaos" : "divine");
                     if (keyResult["错误的请求"] != null)
                     {
                         //请求错误
@@ -214,206 +247,109 @@ namespace POE_Auxiliary_Tools
                             var a = gridView1.GetRowHandle(gridView1.DataRowCount);
                             Action SetSource = delegate
                             {
-                                // 创建新行
-                                gridView1.AddNewRow();
-                                // 获取当前新行所在行号
-                                int newRowHandle = gridView1.GetRowHandle(gridView1.DataRowCount);
                                 var err = new 集市查询结果() { 名称 = item.物品名称, 价格 = "物品名称错误或请求超时", 通货类型 = item.通货类型 };
-                                foreach (var info in err.GetType().GetProperties())
-                                {
-                                    // 设置新行数据
-                                    var val = ObjectHandler.GetPropertyValue(err, info.Name);
-                                    gridView1.SetRowCellValue(newRowHandle, info.Name.ToString(), val);
-                                }
-                                // 更新视图
-                                gridView1.RefreshData();
+                                CreateNewRow(err);
                             };
                             gridControl1.Invoke(SetSource);
 
                         }
                         else
                         {
-                            // 创建新行
-                            gridView1.AddNewRow();
-                            // 获取当前新行所在行号
-                            int newRowHandle = gridView1.GetRowHandle(gridView1.DataRowCount);
                             var err = new 集市查询结果() { 名称 = item.物品名称, 价格 = "物品名称错误或请求超时", 通货类型 = item.通货类型 };
-                            foreach (var info in err.GetType().GetProperties())
-                            {
-                                // 设置新行数据
-                                var val = ObjectHandler.GetPropertyValue(err, info.Name);
-                                gridView1.SetRowCellValue(newRowHandle, info.Name.ToString(), val);
-                            }
-                            // 更新视图
-                            gridView1.RefreshData();
+                            CreateNewRow(err);
                         }
                         //进度条
-                        double _percent = 0;
                         if (progressBarControl1.InvokeRequired)
                         {
                             Action SetSource = delegate
                             {
-                                _percent = Math.Round((double)index / (double)list.Count * 100, 0);
-                                progressBarControl1.Position = (int)_percent;
-                                progressBarControl1.BackColor = Color.Blue;
-                                progressBarControl1.PerformStep();
+                                SetProgress(index, list);
                             };
                             progressBarControl1.Invoke(SetSource);
                         }
                         else
                         {
-                            _percent = (double)index / (double)list.Count * 100;
-                            progressBarControl1.Position = (int)_percent;
-                            progressBarControl1.BackColor = Color.Blue;
-                            progressBarControl1.PerformStep();
+                            SetProgress(index, list);
                         }
                         continue;
                     }
 
 
                     resultList = new List<集市物品>();
+                    MarketQueryHandle.DeleteRecord(item.物品名称);
                     var model = MarketQueryHandle.GetPrice(resultList, keyResult, item.物品名称, item.类别名称, item.允许堆叠, item.通货类型, (int)item.最低数量, 0);
                     //请求错误
-                    if (model == null)
+                    if (model.err != null)
                     {
                         if (gridControl1.InvokeRequired)
                         {
-                            var a = gridView1.GetRowHandle(gridView1.DataRowCount);
                             Action SetSource = delegate
                             {
-                                // 创建新行
-                                gridView1.AddNewRow();
-                                // 获取当前新行所在行号
-                                int newRowHandle = gridView1.GetRowHandle(gridView1.DataRowCount);
                                 var err = new 集市查询结果() { 名称 = item.物品名称, 价格 = "物品名称错误或请求超时", 通货类型 = item.通货类型 };
-                                foreach (var info in err.GetType().GetProperties())
-                                {
-                                    // 设置新行数据
-                                    var val = ObjectHandler.GetPropertyValue(err, info.Name);
-                                    gridView1.SetRowCellValue(newRowHandle, info.Name.ToString(), val);
-                                }
-                                // 更新视图
-                                gridView1.RefreshData();
+                                CreateNewRow(err);
                             };
                             gridControl1.Invoke(SetSource);
 
                         }
                         else
                         {
-                            // 创建新行
-                            gridView1.AddNewRow();
-                            // 获取当前新行所在行号
-                            int newRowHandle = gridView1.GetRowHandle(gridView1.DataRowCount);
                             var err = new 集市查询结果() { 名称 = item.物品名称, 价格 = "物品名称错误或请求超时", 通货类型 = item.通货类型 };
-                            foreach (var info in err.GetType().GetProperties())
-                            {
-                                // 设置新行数据
-                                var val = ObjectHandler.GetPropertyValue(err, info.Name);
-                                gridView1.SetRowCellValue(newRowHandle, info.Name.ToString(), val);
-                            }
-                            // 更新视图
-                            gridView1.RefreshData();
+                            CreateNewRow(err);
                         }
                         //进度条
-                        double _percent = 0;
                         if (progressBarControl1.InvokeRequired)
                         {
                             Action SetSource = delegate
                             {
-                                _percent = (double)index / (double)list.Count * 100;
-                                progressBarControl1.Position = (int)_percent;
-                                progressBarControl1.BackColor = Color.Blue;
-                                progressBarControl1.PerformStep();
+                                SetProgress(index, list);
                             };
                             progressBarControl1.Invoke(SetSource);
                         }
                         else
                         {
-                            _percent = (double)index / (double)list.Count * 100;
-                            progressBarControl1.Position = (int)_percent;
-                            progressBarControl1.BackColor = Color.Blue;
-                            progressBarControl1.PerformStep();
+                            SetProgress(index, list);
                         }
                         continue;
                     }
 
                     var _mo = new 集市查询结果() { 名称 = model.名称, 价格 = model.单价.ToString(), 通货类型 = item.通货类型 };
                     DevGridControlHandler.AddRecord(dt, _mo);//添加记录到DataTable
-                                                             //gridView添加查询结果
+                                                             //暂停，防止查询过快
+                    var sleep = sleepList[index - 1];
+                    Thread.Sleep(sleep.SleepTime);
+                    //gridView添加查询结果
                     if (gridControl1.InvokeRequired)
                     {
                         var a = gridView1.GetRowHandle(gridView1.DataRowCount);
                         Action SetSource = delegate
                         {
-                            // 创建新行
-                            gridView1.AddNewRow();
-                            // 获取当前新行所在行号
-                            int newRowHandle = gridView1.GetRowHandle(gridView1.DataRowCount);
-                            foreach (var info in _mo.GetType().GetProperties())
-                            {
-                                // 设置新行数据
-                                var val = ObjectHandler.GetPropertyValue(_mo, info.Name).ToString();
-                                if (info.Name == "价格" && val == "-1")
-                                {
-                                    gridView1.SetRowCellValue(newRowHandle, info.Name.ToString(), "满足计算条件的物品不足");
-                                }
-                                else
-                                {
-                                    gridView1.SetRowCellValue(newRowHandle, info.Name.ToString(), val);
-                                }
-                            }
-                            // 更新视图
-                            gridView1.RefreshData();
+                            CreateNewRow(_mo);
                         };
                         gridControl1.Invoke(SetSource);
 
                     }
                     else
                     {
-                        // 创建新行
-                        gridView1.AddNewRow();
-                        // 获取当前新行所在行号
-                        int newRowHandle = gridView1.GetRowHandle(gridView1.DataRowCount);
-                        foreach (var info in _mo.GetType().GetProperties())
-                        {
-                            // 设置新行数据
-                            var val = ObjectHandler.GetPropertyValue(_mo, info.Name).ToString();
-                            if (info.Name == "价格" && val == "-1")
-                            {
-                                gridView1.SetRowCellValue(newRowHandle, info.Name.ToString(), "满足计算条件的物品不足");
-                            }
-                            else
-                            {
-                                gridView1.SetRowCellValue(newRowHandle, info.Name.ToString(), val);
-                            }
-                        }
-                        // 更新视图
-                        gridView1.RefreshData();
+                        CreateNewRow(_mo);
                     }
                     //进度条
-                    double percent = 0;
                     if (progressBarControl1.InvokeRequired)
                     {
                         Action SetSource = delegate
                         {
-                            percent = (double)index / (double)list.Count * 100;
-                            progressBarControl1.Position = (int)percent;
-                            progressBarControl1.BackColor = Color.Blue;
-                            progressBarControl1.PerformStep();
+                            SetProgress(index, list);
                         };
                         progressBarControl1.Invoke(SetSource);
                     }
                     else
                     {
-                        percent = (double)index / (double)list.Count * 100;
-                        progressBarControl1.Position = (int)percent;
-                        progressBarControl1.BackColor = Color.Blue;
-                        progressBarControl1.PerformStep();
+                        SetProgress(index, list);
+
                     }
+                   
+                 
+                    CountDown(sleepList, index + 1);
                     index++;
-                    //暂停，防止查询过快
-                    var sleep = rm.Next(3000, 5000);
-                    Thread.Sleep(sleep);
                     //检查线程是否终止
                     while (cancellationToken.IsCancellationRequested)
                     {
@@ -483,9 +419,74 @@ namespace POE_Auxiliary_Tools
                 {
                     simpleButton_dcb.Enabled = true;
                 }
-               
+                //更新一下查询历史数据
+                foreach (var item in MainFrom.formList)
+                {
+                    if (item.Name == "Frm_查询历史")
+                    {
+                        var from = item as Frm_查询历史;
+                        if(from.InvokeRequired){
+                            Action SetSource = delegate { from.ShowData(); };
+                            simpleButton_dcb.Invoke(SetSource);
+                        }
+                        else
+                        {
+                            from.ShowData();
+                        }
+                        
+                    }
+                }
+             
+
             }
 
+        }
+        private void CountDown(List<暂停> sleepList,int index)
+        {
+            //倒计时
+            var totalTime = sleepList.Skip(index - 1).Sum(x => x.SleepTime+x.FloatTime);//消耗时间
+            TimeSpan timeSpan = TimeSpan.FromMilliseconds(totalTime);
+            string formattedTime = string.Format("{0:D2}:{1:D2}:{2:D2}",
+                (int)timeSpan.TotalHours, timeSpan.Minutes, timeSpan.Seconds);
+
+            if (timer.InvokeRequired)
+            {
+                Action action = delegate { timer.Text = formattedTime; };
+                timer.Invoke(action);
+            }
+            else
+            {
+                timer.Text = formattedTime;
+            }
+        }
+        private void SetProgress(int index ,List<物品> list)
+        {
+            var percent = (double)index / (double)list.Count * 100;
+            progressBarControl1.Position = (int)percent;
+            progressBarControl1.BackColor = Color.Blue;
+            progressBarControl1.PerformStep();
+        }
+        private void CreateNewRow(集市查询结果 model)
+        {
+            // 创建新行
+            gridView1.AddNewRow();
+            // 获取当前新行所在行号
+            int newRowHandle = gridView1.GetRowHandle(gridView1.DataRowCount);
+            foreach (var info in model.GetType().GetProperties())
+            {
+                // 设置新行数据
+                var val = ObjectHandler.GetPropertyValue(model, info.Name).ToString();
+                if (info.Name == "价格" && val == "-1")
+                {
+                    gridView1.SetRowCellValue(newRowHandle, info.Name.ToString(), "满足计算条件的物品不足");
+                }
+                else
+                {
+                    gridView1.SetRowCellValue(newRowHandle, info.Name.ToString(), val);
+                }
+            }
+            // 更新视图
+            gridView1.RefreshData();
         }
         /// <summary>
         /// 保存查询记录
@@ -504,10 +505,11 @@ namespace POE_Auxiliary_Tools
         //获取DC比例
         public void GetScale()
         {
+            MarketQueryHandle.DeleteRecord("神圣石");
             List<集市物品> rList = new List<集市物品>();
-            var keyResult = MarketQueryHandle.GetKeyList("神圣石", "chaos");
+            var keyResult = MarketQueryHandle.GetKeyList("神圣石", "","chaos");
             var model = MarketQueryHandle.GetPrice(rList, keyResult, "神圣石", "通货", "是", "混沌石", 1, 0);
-            if (model != null)
+            if (model.err == null)
             {
                 if (label1.InvokeRequired)
                 {
@@ -538,6 +540,10 @@ namespace POE_Auxiliary_Tools
         }
         private void Frm_集市价格查询_Load(object sender, EventArgs e)
         {
+            Init();
+
+            //隐藏进度条
+            progressBarControl1.Visible = false;
             if (defCheckedAll)
             {
                 CheckedAll(); //全选
@@ -656,5 +662,11 @@ namespace POE_Auxiliary_Tools
         public string 罗盘名称 { get; set; }
 
         public string 搜索条件 { get; set; }
+    }
+    public class 暂停
+    {
+        public int SleepTime { get; set; }
+
+        public int FloatTime { get; set;}
     }
 }

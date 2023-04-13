@@ -17,12 +17,16 @@ namespace POE_Auxiliary_Tools
         public Frm_物品类别管理()
         {
             InitializeComponent();
-            ReData();
+          
          
 
 
 
 
+        }
+        public void TriggerLoadEvent()
+        {
+            this.OnLoad(EventArgs.Empty);
         }
         //点击物品类别记录
 
@@ -31,7 +35,6 @@ namespace POE_Auxiliary_Tools
             物品类别 model = GetSelectModel();
             textEdit_name.Text = model.类别名称;
             textEdit_sm.Text = model.说明;
-            DevComboBoxEditHandler.SetItemByText(comboBoxEdit_yxdd, model.允许堆叠);
             simpleButton_save.Text = "修改";
         }
         //保存或者修改
@@ -39,15 +42,9 @@ namespace POE_Auxiliary_Tools
         {
             var typeName = textEdit_name.Text;
             var sm = textEdit_sm.Text;
-            var yxdd = comboBoxEdit_yxdd.Text;
             if (typeName == "")
             {
                 dialogResult = Popup.Tips(this, "请输入类别名称！", "提示信息", PopUpType.Info);
-                return;
-            }
-            if (yxdd == "")
-            {
-                dialogResult = Popup.Tips(this, "请选择是否允许堆叠！", "提示信息", PopUpType.Info);
                 return;
             }
             var btnText = simpleButton_save.Text;
@@ -58,8 +55,8 @@ namespace POE_Auxiliary_Tools
                 if (!MainFrom.database.IsExist("物品类别", d))
                 {
                     sbr.Clear();
-                    sbr.Append("INSERT INTO 物品类别 (类别名称,说明,删除标记,允许堆叠) VALUES ");
-                    sbr.Append($"('{typeName}','{sm}',0,'{yxdd}');");
+                    sbr.Append("INSERT INTO 物品类别 (类别名称,说明,删除标记) VALUES ");
+                    sbr.Append($"('{typeName}','{sm}',0);");
                     var cmdText = sbr.ToString();
                     MainFrom.database.ExecuteNonQuery(cmdText);
                 }
@@ -81,8 +78,7 @@ namespace POE_Auxiliary_Tools
                         sbr.Clear();
                         sbr.Append("UPDATE 物品类别 SET ");
                         sbr.Append($"类别名称='{typeName}', ");
-                        sbr.Append($"说明='{sm}' ,");
-                        sbr.Append($"允许堆叠='{yxdd}' ");
+                        sbr.Append($"说明='{sm}' ");
                         sbr.Append($"WHERE id={model.id};");
                         var cmdText = sbr.ToString();
                         MainFrom.database.ExecuteNonQuery(cmdText);
@@ -101,8 +97,7 @@ namespace POE_Auxiliary_Tools
                     sbr.Clear();
                     sbr.Append("UPDATE 物品类别 SET ");
                     sbr.Append($"类别名称='{typeName}', ");
-                    sbr.Append($"说明='{sm}', ");
-                    sbr.Append($"允许堆叠='{yxdd}' ");
+                    sbr.Append($"说明='{sm}'");
                     sbr.Append($"WHERE id={model.id};");
                     var cmdText = sbr.ToString();
                     MainFrom.database.ExecuteNonQuery(cmdText);
@@ -155,7 +150,7 @@ namespace POE_Auxiliary_Tools
             
             sbr.Clear();
             sbr.Append("DELETE FROM 物品类别 ");
-            sbr.Append($"WHERE 类别名称={model.类别名称};");
+            sbr.Append($"WHERE 类别名称='{model.类别名称}';");
             var cmdText = sbr.ToString();
             MainFrom.database.ExecuteNonQuery(cmdText);
             Reset();
@@ -175,6 +170,11 @@ namespace POE_Auxiliary_Tools
             var obj = gridView_lb.GetRow(row[0]);
             物品类别 model = ObjectHandler.ConvertObject<物品类别>(obj);
             return model;
+        }
+
+        private void Frm_物品类别管理_Load(object sender, EventArgs e)
+        {
+            ReData();
         }
     }
 }

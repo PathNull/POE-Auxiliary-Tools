@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.comboBoxEdit_yxdd = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.simpleButton_cx = new DevExpress.XtraEditors.SimpleButton();
+            this.textEdit_ssId = new DevExpress.XtraEditors.TextEdit();
             this.textEdit33 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit32 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit31 = new DevExpress.XtraEditors.TextEdit();
@@ -41,20 +44,20 @@
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.gridControl_wp = new DevExpress.XtraGrid.GridControl();
             this.gridView_wp = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.comboBoxEdit_lb = new DevExpress.XtraEditors.ComboBoxEdit();
             this.textEdit_wpmc = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton_save = new DevExpress.XtraEditors.SimpleButton();
             this.buttonEdit_sm = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxEdit_cx = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.comboBoxEdit_sfky = new DevExpress.XtraEditors.ComboBoxEdit();
             this.textEdit_ddsx = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_zdsl = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxEdit__thlx = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -121,11 +124,13 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -135,9 +140,10 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_yxdd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit_ssId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit33.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit32.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit31.Properties)).BeginInit();
@@ -154,7 +160,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_wpmc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit_sm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_cx.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_sfky.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_ddsx.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_zdsl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit__thlx.Properties)).BeginInit();
@@ -221,16 +226,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.comboBoxEdit_yxdd);
+            this.layoutControl1.Controls.Add(this.simpleButton_cx);
+            this.layoutControl1.Controls.Add(this.textEdit_ssId);
             this.layoutControl1.Controls.Add(this.textEdit33);
             this.layoutControl1.Controls.Add(this.textEdit32);
             this.layoutControl1.Controls.Add(this.textEdit31);
@@ -247,7 +257,6 @@
             this.layoutControl1.Controls.Add(this.simpleButton_save);
             this.layoutControl1.Controls.Add(this.buttonEdit_sm);
             this.layoutControl1.Controls.Add(this.comboBoxEdit_cx);
-            this.layoutControl1.Controls.Add(this.comboBoxEdit_sfky);
             this.layoutControl1.Controls.Add(this.textEdit_ddsx);
             this.layoutControl1.Controls.Add(this.textEdit_zdsl);
             this.layoutControl1.Controls.Add(this.comboBoxEdit__thlx);
@@ -275,6 +284,35 @@
             this.layoutControl1.Size = new System.Drawing.Size(1058, 753);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // comboBoxEdit_yxdd
+            // 
+            this.comboBoxEdit_yxdd.Location = new System.Drawing.Point(726, 81);
+            this.comboBoxEdit_yxdd.Name = "comboBoxEdit_yxdd";
+            this.comboBoxEdit_yxdd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit_yxdd.Size = new System.Drawing.Size(62, 20);
+            this.comboBoxEdit_yxdd.StyleController = this.layoutControl1;
+            this.comboBoxEdit_yxdd.TabIndex = 51;
+            this.comboBoxEdit_yxdd.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit_yxdd_SelectedIndexChanged);
+            // 
+            // simpleButton_cx
+            // 
+            this.simpleButton_cx.Location = new System.Drawing.Point(965, 81);
+            this.simpleButton_cx.Name = "simpleButton_cx";
+            this.simpleButton_cx.Size = new System.Drawing.Size(79, 22);
+            this.simpleButton_cx.StyleController = this.layoutControl1;
+            this.simpleButton_cx.TabIndex = 50;
+            this.simpleButton_cx.Text = "撤销";
+            this.simpleButton_cx.Click += new System.EventHandler(this.simpleButton_cx_Click);
+            // 
+            // textEdit_ssId
+            // 
+            this.textEdit_ssId.Location = new System.Drawing.Point(726, 45);
+            this.textEdit_ssId.Name = "textEdit_ssId";
+            this.textEdit_ssId.Size = new System.Drawing.Size(189, 20);
+            this.textEdit_ssId.StyleController = this.layoutControl1;
+            this.textEdit_ssId.TabIndex = 49;
             // 
             // textEdit33
             // 
@@ -367,44 +405,45 @@
             // 
             // gridControl_wp
             // 
-            this.gridControl_wp.Location = new System.Drawing.Point(14, 184);
+            this.gridControl_wp.Location = new System.Drawing.Point(14, 186);
             this.gridControl_wp.MainView = this.gridView_wp;
             this.gridControl_wp.Name = "gridControl_wp";
             this.gridControl_wp.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gridControl_wp.Size = new System.Drawing.Size(1030, 555);
+            this.gridControl_wp.Size = new System.Drawing.Size(1030, 553);
             this.gridControl_wp.TabIndex = 10;
             this.gridControl_wp.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_wp});
             // 
             // gridView_wp
             // 
+            this.gridView_wp.Appearance.SelectedRow.BackColor = System.Drawing.Color.White;
+            this.gridView_wp.Appearance.SelectedRow.Options.UseBackColor = true;
             this.gridView_wp.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn9,
             this.gridColumn10,
             this.gridColumn11,
             this.gridColumn12,
             this.gridColumn13,
             this.gridColumn14,
             this.gridColumn15,
-            this.gridColumn16});
+            this.gridColumn16,
+            this.gridColumn17});
             this.gridView_wp.GridControl = this.gridControl_wp;
             this.gridView_wp.Name = "gridView_wp";
             this.gridView_wp.OptionsBehavior.Editable = false;
-            this.gridView_wp.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
+            this.gridView_wp.OptionsSelection.CheckBoxSelectorField = "是否可用";
             this.gridView_wp.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView_wp.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.gridView_wp.OptionsSelection.EnableAppearanceHideSelection = false;
             this.gridView_wp.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
             this.gridView_wp.OptionsSelection.MultiSelect = true;
+            this.gridView_wp.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView_wp.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView_wp.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.True;
             this.gridView_wp.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView_wp_RowClick);
+            this.gridView_wp.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView_wp_RowCellClick);
+            this.gridView_wp.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView_wp_RowStyle);
             this.gridView_wp.DoubleClick += new System.EventHandler(this.gridView_wp_DoubleClick);
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "是否可用";
-            this.gridColumn9.FieldName = "是否可用";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 0;
             // 
             // gridColumn10
             // 
@@ -428,7 +467,7 @@
             this.gridColumn12.FieldName = "说明";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 7;
+            this.gridColumn12.VisibleIndex = 8;
             // 
             // gridColumn13
             // 
@@ -454,6 +493,22 @@
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 6;
             // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "通货类型";
+            this.gridColumn16.FieldName = "通货类型";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 3;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "搜索id";
+            this.gridColumn17.FieldName = "搜索id";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 7;
+            // 
             // repositoryItemCheckEdit1
             // 
             this.repositoryItemCheckEdit1.AutoHeight = false;
@@ -466,8 +521,9 @@
             this.comboBoxEdit_lb.Name = "comboBoxEdit_lb";
             this.comboBoxEdit_lb.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit_lb.Properties.DropDownRows = 30;
             this.comboBoxEdit_lb.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit_lb.Size = new System.Drawing.Size(114, 20);
+            this.comboBoxEdit_lb.Size = new System.Drawing.Size(99, 20);
             this.comboBoxEdit_lb.StyleController = this.layoutControl1;
             this.comboBoxEdit_lb.TabIndex = 5;
             this.comboBoxEdit_lb.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit_lb_SelectedIndexChanged);
@@ -476,15 +532,15 @@
             // 
             this.textEdit_wpmc.Location = new System.Drawing.Point(74, 81);
             this.textEdit_wpmc.Name = "textEdit_wpmc";
-            this.textEdit_wpmc.Size = new System.Drawing.Size(292, 20);
+            this.textEdit_wpmc.Size = new System.Drawing.Size(262, 20);
             this.textEdit_wpmc.StyleController = this.layoutControl1;
             this.textEdit_wpmc.TabIndex = 6;
             // 
             // simpleButton_save
             // 
-            this.simpleButton_save.Location = new System.Drawing.Point(953, 45);
+            this.simpleButton_save.Location = new System.Drawing.Point(965, 45);
             this.simpleButton_save.Name = "simpleButton_save";
-            this.simpleButton_save.Size = new System.Drawing.Size(91, 22);
+            this.simpleButton_save.Size = new System.Drawing.Size(79, 22);
             this.simpleButton_save.StyleController = this.layoutControl1;
             this.simpleButton_save.TabIndex = 7;
             this.simpleButton_save.Text = "添加";
@@ -492,68 +548,59 @@
             // 
             // buttonEdit_sm
             // 
-            this.buttonEdit_sm.Location = new System.Drawing.Point(430, 81);
+            this.buttonEdit_sm.Location = new System.Drawing.Point(400, 81);
             this.buttonEdit_sm.Name = "buttonEdit_sm";
-            this.buttonEdit_sm.Size = new System.Drawing.Size(114, 20);
+            this.buttonEdit_sm.Size = new System.Drawing.Size(262, 20);
             this.buttonEdit_sm.StyleController = this.layoutControl1;
             this.buttonEdit_sm.TabIndex = 8;
             // 
             // comboBoxEdit_cx
             // 
-            this.comboBoxEdit_cx.Location = new System.Drawing.Point(67, 160);
+            this.comboBoxEdit_cx.Location = new System.Drawing.Point(67, 162);
             this.comboBoxEdit_cx.Name = "comboBoxEdit_cx";
             this.comboBoxEdit_cx.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit_cx.Properties.DropDownRows = 30;
             this.comboBoxEdit_cx.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEdit_cx.Size = new System.Drawing.Size(157, 20);
             this.comboBoxEdit_cx.StyleController = this.layoutControl1;
             this.comboBoxEdit_cx.TabIndex = 9;
             this.comboBoxEdit_cx.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit_cx_SelectedIndexChanged);
             // 
-            // comboBoxEdit_sfky
-            // 
-            this.comboBoxEdit_sfky.Location = new System.Drawing.Point(608, 81);
-            this.comboBoxEdit_sfky.Name = "comboBoxEdit_sfky";
-            this.comboBoxEdit_sfky.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit_sfky.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit_sfky.Size = new System.Drawing.Size(114, 20);
-            this.comboBoxEdit_sfky.StyleController = this.layoutControl1;
-            this.comboBoxEdit_sfky.TabIndex = 11;
-            // 
             // textEdit_ddsx
             // 
-            this.textEdit_ddsx.Location = new System.Drawing.Point(608, 45);
+            this.textEdit_ddsx.Location = new System.Drawing.Point(563, 45);
             this.textEdit_ddsx.Name = "textEdit_ddsx";
             this.textEdit_ddsx.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.textEdit_ddsx.Properties.MaskSettings.Set("mask", "d");
             this.textEdit_ddsx.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            this.textEdit_ddsx.Size = new System.Drawing.Size(114, 20);
+            this.textEdit_ddsx.Size = new System.Drawing.Size(99, 20);
             this.textEdit_ddsx.StyleController = this.layoutControl1;
             this.textEdit_ddsx.TabIndex = 12;
             // 
             // textEdit_zdsl
             // 
-            this.textEdit_zdsl.Location = new System.Drawing.Point(430, 45);
+            this.textEdit_zdsl.Location = new System.Drawing.Point(400, 45);
             this.textEdit_zdsl.Name = "textEdit_zdsl";
             this.textEdit_zdsl.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.textEdit_zdsl.Properties.MaskSettings.Set("mask", "d");
             this.textEdit_zdsl.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            this.textEdit_zdsl.Size = new System.Drawing.Size(114, 20);
+            this.textEdit_zdsl.Size = new System.Drawing.Size(99, 20);
             this.textEdit_zdsl.StyleController = this.layoutControl1;
             this.textEdit_zdsl.TabIndex = 13;
             // 
             // comboBoxEdit__thlx
             // 
-            this.comboBoxEdit__thlx.Location = new System.Drawing.Point(252, 45);
+            this.comboBoxEdit__thlx.Location = new System.Drawing.Point(237, 45);
             this.comboBoxEdit__thlx.Name = "comboBoxEdit__thlx";
             this.comboBoxEdit__thlx.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit__thlx.Properties.DropDownRows = 30;
             this.comboBoxEdit__thlx.Properties.Items.AddRange(new object[] {
             "混沌石",
             "神圣石"});
             this.comboBoxEdit__thlx.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit__thlx.Size = new System.Drawing.Size(114, 20);
+            this.comboBoxEdit__thlx.Size = new System.Drawing.Size(99, 20);
             this.comboBoxEdit__thlx.StyleController = this.layoutControl1;
             this.comboBoxEdit__thlx.TabIndex = 14;
             // 
@@ -1129,9 +1176,9 @@
             this.layoutControlItem6,
             this.layoutControlItem1,
             this.emptySpaceItem18});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 125);
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 127);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1058, 628);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1058, 626);
             this.layoutControlGroup2.Text = "查询";
             // 
             // layoutControlItem6
@@ -1150,7 +1197,7 @@
             this.layoutControlItem1.Control = this.gridControl_wp;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1034, 559);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1034, 557);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -1173,14 +1220,16 @@
             this.layoutControlItem5,
             this.layoutControlItem3,
             this.layoutControlItem10,
-            this.layoutControlItem7,
             this.emptySpaceItem4,
             this.emptySpaceItem1,
             this.emptySpaceItem2,
-            this.emptySpaceItem6});
+            this.emptySpaceItem6,
+            this.layoutControlItem21,
+            this.layoutControlItem23,
+            this.layoutControlItem25});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1058, 125);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1058, 127);
             this.layoutControlGroup1.Text = "新增物品";
             // 
             // layoutControlItem2
@@ -1188,51 +1237,51 @@
             this.layoutControlItem2.Control = this.comboBoxEdit_lb;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 10);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(178, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(163, 26);
             this.layoutControlItem2.Text = "物品类别";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.simpleButton_save;
-            this.layoutControlItem4.Location = new System.Drawing.Point(939, 10);
+            this.layoutControlItem4.Location = new System.Drawing.Point(951, 10);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(95, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(83, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(712, 10);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(905, 10);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(227, 26);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(46, 26);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.textEdit_ddsx;
-            this.layoutControlItem8.Location = new System.Drawing.Point(534, 10);
+            this.layoutControlItem8.Location = new System.Drawing.Point(489, 10);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(178, 26);
+            this.layoutControlItem8.Size = new System.Drawing.Size(163, 26);
             this.layoutControlItem8.Text = "堆叠上限";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.textEdit_zdsl;
-            this.layoutControlItem9.Location = new System.Drawing.Point(356, 10);
+            this.layoutControlItem9.Location = new System.Drawing.Point(326, 10);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(178, 26);
+            this.layoutControlItem9.Size = new System.Drawing.Size(163, 26);
             this.layoutControlItem9.Text = "最低数量";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.buttonEdit_sm;
-            this.layoutControlItem5.Location = new System.Drawing.Point(356, 46);
+            this.layoutControlItem5.Location = new System.Drawing.Point(326, 46);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(178, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(326, 26);
             this.layoutControlItem5.Text = "  说明";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -1241,40 +1290,31 @@
             this.layoutControlItem3.Control = this.textEdit_wpmc;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 46);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(356, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(326, 26);
             this.layoutControlItem3.Text = "物品名称";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.comboBoxEdit__thlx;
-            this.layoutControlItem10.Location = new System.Drawing.Point(178, 10);
+            this.layoutControlItem10.Location = new System.Drawing.Point(163, 10);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(178, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(163, 26);
             this.layoutControlItem10.Text = "通货类型";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.comboBoxEdit_sfky;
-            this.layoutControlItem7.Location = new System.Drawing.Point(534, 46);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(178, 24);
-            this.layoutControlItem7.Text = "是否可用";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(48, 14);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(712, 46);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(778, 46);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(322, 24);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(173, 26);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 70);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 72);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(1034, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -1294,6 +1334,35 @@
             this.emptySpaceItem6.Name = "emptySpaceItem6";
             this.emptySpaceItem6.Size = new System.Drawing.Size(1034, 10);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem21
+            // 
+            this.layoutControlItem21.Control = this.textEdit_ssId;
+            this.layoutControlItem21.Location = new System.Drawing.Point(652, 10);
+            this.layoutControlItem21.Name = "layoutControlItem21";
+            this.layoutControlItem21.Size = new System.Drawing.Size(253, 26);
+            this.layoutControlItem21.Text = "搜索id";
+            this.layoutControlItem21.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(55, 20);
+            this.layoutControlItem21.TextToControlDistance = 5;
+            // 
+            // layoutControlItem23
+            // 
+            this.layoutControlItem23.Control = this.simpleButton_cx;
+            this.layoutControlItem23.Location = new System.Drawing.Point(951, 46);
+            this.layoutControlItem23.Name = "layoutControlItem23";
+            this.layoutControlItem23.Size = new System.Drawing.Size(83, 26);
+            this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem23.TextVisible = false;
+            // 
+            // layoutControlItem25
+            // 
+            this.layoutControlItem25.Control = this.comboBoxEdit_yxdd;
+            this.layoutControlItem25.Location = new System.Drawing.Point(652, 46);
+            this.layoutControlItem25.Name = "layoutControlItem25";
+            this.layoutControlItem25.Size = new System.Drawing.Size(126, 26);
+            this.layoutControlItem25.Text = "允许堆叠";
+            this.layoutControlItem25.TextSize = new System.Drawing.Size(48, 14);
             // 
             // gridColumn3
             // 
@@ -1370,14 +1439,6 @@
             this.emptySpaceItem5.Size = new System.Drawing.Size(608, 364);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // gridColumn16
-            // 
-            this.gridColumn16.Caption = "通货类型";
-            this.gridColumn16.FieldName = "通货类型";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 3;
-            // 
             // Frm_物品管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1386,8 +1447,11 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "Frm_物品管理";
             this.Text = "Frm_物品管理";
+            this.Load += new System.EventHandler(this.Frm_物品管理_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_yxdd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit_ssId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit33.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit32.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit31.Properties)).EndInit();
@@ -1404,7 +1468,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_wpmc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit_sm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_cx.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_sfky.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_ddsx.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_zdsl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit__thlx.Properties)).EndInit();
@@ -1471,11 +1534,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             this.ResumeLayout(false);
 
@@ -1498,8 +1563,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit_cx;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit_sfky;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraEditors.TextEdit textEdit_ddsx;
         private DevExpress.XtraEditors.TextEdit textEdit_zdsl;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
@@ -1582,7 +1645,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit textEdit26;
         private DevExpress.XtraEditors.ComboBoxEdit textEdit28;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem8;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
@@ -1591,5 +1653,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraEditors.TextEdit textEdit_ssId;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem21;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_cx;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem23;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit_yxdd;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem25;
     }
 }

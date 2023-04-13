@@ -19,6 +19,8 @@ namespace POE_Auxiliary_Tools.Model
 
         public string 交易通货 { get; set; }
 
+        public string err { get; set; }
+
     }
     public class 查询物品
     {
@@ -37,5 +39,16 @@ namespace POE_Auxiliary_Tools.Model
 
         public int 堆叠上限 { get; set; }
     }
+    public class 查询缓存
+    {
+        public string 查询时间 { get; set; }
+        public string 物品名称 { get; set; }
+        public string 价格 { get; set; }
+        public string 上架时间 { get; set; }
+        public string 通货类型 { get; set; }
+        public string 物品类型 { get; set; }
+        public Int64 数量 { get; set; }
 
+        public Double 总价 { get; set; }
+    }
 }

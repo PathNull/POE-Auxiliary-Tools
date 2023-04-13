@@ -26,7 +26,7 @@ namespace POE_Auxiliary_Tools
         //private Frm_物品类别管理 frm_物品类别管理;
         //private Frm_查询历史 frm_查询历史;
         //private Frm_集市价格查询 frm_集市价格查询;
-        List<Form> formList = new List<Form>();
+        public  static List<Form> formList = new List<Form>();
         public MainFrom()
         {
             InitializeComponent();
@@ -35,7 +35,8 @@ namespace POE_Auxiliary_Tools
 #else
             database = new SQLiteHandler(Application.StartupPath + "\\Database\\database.db");
 #endif
-            SQLiteHandler.DataBaceList.Add("database", database);
+            if(SQLiteHandler.DataBaceList.Count==0)
+                SQLiteHandler.DataBaceList.Add("database", database);
 
             OpenAll();//打开所有窗体 
         }
@@ -118,6 +119,7 @@ namespace POE_Auxiliary_Tools
 
         private void 集市价格查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           //(formList.SingleOrDefault(x => x.Name == "Frm_集市价格查询") as Frm_集市价格查询).TriggerLoadEvent(); 
             ShowForm("集市价格查询");
         }
 
@@ -125,16 +127,19 @@ namespace POE_Auxiliary_Tools
 
         private void 物品类别管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            (formList.SingleOrDefault(x => x.Name == "Frm_物品类别管理") as Frm_物品类别管理).TriggerLoadEvent();
             ShowForm("物品类别管理");
         }
 
         private void 物品管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            (formList.SingleOrDefault(x => x.Name == "Frm_物品管理") as Frm_物品管理).TriggerLoadEvent();
             ShowForm("物品管理");
         }
 
         private void 查询历史ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            (formList.SingleOrDefault(x => x.Name == "Frm_查询历史") as Frm_查询历史).TriggerLoadEvent();
             ShowForm("查询历史");
         }
 

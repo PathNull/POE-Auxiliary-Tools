@@ -43,6 +43,7 @@
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ProductQuery = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看价格缓存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.网站中游览ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -152,6 +153,7 @@
             this.comboBoxEdit_bdfd.Name = "comboBoxEdit_bdfd";
             this.comboBoxEdit_bdfd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit_bdfd.Properties.DropDownRows = 30;
             this.comboBoxEdit_bdfd.Properties.Items.AddRange(new object[] {
             "波动超10%的标注",
             "波动超20%的标注",
@@ -272,9 +274,10 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ProductQuery,
+            this.查看价格缓存ToolStripMenuItem,
             this.网站中游览ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 70);
             // 
             // ProductQuery
             // 
@@ -282,6 +285,13 @@
             this.ProductQuery.Size = new System.Drawing.Size(160, 22);
             this.ProductQuery.Text = "查询该物品价格";
             this.ProductQuery.Click += new System.EventHandler(this.ProductQuery_Click);
+            // 
+            // 查看价格缓存ToolStripMenuItem
+            // 
+            this.查看价格缓存ToolStripMenuItem.Name = "查看价格缓存ToolStripMenuItem";
+            this.查看价格缓存ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.查看价格缓存ToolStripMenuItem.Text = "查看价格走势";
+            this.查看价格缓存ToolStripMenuItem.Click += new System.EventHandler(this.查看价格走势ToolStripMenuItem_Click);
             // 
             // 网站中游览ToolStripMenuItem
             // 
@@ -458,6 +468,7 @@
             this.product.Name = "product";
             this.product.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.product.Properties.DropDownRows = 30;
             this.product.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.product.Size = new System.Drawing.Size(103, 20);
             this.product.StyleController = this.layoutControl1;
@@ -469,6 +480,7 @@
             this.comboBoxEdit_wplx.Name = "comboBoxEdit_wplx";
             this.comboBoxEdit_wplx.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit_wplx.Properties.DropDownRows = 15;
             this.comboBoxEdit_wplx.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEdit_wplx.Size = new System.Drawing.Size(77, 20);
             this.comboBoxEdit_wplx.StyleController = this.layoutControl1;
@@ -491,6 +503,7 @@
             this.history_type.Name = "history_type";
             this.history_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.history_type.Properties.DropDownRows = 30;
             this.history_type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.history_type.Size = new System.Drawing.Size(104, 20);
             this.history_type.StyleController = this.layoutControl1;
@@ -801,5 +814,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ProductQuery;
         private System.Windows.Forms.ToolStripMenuItem 网站中游览ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 查看价格缓存ToolStripMenuItem;
     }
 }

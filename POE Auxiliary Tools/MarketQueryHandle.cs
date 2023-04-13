@@ -11,14 +11,22 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace POE_Auxiliary_Tools
 {
     public static class MarketQueryHandle
     {
-       
+
         //获取物品key
-        public static JObject GetKeyList(string name, string priceType)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name">物品名称</param>
+        /// <param name="ssid">搜索id</param>
+        /// <param name="priceType">通货类型</param>
+        /// <returns></returns>
+        public static JObject GetKeyList(string name, string ssid,string priceType)
         {
             StringBuilder sbr = new StringBuilder();
             string url = "https://poe.game.qq.com/api/trade/search/S21%E8%B5%9B%E5%AD%A3";
@@ -26,16 +34,24 @@ namespace POE_Auxiliary_Tools
             ht.Add("name", name);
 
             //判断是不是罗盘
-            sbr.Clear();
-            sbr.Append("SELECT * FROM 充能罗盘属性");
-            DataTable _dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
-            var _list = DataHandler.TableToListModel<充能罗盘属性>(_dt);
-            var obj = _list.SingleOrDefault(x => x.罗盘名称 == name);
-            if (obj != null)
+            //sbr.Clear();
+            //sbr.Append("SELECT * FROM 充能罗盘属性");
+            //DataTable _dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
+            //var _list = DataHandler.TableToListModel<充能罗盘属性>(_dt);
+            //var obj = _list.SingleOrDefault(x => x.罗盘名称 == name);
+            //if (obj != null)
+            //{
+            //    //是罗盘
+            //    ht.Add("tjId", obj.搜索条件);
+            //}
+            //判断有没有搜索id
+            if (ssid != "")
             {
-                //是罗盘
-                ht.Add("tjId", obj.搜索条件);
+                ht.Add("tjId", ssid);
             }
+
+
+
             string list = HttpUitls.DoPost(url, MainFrom.tokenList[0].POESESSID, ht, priceType);  //HttpRequest是自定义的一个类
             //判断请求是否错误
             if (list.Contains("错误的请求") || list.Contains("Too Many Requests") || list.Contains("未找到") || list.Contains("超时"))
@@ -45,6 +61,11 @@ namespace POE_Auxiliary_Tools
                     Thread.Sleep(10000);
                 }
                 //请求错误
+                JObject err = new JObject();
+                err = JObject.Parse("{'错误的请求':'400'}");
+                return err;
+            } else if (list.Contains("解析"))
+            {
                 JObject err = new JObject();
                 err = JObject.Parse("{'错误的请求':'400'}");
                 return err;
@@ -105,7 +126,7 @@ namespace POE_Auxiliary_Tools
                 {
                     Thread.Sleep(10000);
                 }
-                return null;
+                return new 集市物品() { err="请求错误或超时！"};
             }
 
 
@@ -129,7 +150,7 @@ namespace POE_Auxiliary_Tools
                     default:
                         break;
                 }
-                if (TransactionType == "=a/b/o" && thTypeName == tongHuo  && (data - 上架时间).TotalMinutes > 30)
+                if (TransactionType == "=a/b/o" && thTypeName == tongHuo)
                 {
                     var model = new 集市物品();
                     model.名称 = item["item"]["typeLine"].ToString();
@@ -137,25 +158,45 @@ namespace POE_Auxiliary_Tools
                     model.总价格 = Convert.ToInt32(item["listing"]["price"]["amount"]);
                     if (isHeap == "是")
                     {
-                        //允许堆叠
-                        var t = item["item"]["properties"][0]["values"][0][0].ToString().Replace(" ", "");
-                        var sl = t.Split('/');
-                        堆叠数量 count = new 堆叠数量();
-                        count.数量 = Convert.ToInt32(sl[0]);
-                        count.堆叠上限 = Convert.ToInt32(sl[1]);
-                        model.数量 = count;
-                        model.单价 = (double)model.总价格 / (double)count.数量;
-
-                        if (count.数量 >= minimum)
+                        try
                         {
-                            resultList.Add(model);
+                            //允许堆叠
+                            var t = item["item"]["properties"][0]["values"][0][0].ToString().Replace(" ", "");
+                            var sl = t.Split('/');
+                            堆叠数量 count = new 堆叠数量();
+                            count.数量 = Convert.ToInt32(sl[0]);
+                            count.堆叠上限 = Convert.ToInt32(sl[1]);
+                            model.数量 = count;
+                            model.单价 = Math.Round((double)model.总价格 / (double)count.数量, 2);
+
+                            //记录查询缓存
+                            var cache = new 查询缓存() { 上架时间 = 上架时间.ToString(), 查询时间 = DateTime.Now.ToString(), 价格 = model.单价.ToString(), 物品名称 = name, 物品类型 = productType, 通货类型 = tongHuo, 数量 = count.数量 };
+                            SaveCacheRecord(cache);
+                            if ((data - 上架时间).TotalMinutes > 30)
+                            {
+                                if (count.数量 >= minimum)
+                                {
+                                    resultList.Add(model);
+                                }
+                            }
                         }
+                        catch (NullReferenceException ex)
+                        {
+                            return new 集市物品() { err = "检查物品是否允许堆叠！" };
+                        }  
                     }
                     else
                     {
                         model.单价 = (double)model.总价格 / 1;
-                        resultList.Add(model);
+                        //记录查询缓存
+                        var cache = new 查询缓存() { 上架时间 = 上架时间.ToString(), 查询时间 = DateTime.Now.ToString(), 价格 = model.单价.ToString(), 物品名称 = name, 物品类型 = productType, 通货类型 = tongHuo,数量=1 };
+                        SaveCacheRecord(cache);
+                        if ((data - 上架时间).TotalMinutes > 30) {
+                          
+                            resultList.Add(model);
+                        }   
                     }
+                   
 
                 }
             }
@@ -170,14 +211,7 @@ namespace POE_Auxiliary_Tools
                 var prices = resultList.Select(item => item.单价).ToList().OrderBy(x=>x).ToList();
                 var medianPrice = prices[prices.Count / 2];
                 var averagePrice =Math.Round(prices.Where(x => x <= medianPrice).Average(),2);
-                ////计算平均价格
-                //double total = 0;
-                //double price = 0;
-                //foreach (var item in resultList)
-                //{
-                //    total += item.单价;
-                //}
-                //price = Math.Round(total / (double)resultList.Count, 2);
+                
                 //返回结果
                 集市物品 obj = new 集市物品() { 名称 = name, 单价 = averagePrice };
 
@@ -202,6 +236,23 @@ namespace POE_Auxiliary_Tools
             var cmdText = sbr.ToString();
             MainFrom.database.ExecuteNonQuery(cmdText);
 
+        }
+        public static void SaveCacheRecord(查询缓存 model)
+        {
+            StringBuilder sbr = new StringBuilder();
+            sbr.Clear();
+            sbr.Append($@"INSERT INTO 查询缓存 (查询时间,物品名称,价格,通货类型,物品类型,上架时间,数量) VALUES ");
+            sbr.Append($"('{Convert.ToDateTime(model.查询时间).ToString("yyyy-MM-dd HH:mm:ss")}','{model.物品名称}','{model.价格}','{model.通货类型}','{model.物品类型}','{Convert.ToDateTime(model.上架时间).ToString("yyyy-MM-dd HH:mm:ss")}','{model.数量}');");
+            var cmdText = sbr.ToString();
+            MainFrom.database.ExecuteNonQuery(cmdText);
+        }
+        public static void DeleteRecord(string name)
+        {
+            StringBuilder sbr = new StringBuilder();
+            sbr.Clear();
+            sbr.Append($@"DELETE FROM 查询缓存 WHERE 物品名称='{name}' ");
+            var cmdText = sbr.ToString();
+            MainFrom.database.ExecuteNonQuery(cmdText);
         }
     }
 }

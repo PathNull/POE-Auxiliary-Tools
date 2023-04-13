@@ -1,9 +1,13 @@
 ﻿using Core;
 using Core.Common;
 using Core.DevControlHandler;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using static Core.Popup;
@@ -17,14 +21,7 @@ namespace POE_Auxiliary_Tools
         public Frm_物品管理()
         {
             InitializeComponent();
-            var list = new List<物品>();
-            list.Add(new 物品() { 是否可用 = "是" });
-            list.Add(new 物品() { 是否可用 = "否" });
-            DevComboBoxEditHandler.BindData(comboBoxEdit_lb, GetProductType(), null, false, "类别名称","id");
-            DevComboBoxEditHandler.BindData(comboBoxEdit_cx, GetProductType(), null, true, "类别名称", "id");
-            DevComboBoxEditHandler.BindData(comboBoxEdit_sfky, list, null, false, "是否可用");
-            comboBoxEdit_cx.SelectedIndex = 0;
-            comboBoxEdit_sfky.SelectedIndex = 0;
+         
         }
         /// <summary>
         /// 获取所有物品类别
@@ -64,6 +61,17 @@ namespace POE_Auxiliary_Tools
             var cmdText = sbr.ToString();
             DataTable dt = MainFrom.database.ExecuteDataTable(cmdText);
             var list = DataHandler.TableToListModel<物品>(dt);
+            foreach (var item in list)
+            {
+                if (item.是否可用 == "是")
+                {
+                    item.是否可用 = "True";
+                }
+                else if (item.是否可用 == "否")
+                {
+                    item.是否可用 = "False";
+                }
+            }
             gridControl_wp.DataSource = list;
         }
 
@@ -71,11 +79,12 @@ namespace POE_Auxiliary_Tools
         {
             var typeName = comboBoxEdit_lb.Text;
             var productName = textEdit_wpmc.Text;
-            var isEnable = comboBoxEdit_sfky.Text;
             var sm = buttonEdit_sm.Text;
             var zd = textEdit_zdsl.Text;
             var sx = textEdit_ddsx.Text;
             var thlx = comboBoxEdit__thlx.Text;
+            var ssId = textEdit_ssId.Text;
+            var yxdd = comboBoxEdit_yxdd.Text;
             if (typeName == "")
             {
                 dialogResult = Popup.Tips(this,"请选择类别！", "提示信息", PopUpType.Info);
@@ -101,6 +110,11 @@ namespace POE_Auxiliary_Tools
                 dialogResult = Popup.Tips(this, "请选择通货类型！", "提示信息", PopUpType.Info);
                 return;
             }
+            if (yxdd == "")
+            {
+                dialogResult = Popup.Tips(this, "请选择是否允许堆叠！", "提示信息", PopUpType.Info);
+                return;
+            }
             var typeId = ((ListItem)comboBoxEdit_lb.SelectedItem).Value;
             var btnText = simpleButton_save.Text;
             //处理最低数量和堆叠上限值
@@ -116,8 +130,8 @@ namespace POE_Auxiliary_Tools
                 if (!MainFrom.database.IsExist("物品", d))
                 {
                     sbr.Clear();
-                    sbr.Append("INSERT INTO 物品 (物品名称,说明,物品类别id,删除标记,是否可用,最低数量,堆叠上限,通货类型) VALUES ");
-                    sbr.Append($"('{productName}','{sm}','{typeId}',0,'是',{zd},{sx},'{thlx}')");
+                    sbr.Append("INSERT INTO 物品 (物品名称,说明,物品类别id,删除标记,是否可用,最低数量,堆叠上限,通货类型,搜索id,允许堆叠) VALUES ");
+                    sbr.Append($"('{productName}','{sm}','{typeId}',0,'是',{zd},{sx},'{thlx}','{ssId}','{yxdd}')");
                     var cmdText = sbr.ToString();
                     MainFrom.database.ExecuteNonQuery(cmdText);
                     //Reset();
@@ -146,10 +160,11 @@ namespace POE_Auxiliary_Tools
                         sbr.Append($"物品名称='{productName}', ");
                         sbr.Append($"说明='{sm}', ");
                         sbr.Append($"物品类别id='{typeId}', ");
-                        sbr.Append($"是否可用='{isEnable}' ,");
                         sbr.Append($"最低数量='{zd}' ,");
                         sbr.Append($"堆叠上限='{sx}', ");
-                        sbr.Append($"通货类型='{thlx}' ");
+                        sbr.Append($"通货类型='{thlx}', ");
+                        sbr.Append($"搜索id='{ssId}', ");
+                        sbr.Append($"允许堆叠='{yxdd}' ");
                         sbr.Append($"WHERE id={model.id};");
                         var cmdText = sbr.ToString();
                         MainFrom.database.ExecuteNonQuery(cmdText);
@@ -170,10 +185,11 @@ namespace POE_Auxiliary_Tools
                     sbr.Append($"物品名称='{productName}', ");
                     sbr.Append($"说明='{sm}', ");
                     sbr.Append($"物品类别id='{typeId}' ,");
-                    sbr.Append($"是否可用='{isEnable}', ");
                     sbr.Append($"最低数量='{zd}' ,");
                     sbr.Append($"堆叠上限='{sx}', ");
-                    sbr.Append($"通货类型='{thlx}' ");
+                    sbr.Append($"通货类型='{thlx}', ");
+                    sbr.Append($"搜索id='{ssId}', ");
+                    sbr.Append($"允许堆叠='{yxdd}' ");
                     sbr.Append($"WHERE id={model.id};");
                     var cmdText = sbr.ToString();
                     MainFrom.database.ExecuteNonQuery(cmdText);
@@ -181,7 +197,9 @@ namespace POE_Auxiliary_Tools
                 }
              
             }
-           
+            ReData();
+
+
         }
 
         public void Reset()
@@ -193,16 +211,17 @@ namespace POE_Auxiliary_Tools
             textEdit_zdsl.Text = "";
             textEdit_ddsx.Text = "";
             comboBoxEdit__thlx.Text = "";
+            textEdit_ssId.Text = "";
+            comboBoxEdit_yxdd.Text = "";
             ReData();
         }
 
         public 物品 GetSelectModel()
         {
-            var row = gridView_wp.GetSelectedRows();
-            if (row.Length > 0)
+            var row = gridView_wp.GetFocusedRow();
+            if (row!=null)
             {
-                var obj = gridView_wp.GetRow(row[0]);
-                物品 model = ObjectHandler.ConvertObject<物品>(obj);
+                物品 model = ObjectHandler.ConvertObject<物品>(row);
                 return model;
             }
             else
@@ -236,14 +255,16 @@ namespace POE_Auxiliary_Tools
         private void gridView_wp_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             物品 model = GetSelectModel();
-            DevComboBoxEditHandler.SetItemByText(comboBoxEdit_lb,model.类别名称);
-            DevComboBoxEditHandler.SetItemByText(comboBoxEdit_sfky, model.是否可用);
+            DevComboBoxEditHandler.SetItemByText(comboBoxEdit_lb, model.类别名称);
+            DevComboBoxEditHandler.SetItemByText(comboBoxEdit_yxdd, model.允许堆叠);
             textEdit_wpmc.Text = model.物品名称;
             buttonEdit_sm.Text = model.说明;
             textEdit_zdsl.Text = model.最低数量.ToString();
             textEdit_ddsx.Text = model.堆叠上限.ToString();
             comboBoxEdit__thlx.Text = model.通货类型;
+            textEdit_ssId.Text = model.搜索id;
             simpleButton_save.Text = "修改";
+
         }
         //物品类别变化
         private void comboBoxEdit_lb_SelectedIndexChanged(object sender, EventArgs e)
@@ -264,5 +285,70 @@ namespace POE_Auxiliary_Tools
                 textEdit_ddsx.Enabled = true;
             }
         }
+
+        private void simpleButton_cx_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        public void Frm_物品管理_Load(object sender, EventArgs e)
+        {
+            var list = new List<物品>();
+            list.Add(new 物品() { 是否可用 = "是" });
+            list.Add(new 物品() { 是否可用 = "否" });
+            var list2 = new List<物品>();
+            list.Add(new 物品() { 允许堆叠 = "是" });
+            list.Add(new 物品() { 允许堆叠 = "否" });
+            DevComboBoxEditHandler.BindData(comboBoxEdit_lb, GetProductType(), null, false, "类别名称", "id");
+            DevComboBoxEditHandler.BindData(comboBoxEdit_cx, GetProductType(), null, true, "类别名称", "id");
+            DevComboBoxEditHandler.BindData(comboBoxEdit_yxdd, list, null, false, "允许堆叠");
+            comboBoxEdit_cx.SelectedIndex = 0;
+        }
+        public void TriggerLoadEvent()
+        {
+            this.OnLoad(EventArgs.Empty);
+        }
+
+        private void comboBoxEdit_yxdd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxEdit_yxdd.Text == "否")
+            {
+                textEdit_zdsl.Enabled= false;
+                textEdit_ddsx.Enabled = false;
+                textEdit_zdsl.Text = "";
+                textEdit_ddsx.Text = "";
+            }
+            else
+            {
+                textEdit_zdsl.Enabled = true;
+                textEdit_ddsx.Enabled = true;
+                textEdit_zdsl.Text = "";
+                textEdit_ddsx.Text = "";
+            }
+        }
+
+        private void gridView_wp_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            e.Appearance.BackColor = Color.White;
+            e.Appearance.Options.UseBackColor = true;
+        }
+
+        private void gridView_wp_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            if (e.Column.Caption == "Selection")
+            {
+                // 列中包含CheckBox编辑器
+                var model = gridView_wp.GetFocusedRow() as 物品;
+                var value = model.是否可用 == "True" ? "否" : "是";
+                sbr.Clear();
+                sbr.Append("UPDATE 物品 SET ");
+                sbr.Append($@"是否可用='{value}' ");
+                sbr.Append($"WHERE 物品名称='{model.物品名称}';");
+                var cmdText = sbr.ToString();
+                MainFrom.database.ExecuteNonQuery(cmdText);
+            }
+        }
+
+        
     }
 }

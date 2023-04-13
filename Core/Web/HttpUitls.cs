@@ -98,25 +98,27 @@ namespace Core.Web
             
             byte[] data = Encoding.UTF8.GetBytes(json);
 
-            // 发送请求 
-            request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(url);
-            request.Method = "POST";
-            request.ContentType = "application/json; charset=UTF-8";
-            request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36";
-            request.ContentType = "application/json";
-            request.CookieContainer = new CookieContainer();
-            Cookie cookie = new Cookie("POESESSID", token, "/", "poe.game.qq.com");
-            request.CookieContainer.Add(cookie);
-            request.ContentLength = data.Length;
-            Stream stream = request.GetRequestStream();
-            stream.Write(data, 0, data.Length);
-            stream.Close();
+            
 
             // 获得回复 
             System.Net.HttpWebResponse response;
             StreamReader reader = null;
             try
             {
+                // 发送请求 
+                request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(url);
+                request.Method = "POST";
+                request.ContentType = "application/json; charset=UTF-8";
+                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36";
+                request.ContentType = "application/json";
+                request.CookieContainer = new CookieContainer();
+                Cookie cookie = new Cookie("POESESSID", token, "/", "poe.game.qq.com");
+                request.CookieContainer.Add(cookie);
+                request.ContentLength = data.Length;
+                Stream stream = request.GetRequestStream();
+                stream.Write(data, 0, data.Length);
+                stream.Close();
+
                 response = (System.Net.HttpWebResponse)request.GetResponse();
                 reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
                 string result = reader.ReadToEnd();

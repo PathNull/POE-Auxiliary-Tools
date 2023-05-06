@@ -75,7 +75,7 @@ namespace POE_Auxiliary_Tools
             var lsit = GetFormNames();
             foreach (var item in lsit)
             {
-                if (item != "Frm_价格走势")
+                if (item != "Frm_价格走势"&& item != "Frm_仓库查询")
                 {
                     var path = "POE_Auxiliary_Tools." + item;
                     Form form = (Form)Activator.CreateInstance(Type.GetType(path));
@@ -101,7 +101,10 @@ namespace POE_Auxiliary_Tools
             var path = "POE_Auxiliary_Tools.Frm_" + name;
             Form form = (Form)Activator.CreateInstance(Type.GetType(path));
             //清除panel里面的其他窗体
-            //this.panelControl1.Controls.Clear();
+            foreach (var item in formList)
+            {
+                item.Visible = false;
+            }
             //将该子窗体设置成非顶级控件
             form.TopLevel = false;
             //将该子窗体的边框去掉
@@ -142,10 +145,15 @@ namespace POE_Auxiliary_Tools
             (formList.SingleOrDefault(x => x.Name == "Frm_地图类工具") as Frm_地图类工具).TriggerLoadEvent();
             ShowForm("地图类工具");
         }
-        private void 装备相关ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 装备相关ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             (formList.SingleOrDefault(x => x.Name == "Frm_装备类工具") as Frm_装备类工具).TriggerLoadEvent();
             ShowForm("装备类工具");
+        }
+        private void 仓库查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //(formList.SingleOrDefault(x => x.Name == "Frm_仓库查询") as Frm_仓库查询).TriggerLoadEvent();
+            Open("仓库查询");
         }
         private void MainFrom_Load(object sender, EventArgs e)
         {
@@ -188,7 +196,7 @@ namespace POE_Auxiliary_Tools
 
         }
 
-       
+        
     }
     public class 用户Token
     {

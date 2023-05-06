@@ -125,6 +125,7 @@
     </Compile>
     <Compile Include="MarketQueryHandle.cs" />
     <Compile Include="Model\DataModel.cs" />
+    <Compile Include="Model\仓库查询.cs" />
     <Compile Include="Model\集市查询.cs" />
     <Compile Include="POESESSID输入.cs">
       <SubType>Form</SubType>
@@ -140,6 +141,7 @@
     <Compile Include="Temp.Designer.cs">
       <DependentUpon>Temp.cs</DependentUpon>
     </Compile>
+    <Compile Include="WarehouseQueryHandler.cs" />
     <Compile Include="基础数据\Frm_物品管理.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +159,12 @@
     </Compile>
     <Compile Include="查询类工具\Fm_价格缓存.Designer.cs">
       <DependentUpon>Fm_价格缓存.cs</DependentUpon>
+    </Compile>
+    <Compile Include="查询类工具\Frm_仓库查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="查询类工具\Frm_仓库查询.Designer.cs">
+      <DependentUpon>Frm_仓库查询.cs</DependentUpon>
     </Compile>
     <Compile Include="查询类工具\Frm_价格走势.cs">
       <SubType>Form</SubType>
@@ -218,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="查询类工具\Fm_价格缓存.resx">
       <DependentUpon>Fm_价格缓存.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="查询类工具\Frm_仓库查询.resx">
+      <DependentUpon>Frm_仓库查询.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="查询类工具\Frm_价格走势.resx">
       <DependentUpon>Frm_价格走势.cs</DependentUpon>

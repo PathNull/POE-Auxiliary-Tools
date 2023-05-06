@@ -122,30 +122,37 @@ namespace POE_Auxiliary_Tools
            //(formList.SingleOrDefault(x => x.Name == "Frm_集市价格查询") as Frm_集市价格查询).TriggerLoadEvent(); 
             ShowForm("集市价格查询");
         }
-
-
-
         private void 物品类别管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (formList.SingleOrDefault(x => x.Name == "Frm_物品类别管理") as Frm_物品类别管理).TriggerLoadEvent();
             ShowForm("物品类别管理");
         }
-
         private void 物品管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (formList.SingleOrDefault(x => x.Name == "Frm_物品管理") as Frm_物品管理).TriggerLoadEvent();
             ShowForm("物品管理");
         }
-
         private void 查询历史ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (formList.SingleOrDefault(x => x.Name == "Frm_查询历史") as Frm_查询历史).TriggerLoadEvent();
             ShowForm("查询历史");
         }
-
-
+        private void 地图相关ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (formList.SingleOrDefault(x => x.Name == "Frm_地图类工具") as Frm_地图类工具).TriggerLoadEvent();
+            ShowForm("地图类工具");
+        }
+        private void 装备相关ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (formList.SingleOrDefault(x => x.Name == "Frm_装备类工具") as Frm_装备类工具).TriggerLoadEvent();
+            ShowForm("装备类工具");
+        }
         private void MainFrom_Load(object sender, EventArgs e)
         {
+            //获取分辨率
+            var resolutionRatio = Screen.PrimaryScreen.Bounds;
+
+
             //获取POESESSID
             sbr.Clear();
             sbr.Append("SELECT POESESSID FROM 用户属性 ");
@@ -180,7 +187,8 @@ namespace POE_Auxiliary_Tools
             to.ShowDialog();
 
         }
-        
+
+       
     }
     public class 用户Token
     {

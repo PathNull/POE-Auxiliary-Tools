@@ -36,10 +36,13 @@
             this.物品管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.物品类别管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.重置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.自动工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.地图相关ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.装备相关ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -52,7 +55,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.查询类工具ToolStripMenuItem,
-            this.基础数据ToolStripMenuItem});
+            this.基础数据ToolStripMenuItem,
+            this.自动工具ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1208, 25);
@@ -95,23 +99,39 @@
             // 物品管理ToolStripMenuItem
             // 
             this.物品管理ToolStripMenuItem.Name = "物品管理ToolStripMenuItem";
-            this.物品管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.物品管理ToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.物品管理ToolStripMenuItem.Text = "物品属性";
             this.物品管理ToolStripMenuItem.Click += new System.EventHandler(this.物品管理ToolStripMenuItem_Click);
             // 
             // 物品类别管理ToolStripMenuItem
             // 
             this.物品类别管理ToolStripMenuItem.Name = "物品类别管理ToolStripMenuItem";
-            this.物品类别管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.物品类别管理ToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.物品类别管理ToolStripMenuItem.Text = "物品类别";
             this.物品类别管理ToolStripMenuItem.Click += new System.EventHandler(this.物品类别管理ToolStripMenuItem_Click);
             // 
             // 重置ToolStripMenuItem
             // 
             this.重置ToolStripMenuItem.Name = "重置ToolStripMenuItem";
-            this.重置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.重置ToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.重置ToolStripMenuItem.Text = "重置POESESSID";
             this.重置ToolStripMenuItem.Click += new System.EventHandler(this.重置ToolStripMenuItem_Click);
+            // 
+            // 自动工具ToolStripMenuItem
+            // 
+            this.自动工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.地图相关ToolStripMenuItem,
+            this.装备相关ToolStripMenuItem});
+            this.自动工具ToolStripMenuItem.Name = "自动工具ToolStripMenuItem";
+            this.自动工具ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.自动工具ToolStripMenuItem.Text = "自动工具";
+            // 
+            // 地图相关ToolStripMenuItem
+            // 
+            this.地图相关ToolStripMenuItem.Name = "地图相关ToolStripMenuItem";
+            this.地图相关ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.地图相关ToolStripMenuItem.Text = "地图相关";
+            this.地图相关ToolStripMenuItem.Click += new System.EventHandler(this.地图相关ToolStripMenuItem_Click);
             // 
             // layoutControl1
             // 
@@ -152,6 +172,13 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // 装备相关ToolStripMenuItem
+            // 
+            this.装备相关ToolStripMenuItem.Name = "装备相关ToolStripMenuItem";
+            this.装备相关ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.装备相关ToolStripMenuItem.Text = "装备相关";
+            this.装备相关ToolStripMenuItem.Click += new System.EventHandler(this.装备相关ToolStripMenuItem_Click);
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -189,5 +216,8 @@
         private System.Windows.Forms.ToolStripMenuItem 物品管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 查询历史ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 重置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 自动工具ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 地图相关ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 装备相关ToolStripMenuItem;
     }
 }

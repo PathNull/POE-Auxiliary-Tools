@@ -79,6 +79,13 @@
     <Reference Include="DevExpress.XtraLayout.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Ljs.Core, Version=1.2.8524.27409, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ljs.Core.1.2.8524.27409\lib\net452\Ljs.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ljs.UI, Version=1.1.8517.23712, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ljs.UI.1.1.8517.23712\lib\net452\Ljs.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -169,6 +176,18 @@
     <Compile Include="查询类工具\Frm_集市价格查询.Designer.cs">
       <DependentUpon>Frm_集市价格查询.cs</DependentUpon>
     </Compile>
+    <Compile Include="自动化工具\Frm_地图类工具.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="自动化工具\Frm_地图类工具.Designer.cs">
+      <DependentUpon>Frm_地图类工具.cs</DependentUpon>
+    </Compile>
+    <Compile Include="自动化工具\Frm_装备类工具.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="自动化工具\Frm_装备类工具.Designer.cs">
+      <DependentUpon>Frm_装备类工具.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +227,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="查询类工具\Frm_集市价格查询.resx">
       <DependentUpon>Frm_集市价格查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="自动化工具\Frm_地图类工具.resx">
+      <DependentUpon>Frm_地图类工具.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="自动化工具\Frm_装备类工具.resx">
+      <DependentUpon>Frm_装备类工具.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="AHK Script\一键开门回城.ahk" />
     <None Include="AHK Script\改造.ahk" />

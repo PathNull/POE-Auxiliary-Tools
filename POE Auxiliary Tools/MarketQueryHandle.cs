@@ -29,7 +29,7 @@ namespace POE_Auxiliary_Tools
         public static JObject GetKeyList(string name, string ssid,string priceType)
         {
             StringBuilder sbr = new StringBuilder();
-            string url = "https://poe.game.qq.com/api/trade/search/S21%E8%B5%9B%E5%AD%A3";
+            string url = "https://poe.game.qq.com/api/trade/search/S22%E8%B5%9B%E5%AD%A3";
             Hashtable ht = new Hashtable();//将参数打包成json格式的数据
             ht.Add("name", name);
 
@@ -172,7 +172,7 @@ namespace POE_Auxiliary_Tools
                             //记录查询缓存
                             var cache = new 查询缓存() { 上架时间 = 上架时间.ToString(), 查询时间 = DateTime.Now.ToString(), 价格 = model.单价.ToString(), 物品名称 = name, 物品类型 = productType, 通货类型 = tongHuo, 数量 = count.数量 };
                             SaveCacheRecord(cache);
-                            if ((data - 上架时间).TotalMinutes > 30)
+                            if ((data - 上架时间).TotalMinutes > 30 && (data - 上架时间).TotalMinutes < 2880)
                             {
                                 if (count.数量 >= minimum)
                                 {

@@ -196,7 +196,10 @@ namespace POE_Auxiliary_Tools
 
         }
 
-        
+        private void 自动按键ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     public class 用户Token
     {

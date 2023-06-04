@@ -1,0 +1,10 @@
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\bin\Debug\x64\SQLite.Interop.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\bin\Debug\x86\SQLite.Interop.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\bin\Debug\Core.dll.config
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\bin\Debug\Core.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\bin\Debug\Core.pdb
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\Core\obj\Debug\Core.csproj.AssemblyReference.cache
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\Core\obj\Debug\Core.csproj.CopyComplete
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\Core\obj\Debug\Core.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\Core\obj\Debug\Core.pdb

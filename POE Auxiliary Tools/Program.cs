@@ -17,7 +17,7 @@ namespace POE_Auxiliary_Tools
         {
             //限制使用时间
             var date = DateTime.Now;
-            if(date< Convert.ToDateTime("2023/06/01"))
+            if(date< Convert.ToDateTime("2023/06/30"))
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);

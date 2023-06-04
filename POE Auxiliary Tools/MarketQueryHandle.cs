@@ -133,72 +133,82 @@ namespace POE_Auxiliary_Tools
             JObject jsonObject2 = JObject.Parse(list2);
             foreach (var item in jsonObject2["result"])
             {
-                var TransactionType = item["item"]["note"].ToString().Split(' ')[0];
-                var thType = item["item"]["note"].ToString().Split(' ')[2];//通货类型
-                var thTypeName = "";
-                var 上架时间 = Convert.ToDateTime(item["listing"]["indexed"].ToString());
-                switch (thType)
+                try
                 {
-                    //混沌石
-                    case "chaos":
-                        thTypeName = "混沌石";
-                        break;
-                    //神圣石
-                    case "divine":
-                        thTypeName = "神圣石";
-                        break;
-                    default:
-                        break;
-                }
-                if (TransactionType == "=a/b/o" && thTypeName == tongHuo)
-                {
-                    var model = new 集市物品();
-                    model.名称 = item["item"]["typeLine"].ToString();
-                    model.交易通货 = item["listing"]["price"]["currency"].ToString();
-                    model.总价格 = Convert.ToInt32(item["listing"]["price"]["amount"]);
-                    if (isHeap == "是")
+                    var m = item["item"]["note"];
+                    var TransactionType = item["item"]["note"].ToString().Split(' ')[0];
+                    var thType = item["item"]["note"].ToString().Split(' ')[2];//通货类型
+                    var thTypeName = "";
+                    var 上架时间 = Convert.ToDateTime(item["listing"]["indexed"].ToString());
+                    switch (thType)
                     {
-                        try
+                        //混沌石
+                        case "chaos":
+                            thTypeName = "混沌石";
+                            break;
+                        //神圣石
+                        case "divine":
+                            thTypeName = "神圣石";
+                            break;
+                        default:
+                            break;
+                    }
+                    if (TransactionType == "=a/b/o" && thTypeName == tongHuo)
+                    {
+                        var model = new 集市物品();
+                        model.名称 = item["item"]["typeLine"].ToString();
+                        model.交易通货 = item["listing"]["price"]["currency"].ToString();
+                        model.总价格 = Convert.ToInt32(item["listing"]["price"]["amount"]);
+                        if (isHeap == "是")
                         {
-                            //允许堆叠
-                            var t = item["item"]["properties"][0]["values"][0][0].ToString().Replace(" ", "");
-                            var sl = t.Split('/');
-                            堆叠数量 count = new 堆叠数量();
-                            count.数量 = Convert.ToInt32(sl[0]);
-                            count.堆叠上限 = Convert.ToInt32(sl[1]);
-                            model.数量 = count;
-                            model.单价 = Math.Round((double)model.总价格 / (double)count.数量, 2);
-
-                            //记录查询缓存
-                            var cache = new 查询缓存() { 上架时间 = 上架时间.ToString(), 查询时间 = DateTime.Now.ToString(), 价格 = model.单价.ToString(), 物品名称 = name, 物品类型 = productType, 通货类型 = tongHuo, 数量 = count.数量 };
-                            SaveCacheRecord(cache);
-                            if ((data - 上架时间).TotalMinutes > 30 && (data - 上架时间).TotalMinutes < 2880)
+                            try
                             {
-                                if (count.数量 >= minimum)
+                                //允许堆叠
+                                var t = item["item"]["properties"][0]["values"][0][0].ToString().Replace(" ", "");
+                                var sl = t.Split('/');
+                                堆叠数量 count = new 堆叠数量();
+                                count.数量 = Convert.ToInt32(sl[0]);
+                                count.堆叠上限 = Convert.ToInt32(sl[1]);
+                                model.数量 = count;
+                                model.单价 = Math.Round((double)model.总价格 / (double)count.数量, 2);
+
+                                //记录查询缓存
+                                var cache = new 查询缓存() { 上架时间 = 上架时间.ToString(), 查询时间 = DateTime.Now.ToString(), 价格 = model.单价.ToString(), 物品名称 = name, 物品类型 = productType, 通货类型 = tongHuo, 数量 = count.数量 };
+                                SaveCacheRecord(cache);
+                                if ((data - 上架时间).TotalMinutes > 30 && (data - 上架时间).TotalMinutes < 2880)
                                 {
-                                    resultList.Add(model);
+                                    if (count.数量 >= minimum)
+                                    {
+                                        resultList.Add(model);
+                                    }
                                 }
                             }
+                            catch (NullReferenceException ex)
+                            {
+                                return new 集市物品() { err = "检查物品是否允许堆叠！" };
+                            }
                         }
-                        catch (NullReferenceException ex)
+                        else
                         {
-                            return new 集市物品() { err = "检查物品是否允许堆叠！" };
-                        }  
-                    }
-                    else
-                    {
-                        model.单价 = (double)model.总价格 / 1;
-                        //记录查询缓存
-                        var cache = new 查询缓存() { 上架时间 = 上架时间.ToString(), 查询时间 = DateTime.Now.ToString(), 价格 = model.单价.ToString(), 物品名称 = name, 物品类型 = productType, 通货类型 = tongHuo,数量=1 };
-                        SaveCacheRecord(cache);
-                        if ((data - 上架时间).TotalMinutes > 30) {
-                          
-                            resultList.Add(model);
-                        }   
-                    }
-                   
+                            model.单价 = (double)model.总价格 / 1;
+                            //记录查询缓存
+                            var cache = new 查询缓存() { 上架时间 = 上架时间.ToString(), 查询时间 = DateTime.Now.ToString(), 价格 = model.单价.ToString(), 物品名称 = name, 物品类型 = productType, 通货类型 = tongHuo, 数量 = 1 };
+                            SaveCacheRecord(cache);
+                            if ((data - 上架时间).TotalMinutes > 30)
+                            {
 
+                                resultList.Add(model);
+                            }
+                        }
+
+
+                    }
                 }
+                catch (Exception ex)
+                {
+                    continue;
+                }
+               
             }
             var c = jsonObject["result"].Count();
             if (resultList.Count < endNum && jsonObject["result"].Count() > k)

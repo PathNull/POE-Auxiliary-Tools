@@ -1,0 +1,162 @@
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\x64\SQLite.Interop.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\x86\SQLite.Interop.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\Database\database.db
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\POE Auxiliary Tools.exe.config
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\POE Auxiliary Tools.exe.manifest
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\POE Auxiliary Tools.application
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\POE Auxiliary Tools.exe
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\POE Auxiliary Tools.pdb
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\Core.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Charts.v22.1.Core.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Data.Desktop.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Data.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Drawing.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Printing.v22.1.Core.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Sparkline.v22.1.Core.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Utils.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Utils.v22.1.UI.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraBars.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraCharts.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraCharts.v22.1.UI.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraCharts.v22.1.Wizard.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraEditors.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraGrid.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraLayout.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraNavBar.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraPrinting.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraTreeList.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\Ljs.Core.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\Ljs.UI.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\Newtonsoft.Json.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\log4net.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\System.Data.SQLite.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Pdf.v22.1.Core.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Pdf.v22.1.Drawing.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraRichEdit.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraVerticalGrid.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.DataAccess.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.DataVisualization.v22.1.Core.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.RichEdit.v22.1.Core.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Office.v22.1.Core.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Images.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Xpo.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.CodeParser.v22.1.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\Core.pdb
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\Core.dll.config
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Charts.v22.1.Core.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Data.Desktop.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Data.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Printing.v22.1.Core.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Sparkline.v22.1.Core.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Utils.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Utils.v22.1.UI.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraBars.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraCharts.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraCharts.v22.1.UI.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraCharts.v22.1.Wizard.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraEditors.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraGrid.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraLayout.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraNavBar.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraPrinting.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraTreeList.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\Ljs.Core.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\Ljs.UI.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\Newtonsoft.Json.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\log4net.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\System.Data.SQLite.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Pdf.v22.1.Core.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Pdf.v22.1.Drawing.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraRichEdit.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.XtraVerticalGrid.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.DataAccess.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.RichEdit.v22.1.Core.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Office.v22.1.Core.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\DevExpress.Xpo.v22.1.xml
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.Data.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.Data.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.Data.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.Printing.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.Printing.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.Printing.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.Sparkline.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.Sparkline.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.Sparkline.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.Utils.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.Utils.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.Utils.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.Utils.v22.1.UI.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.Utils.v22.1.UI.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.Utils.v22.1.UI.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.XtraBars.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.XtraBars.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.XtraBars.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.XtraCharts.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.XtraCharts.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.XtraCharts.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.XtraCharts.v22.1.Wizard.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.XtraCharts.v22.1.Wizard.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.XtraCharts.v22.1.Wizard.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.XtraEditors.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.XtraEditors.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.XtraEditors.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.XtraGrid.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.XtraGrid.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.XtraGrid.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.XtraLayout.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.XtraLayout.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.XtraLayout.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.XtraNavBar.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.XtraNavBar.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.XtraNavBar.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.XtraPrinting.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.XtraPrinting.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.XtraPrinting.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.XtraTreeList.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.XtraTreeList.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.XtraTreeList.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.Pdf.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.Pdf.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.Pdf.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.XtraRichEdit.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.XtraRichEdit.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.XtraRichEdit.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.XtraVerticalGrid.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.XtraVerticalGrid.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.XtraVerticalGrid.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.DataAccess.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.DataAccess.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.DataAccess.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.RichEdit.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.RichEdit.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.RichEdit.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.Office.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.Office.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.Office.v22.1.Core.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\de\DevExpress.Xpo.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\es\DevExpress.Xpo.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\ja\DevExpress.Xpo.v22.1.resources.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.csproj.AssemblyReference.cache
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.csproj.SuggestedBindingRedirects.cache
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.BaseForm.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.MainFrom.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.POESESSID输入.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.Properties.Resources.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.Temp.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.Frm_物品管理.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.Frm_物品类别管理.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.查询类工具.Fm_价格缓存.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.Frm_仓库查询.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.查询类工具.Frm_价格走势.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.Frm_查询历史.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.Frm_集市价格查询.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.Frm_地图类工具.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.Frm_装备类工具.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.csproj.GenerateResource.cache
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.exe.licenses
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.exe.manifest
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.application
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.csproj.CopyComplete
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.exe
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.pdb

@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using AutoHotkey.Interop;
+using Core;
 using Core.Common;
 using Core.SQLite;
 using System;
@@ -35,12 +36,11 @@ namespace POE_Auxiliary_Tools
 #else
             database = new SQLiteHandler(Application.StartupPath + "\\Database\\database.db");
 #endif
-            if(SQLiteHandler.DataBaceList.Count==0)
+            if (SQLiteHandler.DataBaceList.Count==0)
                 SQLiteHandler.DataBaceList.Add("database", database);
 
             OpenAll();//打开所有窗体 
         }
-
         public static string[] GetFormNames()
         {
             // 获取当前程序集
@@ -69,7 +69,7 @@ namespace POE_Auxiliary_Tools
                 }
             }
         }
-
+        
         public void OpenAll()
         {
             var lsit = GetFormNames();
@@ -198,7 +198,8 @@ namespace POE_Auxiliary_Tools
 
         private void 自动按键ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            (formList.SingleOrDefault(x => x.Name == "Frm_自动按键") as Frm_自动按键).TriggerLoadEvent();
+            ShowForm("自动按键");
         }
     }
     public class 用户Token

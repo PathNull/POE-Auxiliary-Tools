@@ -160,3 +160,6 @@ C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE A
 C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.csproj.CopyComplete
 C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.exe
 C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE Auxiliary Tools.pdb
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.Frm_自动按键.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK Script\火炬自动吃药.ahk
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AutoHotkey.Interop.dll

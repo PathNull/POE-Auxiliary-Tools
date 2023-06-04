@@ -64,6 +64,9 @@
     <Compile Include="XMLHandler.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AutoHotkey.Interop, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoHotkey.Interop.1.0.0.1\lib\net45\AutoHotkey.Interop.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.Desktop.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Drawing.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />

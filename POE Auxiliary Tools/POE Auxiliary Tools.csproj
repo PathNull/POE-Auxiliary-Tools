@@ -62,6 +62,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="AutoHotkey.Interop, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoHotkey.Interop.1.0.0.1\lib\net45\AutoHotkey.Interop.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Charts.v22.1.Core, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v22.1, Version=22.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -184,6 +187,12 @@
     <Compile Include="查询类工具\Frm_集市价格查询.Designer.cs">
       <DependentUpon>Frm_集市价格查询.cs</DependentUpon>
     </Compile>
+    <Compile Include="火炬工具\Frm_自动按键.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="火炬工具\Frm_自动按键.Designer.cs">
+      <DependentUpon>Frm_自动按键.cs</DependentUpon>
+    </Compile>
     <Compile Include="自动化工具\Frm_地图类工具.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +248,9 @@
     <EmbeddedResource Include="查询类工具\Frm_集市价格查询.resx">
       <DependentUpon>Frm_集市价格查询.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="火炬工具\Frm_自动按键.resx">
+      <DependentUpon>Frm_自动按键.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="自动化工具\Frm_地图类工具.resx">
       <DependentUpon>Frm_地图类工具.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +260,9 @@
     <None Include="AHK Script\一键开门回城.ahk" />
     <None Include="AHK Script\改造.ahk" />
     <None Include="AHK Script\测试.ahk" />
+    <None Include="AHK Script\火炬自动吃药.ahk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="AHK Script\自动吃药.ahk" />
     <None Include="AHK Script\自动洗地图.ahk" />
     <None Include="AHK Script\获取颜色.ahk" />
@@ -291,8 +306,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="火炬工具\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

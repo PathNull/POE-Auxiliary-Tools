@@ -81,53 +81,62 @@
             this.layoutControl1.Controls.Add(this.gridControl_label);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1554, 849);
+            this.layoutControl1.Size = new System.Drawing.Size(1166, 679);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // simpleButton_cx
             // 
-            this.simpleButton_cx.Location = new System.Drawing.Point(767, 597);
-            this.simpleButton_cx.MaximumSize = new System.Drawing.Size(98, 27);
+            this.simpleButton_cx.Location = new System.Drawing.Point(574, 478);
+            this.simpleButton_cx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.simpleButton_cx.MaximumSize = new System.Drawing.Size(74, 22);
             this.simpleButton_cx.Name = "simpleButton_cx";
-            this.simpleButton_cx.Size = new System.Drawing.Size(98, 27);
+            this.simpleButton_cx.Size = new System.Drawing.Size(74, 22);
             this.simpleButton_cx.StyleController = this.layoutControl1;
             this.simpleButton_cx.TabIndex = 9;
             this.simpleButton_cx.Text = "查询";
             // 
             // textEdit_lfyQuery
             // 
-            this.textEdit_lfyQuery.Location = new System.Drawing.Point(548, 597);
-            this.textEdit_lfyQuery.MaximumSize = new System.Drawing.Size(215, 24);
+            this.textEdit_lfyQuery.Location = new System.Drawing.Point(412, 478);
+            this.textEdit_lfyQuery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textEdit_lfyQuery.MaximumSize = new System.Drawing.Size(161, 19);
             this.textEdit_lfyQuery.Name = "textEdit_lfyQuery";
-            this.textEdit_lfyQuery.Size = new System.Drawing.Size(215, 24);
+            this.textEdit_lfyQuery.Size = new System.Drawing.Size(160, 19);
             this.textEdit_lfyQuery.StyleController = this.layoutControl1;
             this.textEdit_lfyQuery.TabIndex = 8;
             this.textEdit_lfyQuery.TextChanged += new System.EventHandler(this.textEdit_lfyQuery_TextChanged);
             // 
             // gridControl_productCount
             // 
-            this.gridControl_productCount.Location = new System.Drawing.Point(461, 628);
+            this.gridControl_productCount.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridControl_productCount.Location = new System.Drawing.Point(343, 504);
             this.gridControl_productCount.MainView = this.gridView_productCount;
+            this.gridControl_productCount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gridControl_productCount.Name = "gridControl_productCount";
-            this.gridControl_productCount.Size = new System.Drawing.Size(1088, 216);
+            this.gridControl_productCount.Size = new System.Drawing.Size(820, 170);
             this.gridControl_productCount.TabIndex = 7;
             this.gridControl_productCount.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_productCount});
             // 
             // gridView_productCount
             // 
+            this.gridView_productCount.DetailHeight = 280;
             this.gridView_productCount.GridControl = this.gridControl_productCount;
             this.gridView_productCount.Name = "gridView_productCount";
+            this.gridView_productCount.OptionsView.ShowGroupPanel = false;
+            this.gridView_productCount.OptionsView.ShowIndicator = false;
             // 
             // simpleButton_getGoods
             // 
-            this.simpleButton_getGoods.Location = new System.Drawing.Point(5, 31);
-            this.simpleButton_getGoods.MaximumSize = new System.Drawing.Size(118, 27);
+            this.simpleButton_getGoods.Location = new System.Drawing.Point(3, 26);
+            this.simpleButton_getGoods.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.simpleButton_getGoods.MaximumSize = new System.Drawing.Size(88, 22);
             this.simpleButton_getGoods.Name = "simpleButton_getGoods";
-            this.simpleButton_getGoods.Size = new System.Drawing.Size(108, 27);
+            this.simpleButton_getGoods.Size = new System.Drawing.Size(81, 22);
             this.simpleButton_getGoods.StyleController = this.layoutControl1;
             this.simpleButton_getGoods.TabIndex = 6;
             this.simpleButton_getGoods.Text = "获取物品列表";
@@ -135,33 +144,40 @@
             // 
             // gridControl_statistics
             // 
-            this.gridControl_statistics.Location = new System.Drawing.Point(461, 31);
+            this.gridControl_statistics.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridControl_statistics.Location = new System.Drawing.Point(343, 26);
             this.gridControl_statistics.MainView = this.gridView_statistics;
+            this.gridControl_statistics.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gridControl_statistics.Name = "gridControl_statistics";
-            this.gridControl_statistics.Size = new System.Drawing.Size(1088, 562);
+            this.gridControl_statistics.Size = new System.Drawing.Size(820, 448);
             this.gridControl_statistics.TabIndex = 5;
             this.gridControl_statistics.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_statistics});
             // 
             // gridView_statistics
             // 
+            this.gridView_statistics.DetailHeight = 280;
             this.gridView_statistics.GridControl = this.gridControl_statistics;
             this.gridView_statistics.Name = "gridView_statistics";
-            this.gridView_statistics.OptionsView.ColumnAutoWidth = false;
+            this.gridView_statistics.OptionsView.ShowGroupPanel = false;
+            this.gridView_statistics.OptionsView.ShowIndicator = false;
             // 
             // gridControl_label
             // 
-            this.gridControl_label.Location = new System.Drawing.Point(5, 62);
+            this.gridControl_label.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridControl_label.Location = new System.Drawing.Point(3, 52);
             this.gridControl_label.MainView = this.gridView_label;
-            this.gridControl_label.MaximumSize = new System.Drawing.Size(446, 0);
+            this.gridControl_label.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridControl_label.MaximumSize = new System.Drawing.Size(334, 0);
             this.gridControl_label.Name = "gridControl_label";
-            this.gridControl_label.Size = new System.Drawing.Size(446, 782);
+            this.gridControl_label.Size = new System.Drawing.Size(334, 622);
             this.gridControl_label.TabIndex = 4;
             this.gridControl_label.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_label});
             // 
             // gridView_label
             // 
+            this.gridView_label.DetailHeight = 280;
             this.gridView_label.GridControl = this.gridControl_label;
             this.gridView_label.Name = "gridView_label";
             this.gridView_label.OptionsSelection.CheckBoxSelectorField = "check_label";
@@ -179,7 +195,7 @@
             this.layoutControlGroup1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(1554, 849);
+            this.Root.Size = new System.Drawing.Size(1166, 679);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup2
@@ -190,10 +206,10 @@
             this.emptySpaceItem2,
             this.layoutControlItem5,
             this.layoutControlItem6});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(456, 0);
+            this.layoutControlGroup2.Location = new System.Drawing.Point(340, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1098, 849);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(826, 679);
             this.layoutControlGroup2.Text = "物品统计";
             // 
             // layoutControlItem2
@@ -201,42 +217,42 @@
             this.layoutControlItem2.Control = this.gridControl_statistics;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1092, 566);
+            this.layoutControlItem2.Size = new System.Drawing.Size(822, 452);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.gridControl_productCount;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 597);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 478);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(1092, 220);
+            this.layoutControlItem4.Size = new System.Drawing.Size(822, 174);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(408, 566);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(307, 452);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(684, 31);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(515, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.textEdit_lfyQuery;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 566);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 452);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(306, 31);
+            this.layoutControlItem5.Size = new System.Drawing.Size(231, 26);
             this.layoutControlItem5.Text = "六分仪类型";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(75, 18);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.simpleButton_cx;
-            this.layoutControlItem6.Location = new System.Drawing.Point(306, 566);
+            this.layoutControlItem6.Location = new System.Drawing.Point(231, 452);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(102, 31);
+            this.layoutControlItem6.Size = new System.Drawing.Size(76, 26);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
@@ -249,15 +265,15 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(456, 849);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(340, 679);
             this.layoutControlGroup1.Text = "仓库标签";
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl_label;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 31);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(450, 786);
+            this.layoutControlItem1.Size = new System.Drawing.Size(336, 626);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -266,24 +282,25 @@
             this.layoutControlItem3.Control = this.simpleButton_getGoods;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(112, 31);
+            this.layoutControlItem3.Size = new System.Drawing.Size(83, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(112, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(83, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(338, 31);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(253, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // Frm_仓库查询
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1554, 849);
+            this.ClientSize = new System.Drawing.Size(1166, 679);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Frm_仓库查询";
             this.Text = "Frm_仓库查询";
             this.Load += new System.EventHandler(this.Frm_仓库查询_Load);

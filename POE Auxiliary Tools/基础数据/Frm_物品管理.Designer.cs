@@ -439,7 +439,9 @@
             this.gridView_wp.OptionsSelection.MultiSelect = true;
             this.gridView_wp.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView_wp.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView_wp.OptionsView.ShowGroupPanel = false;
             this.gridView_wp.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView_wp.OptionsView.ShowIndicator = false;
             this.gridView_wp.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView_wp_RowClick);
             this.gridView_wp.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView_wp_RowCellClick);
             this.gridView_wp.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView_wp_RowStyle);

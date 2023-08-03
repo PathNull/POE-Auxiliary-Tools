@@ -95,6 +95,8 @@
             this.gridView_lb.Name = "gridView_lb";
             this.gridView_lb.OptionsBehavior.Editable = false;
             this.gridView_lb.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView_lb.OptionsView.ShowGroupPanel = false;
+            this.gridView_lb.OptionsView.ShowIndicator = false;
             this.gridView_lb.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView_lb_RowClick);
             this.gridView_lb.DoubleClick += new System.EventHandler(this.gridView_lb_DoubleClick);
             // 

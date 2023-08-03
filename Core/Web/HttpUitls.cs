@@ -92,7 +92,7 @@ namespace Core.Web
             }
             else
             {
-                 json = "{\"query\":{\"status\":{\"option\":\"any\"},\"type\":\"" + paramsOfUrl["name"] + "\",\"stats\":[{\"type\":\"and\",\"filters\":[]}],\"filters\":{\"trade_filters\":{\"filters\":{\"price\":{\"option\":\"" + priceType + "\"}}}}},\"sort\":{\"price\":\"asc\"}}";
+                 json = "{\"query\":{\"status\":{\"option\":\"any\"},\"type\":\""+paramsOfUrl["name"]+"\",\"stats\":[{\"type\":\"and\",\"filters\":[]}],\"filters\":{\"trade_filters\":{\"filters\":{\"price\":{\"option\":\""+priceType+"\"},\"indexed\":{\"option\":\"1week\"}}}}},\"sort\":{\"price\":\"asc\"}}";
             }
             
             

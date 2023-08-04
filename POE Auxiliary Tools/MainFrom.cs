@@ -2,6 +2,7 @@
 using Core;
 using Core.Common;
 using Core.SQLite;
+using Path_of_Exile_Tool;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -78,7 +79,8 @@ namespace POE_Auxiliary_Tools
                 if (item != "Frm_价格走势"&& item != "Frm_仓库查询")
                 {
                     var path = "POE_Auxiliary_Tools." + item;
-                    Form form = (Form)Activator.CreateInstance(Type.GetType(path));
+                    var p = Type.GetType(path);
+                    Form form = (Form)Activator.CreateInstance(p);
                     //清除panel里面的其他窗体
                     //this.panelControl1.Controls.Clear();
                     //将该子窗体设置成非顶级控件
@@ -200,6 +202,12 @@ namespace POE_Auxiliary_Tools
         {
             (formList.SingleOrDefault(x => x.Name == "Frm_自动按键") as Frm_自动按键).TriggerLoadEvent();
             ShowForm("自动按键");
+        }
+
+        private void 老版工具ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (formList.SingleOrDefault(x => x.Name == "Frm_老版工具") as Frm_老版工具).TriggerLoadEvent();
+            ShowForm("老版工具");
         }
     }
     public class 用户Token

@@ -9,6 +9,13 @@ AutoHC(hotKey,isStart){
     }
 }
 hotkey_hc:
+    MouseGetPos, xpos, ypos
     Send i
-    Click, 1224,820 right
-    Click, 616,322 left
+    x := 1224 * scaleX
+    y := 820 * scaleY
+    Click, %x%,%y% right
+    Send {Esc}
+    MouseMove, %xpos%,%ypos%
+    ;x:=616 * scaleX 
+    ;y:=322 * scaleY
+    ;Click, %x%,%y% left

@@ -119,6 +119,7 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core.cs" />
     <Compile Include="Enum\MyEnum.cs" />
     <Compile Include="MainFrom.cs">
       <SubType>Form</SubType>
@@ -127,7 +128,9 @@
       <DependentUpon>MainFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="MarketQueryHandle.cs" />
+    <Compile Include="Model\BloodPos.cs" />
     <Compile Include="Model\DataModel.cs" />
+    <Compile Include="Model\Exclude.cs" />
     <Compile Include="Model\仓库查询.cs" />
     <Compile Include="Model\集市查询.cs" />
     <Compile Include="POESESSID输入.cs">
@@ -193,6 +196,12 @@
     <Compile Include="火炬工具\Frm_自动按键.Designer.cs">
       <DependentUpon>Frm_自动按键.cs</DependentUpon>
     </Compile>
+    <Compile Include="自动化工具\Frm_老版工具.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="自动化工具\Frm_老版工具.designer.cs">
+      <DependentUpon>Frm_老版工具.cs</DependentUpon>
+    </Compile>
     <Compile Include="自动化工具\Frm_地图类工具.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="火炬工具\Frm_自动按键.resx">
       <DependentUpon>Frm_自动按键.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="自动化工具\Frm_老版工具.resx">
+      <DependentUpon>Frm_老版工具.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="自动化工具\Frm_地图类工具.resx">
       <DependentUpon>Frm_地图类工具.cs</DependentUpon>

@@ -152,7 +152,6 @@
             // 
             // 装备相关ToolStripMenuItem
             // 
-            this.装备相关ToolStripMenuItem.Enabled = false;
             this.装备相关ToolStripMenuItem.Name = "装备相关ToolStripMenuItem";
             this.装备相关ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.装备相关ToolStripMenuItem.Text = "装备相关";
@@ -177,7 +176,7 @@
             // 
             this.自动按键ToolStripMenuItem.Enabled = false;
             this.自动按键ToolStripMenuItem.Name = "自动按键ToolStripMenuItem";
-            this.自动按键ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.自动按键ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.自动按键ToolStripMenuItem.Text = "自动按键";
             this.自动按键ToolStripMenuItem.Click += new System.EventHandler(this.自动按键ToolStripMenuItem_Click);
             // 

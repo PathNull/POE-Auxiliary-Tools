@@ -73,27 +73,27 @@ namespace POE_Auxiliary_Tools
 
         private void listBoxControl_zbsx_DoubleClick(object sender, EventArgs e)
         {
-            ListBoxControl listBox = sender as ListBoxControl;
-            if (listBox != null)
-            {
-                int index = listBox.SelectedIndex;
-                if (index != -1)
-                {
-                    string selectedItem = listBox.SelectedItem.ToString();
-                    var i = tableLayoutPanel.RowCount;
-                    // 针对每个 TextEdit 控件创建一个新的行，并设置行高
-                    tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-                    var textEdit = new TextEdit() { Text = selectedItem, Width = 200 };
-                    var checkBox = new CheckBox();
-                    // 添加 TextEdit 控件，并将其放置在正确的行中
-                    tableLayoutPanel.Controls.Add(textEdit, 0, i);
-                    tableLayoutPanel.Controls.Add(checkBox, 0, i);
-                    tableLayoutPanel.SetRow(textEdit, i);
-                    tableLayoutPanel.SetRow(checkBox, i);
-                    tableLayoutPanel.SetColumn(checkBox, 0);
-                    tableLayoutPanel.SetColumn(textEdit, 1);
-                }
-            }
+            //ListBoxControl listBox = sender as ListBoxControl;
+            //if (listBox != null)
+            //{
+            //    int index = listBox.SelectedIndex;
+            //    if (index != -1)
+            //    {
+            //        string selectedItem = listBox.SelectedItem.ToString();
+            //        var i = tableLayoutPanel.RowCount;
+            //        // 针对每个 TextEdit 控件创建一个新的行，并设置行高
+            //        tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            //        var textEdit = new TextEdit() { Text = selectedItem, Width = 200 };
+            //        var checkBox = new CheckBox();
+            //        // 添加 TextEdit 控件，并将其放置在正确的行中
+            //        tableLayoutPanel.Controls.Add(textEdit, 0, i);
+            //        tableLayoutPanel.Controls.Add(checkBox, 0, i);
+            //        tableLayoutPanel.SetRow(textEdit, i);
+            //        tableLayoutPanel.SetRow(checkBox, i);
+            //        tableLayoutPanel.SetColumn(checkBox, 0);
+            //        tableLayoutPanel.SetColumn(textEdit, 1);
+            //    }
+            //}
         }
     }
 }

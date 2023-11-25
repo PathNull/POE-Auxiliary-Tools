@@ -5,6 +5,7 @@ using Core.Web;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using Newtonsoft.Json.Linq;
+using POE_Auxiliary_Tools.Enum;
 using POE_Auxiliary_Tools.Model;
 using System;
 using System.Collections;
@@ -191,7 +192,14 @@ namespace POE_Auxiliary_Tools
                 return;
             }
 
-            GetScale();
+            if (GetScale() == 返回状态.失败)
+            {
+                progressBarControl1.Visible = false;
+                simpleButton_query.Enabled = true;
+                simpleButton_dcb.Enabled = true;
+                simpleButton_zz.Enabled = false;
+                return ;
+            }
 
 
 
@@ -503,11 +511,16 @@ namespace POE_Auxiliary_Tools
             MainFrom.database.ExecuteNonQuery(cmdText);
         }
         //获取DC比例
-        public void GetScale()
+        public 返回状态 GetScale()
         {
             MarketQueryHandle.DeleteRecord("神圣石");
             List<集市物品> rList = new List<集市物品>();
             var keyResult = MarketQueryHandle.GetKeyList("神圣石", "","chaos");
+            if (keyResult ==null)
+            {
+                XtraMessageBox.Show("POESESSID失效请更新！", "提示信息");
+                return 返回状态.失败;
+            }
             var model = MarketQueryHandle.GetPrice(rList, keyResult, "神圣石", "通货", "是", "混沌石", 1, 0);
             if (model.err == null)
             {
@@ -537,6 +550,7 @@ namespace POE_Auxiliary_Tools
                     label1.Text = $"DC比更新失败";
                 }
             }
+            return 返回状态.成功;
         }
         private void Frm_集市价格查询_Load(object sender, EventArgs e)
         {
@@ -582,29 +596,44 @@ namespace POE_Auxiliary_Tools
             simpleButton_query.Enabled = false;
             Thread thead = new Thread(() =>
             {
-                GetScale();
-                if (simpleButton_dcb.InvokeRequired)
+                if (GetScale()== 返回状态.成功)
                 {
-                    simpleButton_dcb.Invoke(new Action(() =>
+                    if (simpleButton_dcb.InvokeRequired)
+                    {
+                        simpleButton_dcb.Invoke(new Action(() =>
+                        {
+                            simpleButton_dcb.Enabled = true;
+                        }));
+                    }
+                    else
                     {
                         simpleButton_dcb.Enabled = true;
-                    }));
+                    }
+                    if (simpleButton_query.InvokeRequired)
+                    {
+                        simpleButton_query.Invoke(new Action(() =>
+                        {
+                            simpleButton_query.Enabled = true;
+                        }));
+                    }
+                    else
+                    {
+                        simpleButton_query.Enabled = true;
+                    }
                 }
                 else
                 {
-                    simpleButton_dcb.Enabled = true;
-                }
-                if (simpleButton_query.InvokeRequired)
-                {
+                    simpleButton_query.Invoke(new Action(() =>
+                    {
+                        simpleButton_dcb.Enabled = true;
+                    }));
                     simpleButton_query.Invoke(new Action(() =>
                     {
                         simpleButton_query.Enabled = true;
                     }));
+                    return;
                 }
-                else
-                {
-                    simpleButton_query.Enabled = true;
-                }
+               
 
             });
             thead.Start();
@@ -632,6 +661,10 @@ namespace POE_Auxiliary_Tools
         private void DoWork(CancellationToken cancellationToken)
         {
             StartQuery(cancellationToken);
+            simpleButton_zz.Invoke(new Action(() =>
+            {
+                simpleButton_zz.Enabled = false;
+            }));
         }
 
         private void checkEdit_qfx_CheckedChanged(object sender, EventArgs e)

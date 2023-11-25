@@ -3,6 +3,7 @@ using Core;
 using Core.Common;
 using Core.SQLite;
 using Path_of_Exile_Tool;
+using POE_Auxiliary_Tools.基础数据;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -70,7 +71,22 @@ namespace POE_Auxiliary_Tools
                 }
             }
         }
-        
+        private void ReShowForm(Form frm)
+        {
+            //清除panel里面的其他窗体
+            //this.panelControl1.Controls.Clear();
+            //将该子窗体设置成非顶级控件
+            frm.TopLevel = false;
+            //将该子窗体的边框去掉
+            frm.FormBorderStyle = FormBorderStyle.None;
+            //设置子窗体随容器大小自动调整
+            frm.Dock = DockStyle.Fill;
+            //设置mdi父容器为当前窗口
+            frm.Parent = this.panelControl1;
+            frm.Visible = false;
+            //子窗体显示
+            frm.Show();
+        }
         public void OpenAll()
         {
             var lsit = GetFormNames();
@@ -159,21 +175,57 @@ namespace POE_Auxiliary_Tools
         }
         private void MainFrom_Load(object sender, EventArgs e)
         {
+            
+
+
+
             //获取分辨率
             var resolutionRatio = Screen.PrimaryScreen.Bounds;
 
 
-            //获取POESESSID
-            sbr.Clear();
-            sbr.Append("SELECT POESESSID FROM 用户属性 ");
-            DataTable _dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
-            MainFrom.tokenList = DataHandler.TableToListModel<用户Token>(_dt);
+          
 
 
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
                 (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
             ShowForm("查询历史");
+
+            //检查用户信息
+            sbr.Clear();
+            sbr.Append($"SELECT * FROM 用户属性");
+            var t = sbr.ToString();
+            DataTable dt = MainFrom.database.ExecuteDataTable(t);
+            var list = DataHandler.TableToListModel<用户信息Mode>(dt);
+            if (list.Count == 0)
+            {
+                var frm = new 用户信息();
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                // 禁用最小化按钮和最大化按钮
+                frm.MinimizeBox = false;
+                frm.MaximizeBox = false;
+                frm.ShowDialog();
+            }
+      
+            //获取POESESSID
+            sbr.Clear();
+            sbr.Append("SELECT POESESSID FROM 用户属性 ");
+            DataTable _dt = MainFrom.database.ExecuteDataTable(sbr.ToString());
+            MainFrom.tokenList = DataHandler.TableToListModel<用户Token>(_dt);
+
+            //baseInfo
+            sbr.Clear();
+            sbr.Append($"SELECT * FROM 用户属性");
+            var s = sbr.ToString();
+            DataTable dt2 = MainFrom.database.ExecuteDataTable(t);
+            var list2 = DataHandler.TableToListModel<用户信息Mode>(dt);
+            if (list2.Count>0)
+            {
+                Program.baseInfo.论坛名称 = list2[0].论坛名称;
+                Program.baseInfo.POESESSID = list2[0].POESESSID;
+                Program.baseInfo.赛季 = list2[0].赛季;
+            }
+           
 
         }
 
@@ -208,6 +260,16 @@ namespace POE_Auxiliary_Tools
         {
             (formList.SingleOrDefault(x => x.Name == "Frm_老版工具") as Frm_老版工具).TriggerLoadEvent();
             ShowForm("老版工具");
+        }
+
+        private void 用户信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new 用户信息();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            // 禁用最小化按钮和最大化按钮
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.ShowDialog();
         }
     }
     public class 用户Token

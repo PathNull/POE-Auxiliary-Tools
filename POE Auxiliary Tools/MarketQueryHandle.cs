@@ -1,5 +1,6 @@
 ﻿using Core.Common;
 using Core.Web;
+using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting;
 using Newtonsoft.Json.Linq;
 using POE_Auxiliary_Tools.Model;
@@ -29,7 +30,7 @@ namespace POE_Auxiliary_Tools
         public static JObject GetKeyList(string name, string ssid,string priceType)
         {
             StringBuilder sbr = new StringBuilder();
-            string url = "https://poe.game.qq.com/api/trade/search/S22%E8%B5%9B%E5%AD%A3";
+            string url = $"https://poe.game.qq.com/api/trade/search/S{Program.baseInfo.赛季}%E8%B5%9B%E5%AD%A3";
             Hashtable ht = new Hashtable();//将参数打包成json格式的数据
             ht.Add("name", name);
 
@@ -53,6 +54,11 @@ namespace POE_Auxiliary_Tools
 
 
             string list = HttpUitls.DoPost(url, MainFrom.tokenList[0].POESESSID, ht, priceType);  //HttpRequest是自定义的一个类
+            if (list == "远程服务器返回错误: (401) 未经授权。")
+            {
+                return null;
+            }
+
             //判断请求是否错误
             if (list.Contains("错误的请求") || list.Contains("Too Many Requests") || list.Contains("未找到") || list.Contains("超时"))
             {

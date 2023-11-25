@@ -1,4 +1,5 @@
 ﻿using Core.SQLite;
+using EntRail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace POE_Auxiliary_Tools
 {
     internal static class Program
     {
+        public static 用户信息Mode baseInfo = new 用户信息Mode();
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -17,7 +19,7 @@ namespace POE_Auxiliary_Tools
         {
             //限制使用时间
             var date = DateTime.Now;
-            if(date< Convert.ToDateTime("2023/08/30"))
+            if(date< Convert.ToDateTime("2023/12/30"))
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);

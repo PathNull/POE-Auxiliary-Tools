@@ -27,7 +27,7 @@ namespace POE_Auxiliary_Tools
         public static List<仓库标签> GetWarehouseLabel(string forumName)
         {
             List<仓库标签> labelList = new List<仓库标签>();
-            var url = $"https://poe.game.qq.com/character-window/get-stash-items?accountName={forumName}&realm=pc&league=S22赛季&tabs=1&tabIndex=0";
+            var url = $"https://poe.game.qq.com/character-window/get-stash-items?accountName={forumName}&realm=pc&league=S{Program.baseInfo.赛季}赛季&tabs=1&tabIndex=0";
             var list = HttpUitls.Get(url, MainFrom.tokenList[0].POESESSID);
             JObject jsonObject = JObject.Parse(list);
             foreach (var item in jsonObject["tabs"])
@@ -47,7 +47,7 @@ namespace POE_Auxiliary_Tools
         public static List<仓库物品> GetGoodsByLabel(string forumName,int labelIndex)
         {
             List<仓库物品> result = new List<仓库物品>();
-            var url = $"https://poe.game.qq.com/character-window/get-stash-items?accountName={forumName}&realm=pc&league=S22%E8%B5%9B%E5%AD%A3&tabs=0&tabIndex={labelIndex}";
+            var url = $"https://poe.game.qq.com/character-window/get-stash-items?accountName={forumName}&realm=pc&league=S{Program.baseInfo.赛季}%E8%B5%9B%E5%AD%A3&tabs=0&tabIndex={labelIndex}";
             var list = HttpUitls.Get(url, MainFrom.tokenList[0].POESESSID);
             JObject jsonObject = JObject.Parse(list);
             foreach (var item in jsonObject["items"])

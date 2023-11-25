@@ -191,6 +191,7 @@
             this.gridView_cxlb.OptionsSelection.EnableAppearanceFocusedRow = false;
             this.gridView_cxlb.OptionsSelection.EnableAppearanceHideSelection = false;
             this.gridView_cxlb.OptionsSelection.MultiSelect = true;
+            this.gridView_cxlb.OptionsView.ColumnAutoWidth = false;
             this.gridView_cxlb.OptionsView.ShowGroupPanel = false;
             this.gridView_cxlb.OptionsView.ShowIndicator = false;
             // 
@@ -244,6 +245,7 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowIndicator = false;
             this.gridView1.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView1_RowStyle);

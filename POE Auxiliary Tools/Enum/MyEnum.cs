@@ -11,4 +11,9 @@ namespace POE_Auxiliary_Tools.Enum
         混沌石=1,
         神圣石=2
     }
+    public enum 返回状态
+    {
+        成功=1,
+        失败=2
+    }
 }

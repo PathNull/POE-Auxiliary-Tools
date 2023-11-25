@@ -33,7 +33,7 @@ namespace POE_Auxiliary_Tools
 
         private void Frm_仓库查询_Load(object sender, EventArgs e)
         {
-            var list =  WarehouseQueryHandler.GetWarehouseLabel("想脱坑");
+            var list =  WarehouseQueryHandler.GetWarehouseLabel(Program.baseInfo.论坛名称);
             UI.LinkData(gridView_label, list);
         }
         //点击获取物品
@@ -51,7 +51,7 @@ namespace POE_Auxiliary_Tools
             foreach (var index in rows)
             {
                 var row = gridView_label.GetRow(index) as 仓库标签;
-                var list = WarehouseQueryHandler.GetGoodsByLabel("想脱坑", index);
+                var list = WarehouseQueryHandler.GetGoodsByLabel(Program.baseInfo.论坛名称, index);
                 result = result.Concat(list).ToList();
 
                 Thread.Sleep(rd.Next(3000, 5000));

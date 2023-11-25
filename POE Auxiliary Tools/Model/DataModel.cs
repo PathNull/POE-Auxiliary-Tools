@@ -63,4 +63,11 @@ namespace POE_Auxiliary_Tools
 
         public string 上次价格 { get; set; }
     }
+    public class 用户信息Mode
+    {
+        public string POESESSID { get; set;}
+        public string 论坛名称 { get; set; }
+
+        public string 赛季 { get; set; }
+    }
 }

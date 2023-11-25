@@ -160,6 +160,12 @@
     <Compile Include="基础数据\Frm_物品类别管理.Designer.cs">
       <DependentUpon>Frm_物品类别管理.cs</DependentUpon>
     </Compile>
+    <Compile Include="基础数据\用户信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础数据\用户信息.Designer.cs">
+      <DependentUpon>用户信息.cs</DependentUpon>
+    </Compile>
     <Compile Include="查询类工具\Fm_价格缓存.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     <EmbeddedResource Include="基础数据\Frm_物品类别管理.resx">
       <DependentUpon>Frm_物品类别管理.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="基础数据\用户信息.resx">
+      <DependentUpon>用户信息.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="查询类工具\Fm_价格缓存.resx">
       <DependentUpon>Fm_价格缓存.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +302,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="setting.ini" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

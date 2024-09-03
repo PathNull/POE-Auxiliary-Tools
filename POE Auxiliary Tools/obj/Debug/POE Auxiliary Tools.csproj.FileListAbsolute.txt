@@ -165,3 +165,11 @@ C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK S
 C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AutoHotkey.Interop.dll
 C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.Frm_老版工具.resources
 C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.基础数据.用户信息.resources
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK Script\一键开门回城.ahk
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK Script\改造.ahk
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK Script\测试.ahk
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK Script\自动吃药.ahk
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK Script\自动洗地图.ahk
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK Script\获取颜色.ahk
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK Script\连点.ahk
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK Script\爆灵.ahk

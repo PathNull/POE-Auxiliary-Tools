@@ -15,8 +15,8 @@ ClickHD()
 
 }
 AddStone(){
-     Click 224,318 right ;右键点击增幅石
-     Click 332,459 left ;左键点击装备
+     Click 244,338 right ;右键点击增幅石
+     Click 352,459 left ;左键点击装备
 }
 Copy(){
     Random, randX, -37, 37

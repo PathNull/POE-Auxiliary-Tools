@@ -42,6 +42,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AutoHotkey.Interop.dll" size="4700672">
+      <assemblyIdentity name="AutoHotkey.Interop" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ndtBEUNTVEsAmzyVSio/+NoyTFaTfL7UpsrAGhozRh0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Core.dll" size="97280">
       <assemblyIdentity name="Core" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -49,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xWGJ3pVhzVQ9m9y7EmHmZK8j0DLnZQU4FOJ5XN9GEAI=</dsig:DigestValue>
+        <dsig:DigestValue>2t7j44zPMMztiXnRiuV8Kol2vfdkHOdd+S+qy/9/MBc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1158,6 +1170,30 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Ljs.Core.dll" size="83968">
+      <assemblyIdentity name="Ljs.Core" version="1.2.8524.27409" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>++OL1X2l3BrQmWfkfRzv2fUBEBgNwKK6x/w7GD2kH0c=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Ljs.UI.dll" size="29184">
+      <assemblyIdentity name="Ljs.UI" version="1.1.8517.23712" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>BK7/0p5p2sp2maTfvT/P2esWth2pcBR3Vnz6VAJ646o=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="log4net.dll" size="270336">
       <assemblyIdentity name="log4net" version="2.0.15.0" publicKeyToken="669E0DDF0BB1AA2A" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -1182,14 +1218,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POE Auxiliary Tools.exe" size="108000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POE Auxiliary Tools.exe" size="184320">
       <assemblyIdentity name="POE Auxiliary Tools" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vtvQ+yfS0ItoqlCDhacnwFAbEfAo3rLlb/xKGE4hlzI=</dsig:DigestValue>
+        <dsig:DigestValue>TZmLJc1anYCbaCMxQaGDdhlgi3iaq8eZJdD81Kn8QLo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

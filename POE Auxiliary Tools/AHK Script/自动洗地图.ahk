@@ -38,8 +38,8 @@
         if (RegExMatch(clip,"品质: \+20%") ==0){
             no20.Insert(mapPosArray[A_Index])
         }
-        ;不是稀有 或者 是稀有但是有辣鸡词缀
-        if ((RegExMatch(clip,"稀 有 度: 普通") ==0 and RegExMatch(clip,"品质: \+20%") ==0) ) or (RegExMatch(clip,"稀 有 度: 魔法") !=0)  {
+        ;不是稀有 或者 是稀有但是有辣鸡词缀 ((RegExMatch(clip,"稀 有 度: 普通") ==0 and RegExMatch(clip,"品质: \+20%") ==0) ) or
+        if (RegExMatch(clip,"稀 有 度: 魔法") !=0)  {
             refreshArray.Insert(mapPosArray[A_Index])
             upgradeArray.Insert(mapPosArray[A_Index])
             dangerArray.Insert(mapPosArray[A_Index])

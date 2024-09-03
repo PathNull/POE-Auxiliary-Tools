@@ -28,16 +28,16 @@ namespace POE_Auxiliary_Tools
         public static List<string[]> ShearPlate()
         {
             List<string[]> result = new List<string[]>();
-            //IDataObject data = Clipboard.GetDataObject();
-            //if (data.GetDataPresent(DataFormats.Text))
-            //{
-            //    string test = (string)data.GetData(DataFormats.Text);
-            //    var list = test.Split("--------");
-            //    foreach (var item in list)
-            //    {
-            //        result.Add(item.Split("\r\n", StringSplitOptions.RemoveEmptyEntries));
-            //    }
-            //}
+            IDataObject data = Clipboard.GetDataObject();
+            if (data.GetDataPresent(DataFormats.Text))
+            {
+                string test = (string)data.GetData(DataFormats.Text);
+                var list = test.Split(new string[] { "--------" }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var item in list)
+                {
+                    result.Add(item.Split(new string[] { "\r\n" },StringSplitOptions.RemoveEmptyEntries));
+                }
+            }
             return result;
         }
 
@@ -48,12 +48,17 @@ namespace POE_Auxiliary_Tools
         {
             List<string[]> result = new List<string[]>();
 
-            //var list = Clipboard.GetText().Split("--------").ToList();
-            //Delete(list);
-            //foreach (var item in list)
-            //{
-            //    result.Add(item.Split("\r\n", StringSplitOptions.RemoveEmptyEntries));
-            //}
+            var list = Clipboard.GetText().Split(new string[] { "--------" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            Delete(list);
+            foreach (var item in list)
+            {
+                var a = item.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+                if (item!="")
+                {
+                    result.Add(a);
+                }
+            
+            }
 
             return result;
         }
@@ -83,33 +88,33 @@ namespace POE_Auxiliary_Tools
         {
             max--;
             bool end = false;
-            //var lastList = lastClipboardData.Split("--------").ToList();
+            var lastList = lastClipboardData.Split(new string[] { "--------" }, StringSplitOptions.RemoveEmptyEntries).ToList();
             ahk.ExecFunction("Copy"); //执行复制操作
             var clipboardData = Clipboard.GetText();
-            //var currList = clipboardData.Split("--------").ToList();
-            //if (lastList.Count == currList.Count)
-            //{
-            //    for (int i = 0; i < lastList.Count; i++)
-            //    {
-            //        if (lastList[i] != currList[i])
-            //        {
-            //            end = true;
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    end = true;
-            //}
-            //if (!end && max>0)
-            //{
-            //    //System.Threading.Thread.Sleep(1000);   
-            //    return Copy(ahk, lastClipboardData, max);
-            //}
-            //else
-            //{
-            //    return clipboardData;
-            //}
+            var currList = clipboardData.Split(new string[] { "--------" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            if (lastList.Count == currList.Count)
+            {
+                for (int i = 0; i < lastList.Count; i++)
+                {
+                    if (lastList[i] != currList[i])
+                    {
+                        end = true;
+                    }
+                }
+            }
+            else
+            {
+                end = true;
+            }
+            if (!end && max > 0)
+            {
+                //System.Threading.Thread.Sleep(1000);   
+                return Copy(ahk, lastClipboardData, max);
+            }
+            else
+            {
+                return clipboardData;
+            }
             return clipboardData;
         }
         /// <summary>
@@ -120,37 +125,37 @@ namespace POE_Auxiliary_Tools
         {
             max--;
             Copy(ahk, lastClipboardData, 5);
-            //List<string> baseArray = lastClipboardData.Split("--------").ToList();
-            //Delete(baseArray);
-            //List<string> currArray = Clipboard.GetText().Split("--------").ToList();
-            //Delete(currArray);
-            //for (int i = 0; i < baseArray.Count; i++)
-            //{
-            //    bool skip = false;
-            //    if (baseArray[i] != currArray[i])
-            //    {
-            //        Exclude exc = new Exclude();
-            //        foreach (var item in exc.List)
-            //        {
-            //            if (baseArray[i].IndexOf(item) > -1)
-            //            {
-            //                skip = true;
-            //            }
-            //        }
-            //        if (!skip)
-            //        {
-            //            return i;
-            //        } 
-            //    }
-            //}
-            //if (max <= 0)
-            //{
-            //    return 0;
-            //}
-            //else
-            //{
-            //    return GetAffixIndex(ahk, lastClipboardData, max);
-            //}
+            List<string> baseArray = lastClipboardData.Split(new string[] { "--------" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            Delete(baseArray);
+            List<string> currArray = Clipboard.GetText().Split(new string[] { "--------" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            Delete(currArray);
+            for (int i = 0; i < baseArray.Count; i++)
+            {
+                bool skip = false;
+                if (baseArray[i] != currArray[i])
+                {
+                    Exclude exc = new Exclude();
+                    foreach (var item in exc.List)
+                    {
+                        if (baseArray[i].IndexOf(item) > -1)
+                        {
+                            skip = true;
+                        }
+                    }
+                    if (!skip)
+                    {
+                        return i;
+                    }
+                }
+            }
+            if (max <= 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return GetAffixIndex(ahk, lastClipboardData, max);
+            }
             return 0;
         }
         /// <summary>

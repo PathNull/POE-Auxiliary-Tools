@@ -3,6 +3,7 @@ using Path_of_Exile_Tool.Model;
 using POE_Auxiliary_Tools;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace POE_Auxiliary_Tools
@@ -19,38 +20,23 @@ namespace POE_Auxiliary_Tools
             InitializeComponent();
             ahk = AutoHotkeyEngine.Instance;
             string model = "kf";
-            //开发环境
-#if DEBUG
+
+            string directory = Application.StartupPath;
             var path_kf = GetApplicationPath();
-            var loadPath_reform = path_kf + "AHK Script\\改造.ahk";
-            var loadPath_map = path_kf + "AHK Script\\自动洗地图.ahk";
-            var loadPath_blood = path_kf + "AHK Script\\自动吃药.ahk";
-            var loadPath_continuityClick = path_kf + "AHK Script\\连点.ahk";
-            var loadPath_test = path_kf + "AHK Script\\测试.ahk";
-            var loadPath_hc = path_kf + "AHK Script\\一键开门回城.ahk";
-            var loadPath_st = path_kf + "AHK Script\\洗撕图地图.ahk";
+            var loadPath_reform = directory + "\\AHK Script\\改造.ahk";
+            var loadPath_map = directory + "\\AHK Script\\自动洗地图.ahk";
+            var loadPath_blood = directory + "\\AHK Script\\自动吃药.ahk";
+            var loadPath_continuityClick = directory + "\\AHK Script\\连点.ahk";
+            var loadPath_test = directory + "\\AHK Script\\测试.ahk";
+            var loadPath_hc = directory + "\\AHK Script\\一键开门回城.ahk";
+            var loadPath_st = directory + "\\AHK Script\\洗撕图地图.ahk";
             ahk.LoadFile(loadPath_reform);
             ahk.LoadFile(loadPath_map);
             ahk.LoadFile(loadPath_blood);
             ahk.LoadFile(loadPath_continuityClick);
             ahk.LoadFile(loadPath_test);
             ahk.LoadFile(loadPath_hc);
-#else
-                var path_sc = Environment.CurrentDirectory;
-                var loadPath_reform = path_sc + "\\Script\\改造.ahk";
-                var loadPath_map = path_sc + "\\Script\\自动洗地图.ahk";
-                var loadPath_blood = path_sc + "\\Script\\自动吃药.ahk";
-                var loadPath_continuityClick = path_sc + "\\Script\\连点.ahk";
-                var loadPath_test = path_sc + "\\Script\\测试.ahk";
-                var loadPath_hc = path_sc + "\\Script\\一键开门回城.ahk";
-                var loadPath_st = path_sc + "\\Script\\洗撕图地图.ahk";
-                ahk.LoadFile(loadPath_reform);
-                ahk.LoadFile(loadPath_map);
-                ahk.LoadFile(loadPath_blood);
-                ahk.LoadFile(loadPath_continuityClick);
-                ahk.LoadFile(loadPath_test);
-                ahk.LoadFile(loadPath_hc);
-#endif
+
             comboBox1.SelectedItem = comboBox1.Items[1];
             comboBox2.SelectedItem = comboBox2.Items[0];
             comboBox3.SelectedItem = comboBox3.Items[2];
@@ -59,21 +45,21 @@ namespace POE_Auxiliary_Tools
             comboBox6.SelectedItem = comboBox6.Items[1];
             //初始化血量坐标颜色
             //1080P
-            bloodPosList.Add(new BloodPos { percentage = "90%", PosX = "116", PosY = "888", Color = "0x2D2277" });
-            bloodPosList.Add(new BloodPos { percentage = "80%", PosX = "114", PosY = "906", Color = "0x28209D" });
-            bloodPosList.Add(new BloodPos { percentage = "70%", PosX = "151", PosY = "925", Color = "0x1F1499" });
-            bloodPosList.Add(new BloodPos { percentage = "60%", PosX = "119", PosY = "954", Color = "0x2C18B5" });
-            bloodPosList.Add(new BloodPos { percentage = "50%", PosX = "116", PosY = "197", Color = "0x1D1893" });
+            bloodPosList.Add(new BloodPos { percentage = "90%", PosX = "110", PosY = "884", Color = "0x292163" });
+            bloodPosList.Add(new BloodPos { percentage = "80%", PosX = "109", PosY = "898", Color = "0x2B2381" });
+            bloodPosList.Add(new BloodPos { percentage = "70%", PosX = "100", PosY = "931", Color = "0x2A19AF" });
+            bloodPosList.Add(new BloodPos { percentage = "60%", PosX = "99", PosY = "928", Color = "0x2918AE" });
+            bloodPosList.Add(new BloodPos { percentage = "50%", PosX = "104", PosY = "966", Color = "0x2116A4" });
             bloodPosList.Add(new BloodPos { percentage = "40%", PosX = "119", PosY = "1007", Color = "0x120A72" });
             bloodPosList.Add(new BloodPos { percentage = "30%", PosX = "119", PosY = "1025", Color = "0x120B5F" });
             bloodPosList.Add(new BloodPos { percentage = "20%", PosX = "120", PosY = "1032", Color = "0x150D62" });
             bloodPosList.Add(new BloodPos { percentage = "10%", PosX = "151", PosY = "1050", Color = "0x151548" });
 
-            bloodPosList_2K.Add(new BloodPos { percentage = "90%", PosX = "150", PosY = "1185", Color = "0x2B236A" });
-            bloodPosList_2K.Add(new BloodPos { percentage = "80%", PosX = "148", PosY = "1215", Color = "0x291F92" });
-            bloodPosList_2K.Add(new BloodPos { percentage = "70%", PosX = "142", PosY = "1232", Color = "0x2E1CBA" });
-            bloodPosList_2K.Add(new BloodPos { percentage = "60%", PosX = "144", PosY = "1268", Color = "0x2719B1" });
-            bloodPosList_2K.Add(new BloodPos { percentage = "50%", PosX = "143", PosY = "1297", Color = "0x22189F" });
+            bloodPosList_2K.Add(new BloodPos { percentage = "90%", PosX = "151", PosY = "1179", Color = "0x29215D" });
+            bloodPosList_2K.Add(new BloodPos { percentage = "80%", PosX = "144", PosY = "1194", Color = "0x2B2181" });
+            bloodPosList_2K.Add(new BloodPos { percentage = "70%", PosX = "130", PosY = "1242", Color = "0x2911B4" });
+            bloodPosList_2K.Add(new BloodPos { percentage = "60%", PosX = "139", PosY = "1280", Color = "0x2818B1" });
+            bloodPosList_2K.Add(new BloodPos { percentage = "50%", PosX = "143", PosY = "1303", Color = "0x1E188E" });
             bloodPosList_2K.Add(new BloodPos { percentage = "40%", PosX = "144", PosY = "1328", Color = "0x160F71" });
             bloodPosList_2K.Add(new BloodPos { percentage = "30%", PosX = "138", PosY = "1349", Color = "0x170F7D" });
             bloodPosList_2K.Add(new BloodPos { percentage = "20%", PosX = "142", PosY = "1369", Color = "0x130C61" });
@@ -105,10 +91,12 @@ namespace POE_Auxiliary_Tools
         {
             if (resolutionRatio.SelectedIndex == 1)
             {
-                var scaleX = Convert.ToDouble(2560) / Convert.ToDouble(1920);
-                var scaleY = Convert.ToDouble(1440) / Convert.ToDouble(1080);
-                ahk.SetVar("scaleX", Math.Round(scaleX,2).ToString());
-                ahk.SetVar("scaleY", Math.Round(scaleY,2).ToString());
+                //var scaleX = Convert.ToDouble(2560) / Convert.ToDouble(1920);
+                //var scaleY = Convert.ToDouble(1440) / Convert.ToDouble(1080);
+                //ahk.SetVar("scaleX", Math.Round(scaleX,2).ToString());
+                //ahk.SetVar("scaleY", Math.Round(scaleY,2).ToString());
+                ahk.SetVar("scaleX", "1");
+                ahk.SetVar("scaleY", "1");
             }
             else
             {
@@ -471,7 +459,18 @@ namespace POE_Auxiliary_Tools
         /// <param name="e"></param>
         private void checkBox10_CheckedChanged(object sender, EventArgs s)
         {
-
+            var isAutoHC = checkBox10.Checked;   //是否启用
+            var hotKeyHC = comboBox5.SelectedItem.ToString();//快捷键
+            ahk.SetVar("hotKeyHC", hotKeyHC);
+            if (isAutoHC)
+            {
+                ahk.ExecFunction("AutoHC", hotKeyHC, isAutoHC.ToString());
+                lastHotKey_HC = comboBox5.SelectedItem.ToString();
+            }
+            else
+            {
+                ahk.ExecFunction("AutoHC", hotKeyHC, isAutoHC.ToString());
+            }
         }
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
@@ -499,33 +498,31 @@ namespace POE_Auxiliary_Tools
             SetAJ();
         }
 
-        private void checkBox10_CheckedChanged_1(object sender, EventArgs e)
-        {
-            var isAutoHC = checkBox10.Checked;   //是否启用
-            var hotKeyHC = comboBox5.SelectedItem.ToString();//快捷键
-            ahk.SetVar("hotKeyHC", hotKeyHC);
-            if (isAutoHC)
-            {
-                ahk.ExecFunction("AutoHC", hotKeyHC, isAutoHC.ToString());
-                lastHotKey_HC = comboBox5.SelectedItem.ToString();
-            }
-            else
-            {
-                ahk.ExecFunction("AutoHC", hotKeyHC, isAutoHC.ToString());
-            }
-        }
-
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             var isAutoHC = checkBox10.Checked;   //是否启用
             var hotKeyHC = comboBox5.SelectedItem.ToString();   //热键
+            double xp = 0;
+            double yp = 0;
+            if (resolutionRatio.SelectedIndex == 0)
+            {
+                xp = 1220;
+                yp = 810;
+            }
+            else
+            {
+                xp = 1320;
+                yp = 880;
+            }
             ahk.SetVar("hotKeyHC", hotKeyHC);
+            ahk.SetVar("xp", xp.ToString());
+            ahk.SetVar("yp", yp.ToString());
             if (isAutoHC)
             {
                 //注销上次热键
-                ahk.ExecFunction("AutoHC", lastHotKey_HC.ToString(), "False");
+                ahk.ExecFunction("AutoHC", lastHotKey_HC.ToString(), "False","0","0");
 
-                ahk.ExecFunction("AutoHC", hotKeyHC, isAutoHC.ToString());
+                ahk.ExecFunction("AutoHC", hotKeyHC, isAutoHC.ToString(), xp.ToString(), yp.ToString());
                 lastHotKey_HC = hotKeyHC;
             }
         }
@@ -554,5 +551,7 @@ namespace POE_Auxiliary_Tools
         {
             GetScale();
         }
+
+
     }
 }

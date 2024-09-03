@@ -1218,14 +1218,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POE Auxiliary Tools.exe" size="194016">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POE Auxiliary Tools.exe" size="194048">
       <assemblyIdentity name="POE Auxiliary Tools" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hnsHJ5VatYysivOxFf3DOFdB6Fq63IMQJgLmxcNmayM=</dsig:DigestValue>
+        <dsig:DigestValue>O8peYT9b25FV3tMN4dtWKKIv0u09uxCPvyrYKX2zb7o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

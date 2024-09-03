@@ -7,14 +7,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="POE Auxiliary Tools.exe.manifest" size="72906">
+    <dependentAssembly dependencyType="install" codebase="POE Auxiliary Tools.exe.manifest" size="74840">
       <assemblyIdentity name="POE Auxiliary Tools.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>tXVXl+crGZwRW5/zGTKp/1W/fPukeyNCi7tgjWxdbnk=</dsig:DigestValue>
+        <dsig:DigestValue>wjux5BuuXi7lW81zFQrpS4cR5DzRyHJnbYP82nPoFEs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

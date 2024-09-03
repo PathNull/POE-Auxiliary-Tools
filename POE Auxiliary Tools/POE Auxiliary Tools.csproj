@@ -58,7 +58,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -278,16 +278,33 @@
     <EmbeddedResource Include="自动化工具\Frm_装备类工具.resx">
       <DependentUpon>Frm_装备类工具.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="AHK Script\一键开门回城.ahk" />
-    <None Include="AHK Script\改造.ahk" />
-    <None Include="AHK Script\测试.ahk" />
+    <None Include="AHK Script\一键开门回城.ahk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AHK Script\改造.ahk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AHK Script\测试.ahk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="AHK Script\火炬自动吃药.ahk">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="AHK Script\自动吃药.ahk" />
-    <None Include="AHK Script\自动洗地图.ahk" />
-    <None Include="AHK Script\获取颜色.ahk" />
-    <None Include="AHK Script\连点.ahk" />
+    <None Include="AHK Script\爆灵.ahk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AHK Script\自动吃药.ahk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AHK Script\自动洗地图.ahk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AHK Script\获取颜色.ahk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AHK Script\连点.ahk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Database\database.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

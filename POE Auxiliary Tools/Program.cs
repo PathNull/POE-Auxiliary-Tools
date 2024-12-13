@@ -1,5 +1,6 @@
 ﻿using Core.SQLite;
 using EntRail;
+using POE_Auxiliary_Tools.自动化工具;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,11 @@ namespace POE_Auxiliary_Tools
         {
             //限制使用时间
             var date = DateTime.Now;
-            if(date< Convert.ToDateTime("2024/12/30"))
+            if(date< Convert.ToDateTime("2028/12/30"))
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MainFrom());
+                Application.Run(new 流放2());
             }
         }
         private static void Init()

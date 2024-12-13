@@ -546,12 +546,12 @@ namespace POE_Auxiliary_Tools
         {
             AutoSkills();
         }
-        //分辨率变化
-        private void resolutionRatio_SelectedIndexChanged_1(object sender, EventArgs e)
+
+        private void resolutionRatio_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetScale();
         }
-
+        //分辨率变化
 
     }
 }

@@ -176,3 +176,12 @@ C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK S
 C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK Script\自动吃药2.ahk
 C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\obj\Debug\POE_Auxiliary_Tools.自动化工具.流放2.resources
 C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\AHK Script\自动吃藍2.ahk
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\OpenCvSharpExtern.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\OpenCvSharp.Blob.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\OpenCvSharp.CPlusPlus.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\OpenCvSharp.DebuggerVisualizers.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\OpenCvSharp.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\OpenCvSharp.Extensions.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\OpenCvSharp.Gpu.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\OpenCvSharp.MachineLearning.dll
+C:\Users\HP\source\repos\POE-Auxiliary-Tools\POE Auxiliary Tools\bin\Debug\OpenCvSharp.UserInterface.dll

@@ -301,6 +301,7 @@ namespace POE_Auxiliary_Tools
             this.button4.TabIndex = 5;
             this.button4.Text = "开始";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label21
             // 
@@ -374,6 +375,7 @@ namespace POE_Auxiliary_Tools
             this.button2.TabIndex = 0;
             this.button2.Text = "开始";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel3
             // 
@@ -552,6 +554,7 @@ namespace POE_Auxiliary_Tools
             this.checkBox1.TabIndex = 3;
             this.checkBox1.Text = "启用";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label22
             // 
@@ -709,6 +712,7 @@ namespace POE_Auxiliary_Tools
             this.button1.TabIndex = 5;
             this.button1.Text = "开始";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label13
             // 
@@ -865,6 +869,7 @@ namespace POE_Auxiliary_Tools
             this.checkBox4.TabIndex = 8;
             this.checkBox4.Text = "启用";
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // textBox11
             // 
@@ -991,6 +996,7 @@ namespace POE_Auxiliary_Tools
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(41, 20);
             this.comboBox7.TabIndex = 5;
+            this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.comboBox7_SelectedIndexChanged);
             // 
             // label29
             // 
@@ -1070,6 +1076,7 @@ namespace POE_Auxiliary_Tools
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Frm_老版工具";
             this.Text = "流放工具 by 要啥电动车";
+            this.Load += new System.EventHandler(this.Frm_老版工具_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

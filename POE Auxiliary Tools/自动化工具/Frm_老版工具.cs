@@ -46,11 +46,11 @@ namespace POE_Auxiliary_Tools
             //初始化血量坐标颜色
             //1080P
             bloodPosList.Add(new BloodPos { percentage = "90%", PosX = "110", PosY = "884", Color = "0x292163" });
-            bloodPosList.Add(new BloodPos { percentage = "80%", PosX = "109", PosY = "898", Color = "0x2B2381" });
+            bloodPosList.Add(new BloodPos { percentage = "80%", PosX = "91", PosY = "942", Color = "0x2110B4" });
             bloodPosList.Add(new BloodPos { percentage = "70%", PosX = "100", PosY = "931", Color = "0x2A19AF" });
             bloodPosList.Add(new BloodPos { percentage = "60%", PosX = "99", PosY = "928", Color = "0x2918AE" });
             bloodPosList.Add(new BloodPos { percentage = "50%", PosX = "104", PosY = "966", Color = "0x2116A4" });
-            bloodPosList.Add(new BloodPos { percentage = "40%", PosX = "119", PosY = "1007", Color = "0x120A72" });
+            bloodPosList.Add(new BloodPos { percentage = "40%", PosX = "116", PosY = "1007", Color = "0x140C6F" });
             bloodPosList.Add(new BloodPos { percentage = "30%", PosX = "119", PosY = "1025", Color = "0x120B5F" });
             bloodPosList.Add(new BloodPos { percentage = "20%", PosX = "120", PosY = "1032", Color = "0x150D62" });
             bloodPosList.Add(new BloodPos { percentage = "10%", PosX = "151", PosY = "1050", Color = "0x151548" });
@@ -551,6 +551,25 @@ namespace POE_Auxiliary_Tools
         {
             GetScale();
         }
+
+        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Frm_老版工具_Load(object sender, EventArgs e)
+        {
+            resolutionRatio.SelectedIndex = 0;
+            GetScale();
+        }
+
+
+
+
+
+
+
+
         //分辨率变化
 
     }

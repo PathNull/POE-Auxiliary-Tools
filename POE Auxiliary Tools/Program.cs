@@ -25,7 +25,7 @@ namespace POE_Auxiliary_Tools
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new 流放2());
+                Application.Run(new Frm_老版工具());
             }
         }
         private static void Init()

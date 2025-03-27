@@ -58,6 +58,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.查询类工具ToolStripMenuItem,
@@ -66,8 +67,8 @@
             this.火炬之光工具ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1208, 25);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(1812, 34);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -78,27 +79,27 @@
             this.查询历史ToolStripMenuItem,
             this.仓库查询ToolStripMenuItem});
             this.查询类工具ToolStripMenuItem.Name = "查询类工具ToolStripMenuItem";
-            this.查询类工具ToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
+            this.查询类工具ToolStripMenuItem.Size = new System.Drawing.Size(116, 28);
             this.查询类工具ToolStripMenuItem.Text = "查询类工具";
             // 
             // 集市价格查询ToolStripMenuItem
             // 
             this.集市价格查询ToolStripMenuItem.Name = "集市价格查询ToolStripMenuItem";
-            this.集市价格查询ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.集市价格查询ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.集市价格查询ToolStripMenuItem.Text = "集市查询";
             this.集市价格查询ToolStripMenuItem.Click += new System.EventHandler(this.集市价格查询ToolStripMenuItem_Click);
             // 
             // 查询历史ToolStripMenuItem
             // 
             this.查询历史ToolStripMenuItem.Name = "查询历史ToolStripMenuItem";
-            this.查询历史ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.查询历史ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.查询历史ToolStripMenuItem.Text = "查询历史";
             this.查询历史ToolStripMenuItem.Click += new System.EventHandler(this.查询历史ToolStripMenuItem_Click);
             // 
             // 仓库查询ToolStripMenuItem
             // 
             this.仓库查询ToolStripMenuItem.Name = "仓库查询ToolStripMenuItem";
-            this.仓库查询ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.仓库查询ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.仓库查询ToolStripMenuItem.Text = "仓库查询";
             this.仓库查询ToolStripMenuItem.Click += new System.EventHandler(this.仓库查询ToolStripMenuItem_Click);
             // 
@@ -110,34 +111,34 @@
             this.重置ToolStripMenuItem,
             this.用户信息ToolStripMenuItem});
             this.基础数据ToolStripMenuItem.Name = "基础数据ToolStripMenuItem";
-            this.基础数据ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.基础数据ToolStripMenuItem.Size = new System.Drawing.Size(98, 28);
             this.基础数据ToolStripMenuItem.Text = "基础数据";
             // 
             // 物品管理ToolStripMenuItem
             // 
             this.物品管理ToolStripMenuItem.Name = "物品管理ToolStripMenuItem";
-            this.物品管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.物品管理ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.物品管理ToolStripMenuItem.Text = "物品属性";
             this.物品管理ToolStripMenuItem.Click += new System.EventHandler(this.物品管理ToolStripMenuItem_Click);
             // 
             // 物品类别管理ToolStripMenuItem
             // 
             this.物品类别管理ToolStripMenuItem.Name = "物品类别管理ToolStripMenuItem";
-            this.物品类别管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.物品类别管理ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.物品类别管理ToolStripMenuItem.Text = "物品类别";
             this.物品类别管理ToolStripMenuItem.Click += new System.EventHandler(this.物品类别管理ToolStripMenuItem_Click);
             // 
             // 重置ToolStripMenuItem
             // 
             this.重置ToolStripMenuItem.Name = "重置ToolStripMenuItem";
-            this.重置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.重置ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.重置ToolStripMenuItem.Text = "重置POESESSID";
             this.重置ToolStripMenuItem.Click += new System.EventHandler(this.重置ToolStripMenuItem_Click);
             // 
             // 用户信息ToolStripMenuItem
             // 
             this.用户信息ToolStripMenuItem.Name = "用户信息ToolStripMenuItem";
-            this.用户信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.用户信息ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.用户信息ToolStripMenuItem.Text = "用户信息";
             this.用户信息ToolStripMenuItem.Click += new System.EventHandler(this.用户信息ToolStripMenuItem_Click);
             // 
@@ -148,28 +149,28 @@
             this.装备相关ToolStripMenuItem,
             this.老版工具ToolStripMenuItem});
             this.自动工具ToolStripMenuItem.Name = "自动工具ToolStripMenuItem";
-            this.自动工具ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.自动工具ToolStripMenuItem.Size = new System.Drawing.Size(98, 28);
             this.自动工具ToolStripMenuItem.Text = "自动工具";
             // 
             // 地图相关ToolStripMenuItem
             // 
             this.地图相关ToolStripMenuItem.Enabled = false;
             this.地图相关ToolStripMenuItem.Name = "地图相关ToolStripMenuItem";
-            this.地图相关ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.地图相关ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.地图相关ToolStripMenuItem.Text = "地图相关";
             this.地图相关ToolStripMenuItem.Click += new System.EventHandler(this.地图相关ToolStripMenuItem_Click);
             // 
             // 装备相关ToolStripMenuItem
             // 
             this.装备相关ToolStripMenuItem.Name = "装备相关ToolStripMenuItem";
-            this.装备相关ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.装备相关ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.装备相关ToolStripMenuItem.Text = "装备相关";
             this.装备相关ToolStripMenuItem.Click += new System.EventHandler(this.装备相关ToolStripMenuItem_Click_1);
             // 
             // 老版工具ToolStripMenuItem
             // 
             this.老版工具ToolStripMenuItem.Name = "老版工具ToolStripMenuItem";
-            this.老版工具ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.老版工具ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.老版工具ToolStripMenuItem.Text = "老版工具";
             this.老版工具ToolStripMenuItem.Click += new System.EventHandler(this.老版工具ToolStripMenuItem_Click);
             // 
@@ -178,14 +179,14 @@
             this.火炬之光工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.自动按键ToolStripMenuItem});
             this.火炬之光工具ToolStripMenuItem.Name = "火炬之光工具ToolStripMenuItem";
-            this.火炬之光工具ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.火炬之光工具ToolStripMenuItem.Size = new System.Drawing.Size(134, 28);
             this.火炬之光工具ToolStripMenuItem.Text = "火炬之光工具";
             // 
             // 自动按键ToolStripMenuItem
             // 
             this.自动按键ToolStripMenuItem.Enabled = false;
             this.自动按键ToolStripMenuItem.Name = "自动按键ToolStripMenuItem";
-            this.自动按键ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.自动按键ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.自动按键ToolStripMenuItem.Text = "自动按键";
             this.自动按键ToolStripMenuItem.Click += new System.EventHandler(this.自动按键ToolStripMenuItem_Click);
             // 
@@ -193,19 +194,21 @@
             // 
             this.layoutControl1.Controls.Add(this.panelControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 25);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 34);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1208, 244, 650, 400);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1208, 718);
+            this.layoutControl1.Size = new System.Drawing.Size(1812, 1080);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // panelControl1
             // 
             this.panelControl1.Location = new System.Drawing.Point(2, 2);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1204, 714);
+            this.panelControl1.Size = new System.Drawing.Size(1808, 1076);
             this.panelControl1.TabIndex = 4;
             // 
             // Root
@@ -216,7 +219,7 @@
             this.layoutControlItem1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(1208, 718);
+            this.Root.Size = new System.Drawing.Size(1812, 1080);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -224,21 +227,21 @@
             this.layoutControlItem1.Control = this.panelControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1208, 718);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1812, 1080);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // MainFrom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1208, 743);
+            this.ClientSize = new System.Drawing.Size(1812, 1114);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainFrom";
-            this.Text = "by 要啥电动车";
+            this.Text = "C";
             this.Load += new System.EventHandler(this.MainFrom_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
